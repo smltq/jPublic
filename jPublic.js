@@ -553,15 +553,6 @@
         return Number(seconds);
     };
 
-    // 表格日期字段格式化
-    _.gridShortDateFormatter = function (value, row, index) {
-        if (value) {
-            var index = value.indexOf("T");
-            if (index > -1) return value.substring(0, index);
-            else return value;
-        } else return "";
-    };
-
     // 时间判断
     _.timeCompare = function (startTime, endTime) {
         var start = new Date(startTime.replace("-", "/").replace("-", "/"));
