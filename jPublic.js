@@ -701,7 +701,7 @@
         /*
          * 判断两个小数数值是否相等
          * 示例：
-         * epsEqu(0.1+0.2, 0.3) 结果：true
+         * equal(0.1+0.2, 0.3) 结果：true
          */
         equal: function (x, y) {
             return Math.abs(x - y) < this.EPSILON;
