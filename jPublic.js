@@ -235,7 +235,7 @@
         var str = "";
         var len = arr.length, i = 0;
         while (i < len) {
-            str += P.Str.format("<a style='cursor: pointer;' onclick='{1}' href='javascript:;'>{0}</a>", arr[i].text, P.Str.format(arr[i].fn, value));
+            str += _.format("<a style='cursor: pointer;' onclick='{1}' href='javascript:;'>{0}</a>", arr[i].text, _.format(arr[i].fn, value));
             str += (i == len - 1 ? "" : " | ");
             i++;
         }
