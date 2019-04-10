@@ -1,8 +1,8 @@
-//     jPublic.js 1.0.1
+//     jPublic.js 1.0.2
 //     (c) 2019 tqlin
 (function () {
     // 当前版本号
-    _.VERSION = '1.0.1';
+    _.VERSION = '1.0.2';
 
     // 基线开始
     //----------------------
@@ -345,6 +345,10 @@
 
     /**
      * 截取字符串
+     * @param str 原始字符串
+     * @param limit 长度限制
+     * @param suffix 超过替换字符
+     * @returns {string|*}
      */
     _.truncate = function (str, limit, suffix) {
         if (_.isString(str)) {
@@ -359,7 +363,10 @@
     };
 
     /**
-     * 金额格式化
+     * 金额格式化(RMB)
+     * @param s
+     * @param n
+     * @returns {string}
      */
     _.fmoney = function (s, n) {
         n = n > 0 && n <= 20 ? n : 2;
@@ -386,12 +393,18 @@
 
     //日期相关开始
     //-----------------------
-    // 获取当前时间戳，兼容旧环境（毫秒）
+    /**
+     * 获取当前时间戳，兼容旧环境（毫秒）
+     * @type {(() => number) | (function(): number)}
+     */
     _.now = Date.now || function () {
         return new Date().valueOf();
     };
 
-    // 获取当前服务器时间(Date)
+    /**
+     * 获取当前服务器时间(Date)
+     * @returns {Date}
+     */
     _.serverTime = function () {
         var xmlHttp = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
         xmlHttp.open("HEAD", location.href, false);
@@ -399,95 +412,135 @@
         return new Date(xmlHttp.getResponseHeader("Date"));
     };
 
-    // 获取月份第一天
+    /**
+     * 获取月份第一天
+     * @param date
+     * @returns {Date}
+     */
     _.firstDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth(), 1);
     };
 
-    // 获取月份最后一天
+    /**
+     * 获取月份最后一天
+     * @param date
+     * @returns {Date}
+     */
     _.lastDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth() + 1, 0);
     };
 
-    // 获取上个月第一天
+    /**
+     * 获取上个月第一天
+     * @param date
+     * @returns {Date}
+     */
     _.firstMonthDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth() - 1, 1);
     };
 
-    // 获取上个月最后一天
+    /**
+     * 获取上个月最后一天
+     * @param date
+     * @returns {Date}
+     */
     _.lastMonthDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth(), 0);
     };
 
-    // 获取本年第一天
+    /**
+     * 获取本年第一天
+     * @param date
+     * @returns {Date}
+     */
     _.firstYearDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), 0, 1);
     };
 
-    // 获取本年最后一天
+    /**
+     * 获取本年最后一天
+     * @param date
+     * @returns {Date}
+     */
     _.lastYearDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), 11, 31);
     };
 
-    // 获得本周的开始日期
+    /**
+     * 获得本周的开始日期
+     * @param date
+     * @returns {Date}
+     */
     _.getWeekStartDate = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 1);
     };
 
-    // 获得本周的结束日期
+    /**
+     * 获得本周的结束日期
+     * @param date
+     * @returns {Date}
+     */
     _.getWeekEndDate = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7 - date.getDay());
     };
 
-    // 获得上周的开始日期
+    /**
+     * 获得上周的开始日期
+     * @param date
+     * @returns {Date}
+     */
     _.getLastWeekStartDate = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() - 6);
     };
 
-    // 获得上周的结束日期
+    /**
+     * 获得上周的结束日期
+     * @param date
+     * @returns {Date}
+     */
     _.getLastWeekEndDate = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
     };
 
-    // 获取去年第一天
+    /**
+     * 获取去年第一天
+     * @param date
+     * @returns {Date}
+     */
     _.lastYearFirstDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear() - 1, 0, 1);
     };
 
-    // 获取去年最后一天
+    /**
+     * 获取去年最后一天
+     * @param date
+     * @returns {Date}
+     */
     _.lastYearLastDay = function (date) {
         date || (date = new Date());
         return new Date(date.getFullYear() - 1, 11, 31);
     };
 
-    _.getBeforeDay = function (d) {
-        d = new Date(d);
-        d = +d - 1000 * 60 * 60 * 24;
-        d = new Date(d);
-        var year = d.getFullYear();
-        var mon = d.getMonth() + 1;
-        var day = d.getDate();
-        s = year + "-" + (mon < 10 ? ('0' + mon) : mon) + "-" + (day < 10 ? ('0' + day) : day);
-        return s;
-    };
-
-    /*
+    /**
      * 将 Date 转化为指定格式的String 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q)
      * 可以用 1-2 个占位符 年(y)可以用 1-4 个占位符 毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
      * 示例：
      * dateFormat(date,"yyyy-MM-dd hh:mm:ss.S") ==> 2016-05-04 08:09:04.423
      * dateFormat(date,"yyyy-M-d h:m:s.S") ==>2016-05-04 8:9:4.18
+     * @param date 日期,为空默认当前时间
+     * @param format 格式化字符串,默认为(yyyy-MM-dd hh:mm:ss)
+     * @returns {*}
      */
     _.dateFormat = function (date, format) {
         date instanceof Date || (date = new Date(date));
@@ -512,7 +565,11 @@
         return format;
     };
 
-    // 返回日期的yyyy-MM-dd格式
+    /**
+     * 返回日期的yyyy-MM-dd格式
+     * @param date
+     * @returns {string|*}
+     */
     _.shortDateFormat = function (date) {
         if (!date) {
             return "";
@@ -520,11 +577,13 @@
         return this.dateFormat(date, 'yyyy-MM-dd');
     };
 
-    /*
+    /**
      * 将时间格式化为指定格式的String
      * 示例：
      * formatTime(25) ==> '0:00:25'
      * formatTime(63846) ==> '17:44:06'
+     * @param n
+     * @returns {string}
      */
     _.formatTime = function (n) {
         var hours = Math.floor(n / 60 / 60);
@@ -533,7 +592,11 @@
         return hours + ':' + ((minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
     };
 
-    // 反格式化
+    /**
+     * 反格式化,与formatTime函数相反
+     * @param string
+     * @returns {number}
+     */
     _.unformatTime = function (string) {
         var timeArray = string.split(':'), seconds = 0;
         if (timeArray.length === 3) {
@@ -551,29 +614,28 @@
         }
         return Number(seconds);
     };
-
-    // 时间判断
-    _.timeCompare = function (startTime, endTime) {
-        var start = new Date(startTime.replace("-", "/").replace("-", "/"));
-        var end = new Date(endTime.replace("-", "/").replace("-", "/"));
-        if (end < start) {
-            return false;
-        }
-        return true;
-    };
     //日期相关结束
 
     //数组工具相关开始
     //-------------
-    // 数组差集，以第一个数组为主
-    _.arrayDifference = function (a, b) {
+    /**
+     * 数组差集，以第一个数组为主
+     * @param a
+     * @param b
+     * @returns {*}
+     */
+    _.arrayDiff = function (a, b) {
         var filtered = a.filter(function (e) {
             return b.indexOf(e) === -1;
         });
         return filtered;
     };
 
-    // 洗牌数组
+    /**
+     * 洗牌数组
+     * @param array
+     * @returns {Array}
+     */
     _.arrayShuffle = function (array) {
         var copy = [], n = array.length, i;
         while (n) {
@@ -583,8 +645,10 @@
         return copy;
     };
 
-    /*
+    /**
      * 数组元素是否重复
+     * @param arr
+     * @returns {boolean}
      */
     _.arrayIsRepeat = function (arr) {
         var hash = {};
@@ -597,7 +661,11 @@
         return false;
     };
 
-    // 数组去重
+    /**
+     * 数组去重
+     * @param arr
+     * @returns {Array}
+     */
     _.arrayUnique = function (arr) {
         var a = [];
         for (var i = 0, l = arr.length; i < l; i++) {
@@ -608,16 +676,19 @@
         return a;
     };
 
-    /*
+    /**
      * 判断数组是否相等,默认为严格模式比较
      * 示例：
      * var arr1 = [1, 2, 3, 4];
      * var arr2 = [2, 1, 4, 3];
      * var arr3 = [2, 2, 3, 4];
      * var arr4 = [1, 2, 3, 4];
-     * arr1.equals(arr2)==> false arr1.equals(arr2, false)==>true
-     * arr1.equals(arr3)==>false arr1.equals(arr3, false)==>false
-     * arr1.equals(arr4)==>true arr1.equals(arr4, false)==>true
+     * arr1.equals(arr2)==> false   arr1.equals(arr2, false)==>true
+     * arr1.equals(arr3)==>false    arr1.equals(arr3, false)==>false
+     * arr1.equals(arr4)==>true     arr1.equals(arr4, false)==>true
+     * @param array
+     * @param strict
+     * @returns {boolean}
      */
     _.arrayEquals = function (array, strict) {
         if (!array) return false;
@@ -641,33 +712,64 @@
      */
     _.Math = {
         EPSILON: Math.pow(2, -52),
-        // 默认数值保留小数位数
+        /**
+         * 默认数值保留小数位数
+         */
         DEFAULT_SCALE: 2,
         // 加
         add: function (x, y) {
             var result = Number(x) + Number(y);
             return result;
         },
-        // 减
+
+        /**
+         * 减
+         * @param x
+         * @param y
+         * @returns {number}
+         */
         subtract: function (x, y) {
             var result = Number(x) - Number(y);
             return result;
         },
-        // 乘
+
+        /**
+         * 乘
+         * @param x
+         * @param y
+         * @returns {number}
+         */
         multiply: function (x, y) {
             var result = Number(x) * Number(y);
             return result;
         },
-        // 除
+
+        /**
+         * 除
+         * @param x
+         * @param y
+         * @returns {number}
+         */
         divide: function (x, y) {
             var result = Number(x) / Number(y);
             return result;
         },
-        // 格式化结果
+
+        /**
+         * 格式化结果
+         * @param x
+         * @returns {*|string}
+         */
         numberFormat: function (x) {
             return this.toFixed(x);
         },
-        // 固定小数位数
+
+        /**
+         * 固定小数位数
+         * @param x
+         * @param digits
+         * @returns {string|*}
+         */
         toFixed: function (x, digits) {
             if (typeof (x) == "undefined" || x === '') {
                 return '';
@@ -682,7 +784,11 @@
             return (+(Math.round(+(x + 'e' + digits)) + 'e' + -digits)).toFixed(digits);
         },
 
-        // 移除指数表示
+        /**
+         * 移除指数表示
+         * @param x
+         * @returns {string}
+         */
         removeExponent: function (x) {
             if (Math.abs(x) < 1.0) {
                 var e = parseInt(x.toString().split('e-')[1]);
@@ -701,17 +807,23 @@
             return x;
         },
 
-        /*
+        /**
          * 判断两个小数数值是否相等
          * 示例：
          * equal(0.1+0.2, 0.3) 结果：true
+         * @param x
+         * @param y
+         * @returns {boolean}
          */
         equal: function (x, y) {
             return Math.abs(x - y) < this.EPSILON;
         },
 
-        /*
+        /**
          * 比较两数大小，x>y返回1，x==y返回0，否则返回-1
+         * @param x
+         * @param y
+         * @returns {number}
          */
         compare: function (x, y) {
             if (this.equal(x, y)) return 0;
@@ -720,6 +832,8 @@
         }
     }
 
+    //这里继续扩展函数
+    //示例:_.a1=function(){};
 
     /**
      * 扩展支持
