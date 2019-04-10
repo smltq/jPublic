@@ -1,4 +1,4 @@
-//     jPublic.js 1.0.2
+//     jPublic.js 1.0.3
 //     (c) 2019 tqlin
 (function () {
 
@@ -19,7 +19,7 @@
     };
 
     // 当前版本号
-    _.VERSION = '1.0.2';
+    _.VERSION = '1.0.3';
 
     //导出全局变量
     if (typeof exports != 'undefined' && !exports.nodeType) {
@@ -178,8 +178,39 @@
     };
 
     /**
-     * 获取指定范围内的随机数 max>=result>=min
-     **/
+     * 轮询条件函数，根据状态执行相应回调
+     * @param fn 条件函数
+     * @param callback 成功回调
+     * @param errback 失败回调
+     * @param timeout 超时间隔
+     * @param interval 轮询间隔
+     */
+    function poll(fn, callback, errback, timeout, interval) {
+        var endTime = Number(new Date()) + (timeout || 2000);
+        interval = interval || 100;
+
+        (function p() {
+            // 如果条件满足，调用回调
+            if (fn()) {
+                callback();
+            }
+            //如果在结束时间内，继续进入循环判断
+            else if (Number(new Date()) < endTime) {
+                setTimeout(p, interval);
+            }
+            //超时，抛出异常
+            else {
+                errback(new Error('timed out for ' + fn + ': ' + arguments));
+            }
+        })();
+    };
+
+    /**
+     * 随机返回指定范围的数字。参数是两个的时候，返回传入的两个参数的区间的随机函数；参数是一个的时候，返回0到这个数的随机函数(max>=result>=min)
+     * @param max 随机数上限
+     * @param min 随机数下限,没传默认为0
+     * @returns {number}
+     */
     _.getRandom = function (max, min) {
         min = arguments[1] || 0;
         return Math.floor(Math.random() * (max - min + 1) + min);

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81c2882c-8157-4b58-8d7f-3cb536976d37" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jPublic.js" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jPublic.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jPublic.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="46" />
+            <state relative-caret-position="374">
+              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -46,13 +50,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jPublic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            <state relative-caret-position="357">
+              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -73,6 +86,7 @@
       <find>equal</find>
       <find>表格日期</find>
       <find>P</find>
+      <find>rand</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -82,8 +96,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Index.html" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/Index.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/jPublic.js" />
       </list>
@@ -128,11 +142,6 @@
             <path>
               <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
               <item name="jPublic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jPublic" type="462c0819:PsiDirectoryNode" />
-              <item name="jPublic.js" type="620a8d5e:NestingTreeNode" />
             </path>
           </expand>
           <select />
@@ -209,7 +218,9 @@
       <workItem from="1554859320664" duration="2092000" />
       <workItem from="1554861435727" duration="2699000" />
       <workItem from="1554864160184" duration="8408000" />
-      <workItem from="1554879427891" duration="21000" />
+      <workItem from="1554879427891" duration="673000" />
+      <workItem from="1554886869920" duration="996000" />
+      <workItem from="1554888930643" duration="953000" />
     </task>
     <task id="LOCAL-00001" summary="压缩文件支持及uglify-js插件增加">
       <created>1554866209456</created>
@@ -239,17 +250,24 @@
       <option name="project" value="LOCAL" />
       <updated>1554877930007</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="报错处理">
+      <created>1554879470698</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1554879470698</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17579000" />
+    <option name="totallyTimeSpent" value="20180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4956217" visible="true" weight="0.17377399" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4956217" visible="true" weight="0.17697228" />
       <window_info id="Structure" order="1" sideWeight="0.5016611" side_tool="true" weight="0.25746268" />
       <window_info id="npm" order="2" sideWeight="0.50437826" side_tool="true" weight="0.5225956" />
       <window_info id="Designer" order="3" />
@@ -263,7 +281,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32925472" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4989339" weight="0.32925472" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.3303671" />
@@ -283,7 +301,8 @@
     <MESSAGE value="压缩文件支持及uglify-js插件增加" />
     <MESSAGE value="map文件提交" />
     <MESSAGE value="移除无用的日期比较函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="移除无用的日期比较函数" />
+    <MESSAGE value="报错处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="报错处理" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -330,13 +349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/uglify-js/node_modules/source-map/source-map.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -346,17 +358,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="46" />
+        <state relative-caret-position="374">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jPublic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        <state relative-caret-position="357">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
