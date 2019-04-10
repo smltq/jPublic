@@ -1,8 +1,6 @@
 //     jPublic.js 1.0.2
 //     (c) 2019 tqlin
 (function () {
-    // 当前版本号
-    _.VERSION = '1.0.2';
 
     // 基线开始
     //----------------------
@@ -19,6 +17,9 @@
         if (!(this instanceof _)) return new _(obj);
         this._wrapped = obj;
     };
+
+    // 当前版本号
+    _.VERSION = '1.0.2';
 
     //导出全局变量
     if (typeof exports != 'undefined' && !exports.nodeType) {
