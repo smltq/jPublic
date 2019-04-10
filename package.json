@@ -1,12 +1,33 @@
 {
   "name": "jPublic",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "JavaScript通用工具库",
+  "homepage": "https://github.com/smltq/jPublic",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "tqlin(271657370@qq.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/smltq/jPublic.git"
+  },
+  "version": "1.0.1",
+  "main": "jPublic.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "tpack-uglify-js": "^2.9.1",
+    "uglify-js": "^3.5.3",
+    "uglify-js-plugin": "0.0.6"
+  },
+  "files": [
+    "jPublic.js",
+    "jPublic-min.js",
+    "jPublic-min.js.map"
+  ]
 }

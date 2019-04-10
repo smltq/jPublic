@@ -1,0 +1,4 @@
+test
+node_modules
+_build
+*.log
