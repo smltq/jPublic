@@ -572,6 +572,7 @@
         });
         return filtered;
     };
+
     // 洗牌数组
     _.arrayShuffle = function (array) {
         var copy = [], n = array.length, i;
@@ -581,6 +582,7 @@
         }
         return copy;
     };
+
     /*
      * 数组元素是否重复
      */
@@ -594,6 +596,7 @@
         }
         return false;
     };
+
     // 数组去重
     _.arrayUnique = function (arr) {
         var a = [];
@@ -604,6 +607,7 @@
         }
         return a;
     };
+
     /*
      * 判断数组是否相等,默认为严格模式比较
      * 示例：
@@ -715,6 +719,7 @@
             else return -1;
         }
     }
+
 
     /**
      * 扩展支持
