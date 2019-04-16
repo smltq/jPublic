@@ -4,21 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81c2882c-8157-4b58-8d7f-3cb536976d37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/Car.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/Child.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/Namespace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/Parent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.js" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="81c2882c-8157-4b58-8d7f-3cb536976d37" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+            <state relative-caret-position="68">
+              <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -136,28 +122,7 @@
             <path>
               <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
               <item name="jPublic" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jPublic" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="jsdoc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jPublic" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="jsdoc" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jPublic" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="jsdoc" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -260,7 +225,7 @@
       <workItem from="1555322556861" duration="45000" />
       <workItem from="1555323881691" duration="1284000" />
       <workItem from="1555330335717" duration="1182000" />
-      <workItem from="1555376400302" duration="7618000" />
+      <workItem from="1555376400302" duration="8094000" />
     </task>
     <task id="LOCAL-00001" summary="压缩文件支持及uglify-js插件增加">
       <created>1554866209456</created>
@@ -297,11 +262,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554879470698</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="jsdoc文档生成插件及jaguarjs模板增加">
+      <created>1555384475852</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1555384475852</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30309000" />
+    <option name="totallyTimeSpent" value="30785000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -350,7 +322,8 @@
     <MESSAGE value="map文件提交" />
     <MESSAGE value="移除无用的日期比较函数" />
     <MESSAGE value="报错处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="报错处理" />
+    <MESSAGE value="jsdoc文档生成插件及jaguarjs模板增加" />
+    <option name="LAST_COMMIT_MESSAGE" value="jsdoc文档生成插件及jaguarjs模板增加" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -475,8 +448,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
