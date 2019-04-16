@@ -427,7 +427,6 @@
     //-----------------------
     /**
      * 获取当前时间戳，兼容旧环境（毫秒）
-     * @type {(() => number) | (function(): number)}
      */
     _.now = Date.now || function () {
         return new Date().valueOf();
