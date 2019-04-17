@@ -1,27 +1,38 @@
-//     jPublic.js 1.0.3
-//     (c) 2019 tqlin
+/**
+ * jPublic.js 1.0.3
+ * (c) 2019 tqlin
+ * @class
+ * @name _
+ */
 (function () {
-
     // 基线开始
     //----------------------
-    //获得root,兼容web,微信,note等
+    /**
+     * 获得root,兼容web,微信,note等
+     */
     var root = (typeof self == 'object' && self.self === self && self) ||
         (typeof global == 'object' && global.global === global && global) || this || {};
 
     var ArrayProto = Array.prototype;
     var push = ArrayProto.push;
 
-    //创建安全对象供下面jpublic使用
+    /**
+     * @description 创建安全对象供下面jpublic使用
+     */
     var _ = function (obj) {
         if (obj instanceof _) return obj;
         if (!(this instanceof _)) return new _(obj);
         this._wrapped = obj;
     };
 
-    // 当前版本号
+    /**
+     * @property {String} VERSION 当前版本号
+     */
     _.VERSION = '1.0.3';
 
-    //导出全局变量
+    /**
+     * 导出全局变量
+     */
     if (typeof exports != 'undefined' && !exports.nodeType) {
         if (typeof module != 'undefined' && !module.nodeType && module.exports) {
             exports = module.exports = _;
@@ -71,6 +82,27 @@
 
     //集合函数开始
     //---------------
+    /**
+     * @example
+     * <caption>JSDoc3 Captions</caption>
+     * var a = 0;
+     *
+     * for (var i = 0; i < 10; i++) {
+     *     a++;
+     * }
+     *
+     * @example
+     * jaguarjs-doc uses markdown style.
+     *
+     * ```
+     * var a = 0;
+     *
+     * for (var i = 0; i < 10; i++) {
+     *     a++;
+     * }
+     * ```
+     * @name each
+     */
     _.each = _.forEach = function (obj, iteratee, context) {
         iteratee = optimizeCb(iteratee, context);
         var i, length;
@@ -105,6 +137,8 @@
 
     /**
      * 获得当前Url的参数
+     * @param name
+     * @returns {string|null}
      */
     _.getUrlParam = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");

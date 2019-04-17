@@ -1,6 +1,5 @@
 /**
- * Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+ * Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
  * @class
  */
 var Parent = function () {
@@ -45,17 +44,17 @@ Parent.prototype = /** @lends Parent.prototype */{
      * @example
      * <caption>JSDoc3 Captions</caption>
      * var a = 0;
-     * 
+     *
      * for (var i = 0; i < 10; i++) {
      *     a++;
      * }
-     * 
+     *
      * @example
      * jaguarjs-doc uses markdown style.
-     * 
+     *
      * ```
      * var a = 0;
-     * 
+     *
      * for (var i = 0; i < 10; i++) {
      *     a++;
      * }

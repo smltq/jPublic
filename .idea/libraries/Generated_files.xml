@@ -2,18 +2,18 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/demo/sample/Car.min.js" />
-        <item url="file://$PROJECT_DIR$/demo/sample/Child.min.js" />
-        <item url="file://$PROJECT_DIR$/demo/sample/Namespace.min.js" />
-        <item url="file://$PROJECT_DIR$/demo/sample/Parent.min.js" />
+        <item url="file://$PROJECT_DIR$/_.min.js" />
+        <item url="file://$PROJECT_DIR$/demo/Car.min.js" />
+        <item url="file://$PROJECT_DIR$/demo/Child.min.js" />
+        <item url="file://$PROJECT_DIR$/demo/Parent.min.js" />
         <item url="file://$PROJECT_DIR$/jPublic.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/demo/sample/Car.min.js" />
-      <root url="file://$PROJECT_DIR$/demo/sample/Child.min.js" />
-      <root url="file://$PROJECT_DIR$/demo/sample/Namespace.min.js" />
-      <root url="file://$PROJECT_DIR$/demo/sample/Parent.min.js" />
+      <root url="file://$PROJECT_DIR$/_.min.js" />
+      <root url="file://$PROJECT_DIR$/demo/Car.min.js" />
+      <root url="file://$PROJECT_DIR$/demo/Child.min.js" />
+      <root url="file://$PROJECT_DIR$/demo/Parent.min.js" />
       <root url="file://$PROJECT_DIR$/jPublic.min.js" />
     </CLASSES>
     <JAVADOC />

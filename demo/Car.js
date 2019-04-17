@@ -1,7 +1,7 @@
 (function (w) {
     /**
      * quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
      * @class
      * @name namespace.Car
      */
