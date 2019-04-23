@@ -1,8 +1,8 @@
 /**
- * jPublic.js 1.0.3
- * (c) 2019 tqlin
- * @class
- * @name _
+ * @file js工具库.
+ * @copyright jPublic.js 2019
+ * @author tqlin <271657370@qq.com>
+ * @namespace _
  */
 (function () {
     // 基线开始
@@ -17,7 +17,7 @@
     var push = ArrayProto.push;
 
     /**
-     * @description 创建安全对象供下面jpublic使用
+     * 创建安全对象供下面jpublic使用
      */
     var _ = function (obj) {
         if (obj instanceof _) return obj;
@@ -26,13 +26,13 @@
     };
 
     /**
-     * @property {String} VERSION 当前版本号
+     * 当前版本号
+     * @public
+     * @type {string}
+     * @const
      */
     _.VERSION = '1.0.3';
 
-    /**
-     * 导出全局变量
-     */
     if (typeof exports != 'undefined' && !exports.nodeType) {
         if (typeof module != 'undefined' && !module.nodeType && module.exports) {
             exports = module.exports = _;
@@ -82,27 +82,7 @@
 
     //集合函数开始
     //---------------
-    /**
-     * @example
-     * <caption>JSDoc3 Captions</caption>
-     * var a = 0;
-     *
-     * for (var i = 0; i < 10; i++) {
-     *     a++;
-     * }
-     *
-     * @example
-     * jaguarjs-doc uses markdown style.
-     *
-     * ```
-     * var a = 0;
-     *
-     * for (var i = 0; i < 10; i++) {
-     *     a++;
-     * }
-     * ```
-     * @name each
-     */
+    /** 这是一个循环 */
     _.each = _.forEach = function (obj, iteratee, context) {
         iteratee = optimizeCb(iteratee, context);
         var i, length;
@@ -183,7 +163,7 @@
         var last, deferTimer;
         return function () {
             var context = scope || this;
-            var now = Public.now(), args = arguments;
+            var now = _.now(), args = arguments;
             if (last && now < last + wait) {
                 clearTimeout(deferTimer);
                 deferTimer = setTimeout(function () {
@@ -218,8 +198,9 @@
      * @param errback 失败回调
      * @param timeout 超时间隔
      * @param interval 轮询间隔
+     * @namespace
      */
-    function poll(fn, callback, errback, timeout, interval) {
+    _.poll = function (fn, callback, errback, timeout, interval) {
         var endTime = Number(new Date()) + (timeout || 2000);
         interval = interval || 100;
 
@@ -606,6 +587,7 @@
      * @param date 日期,为空默认当前时间
      * @param format 格式化字符串,默认为(yyyy-MM-dd hh:mm:ss)
      * @returns {*}
+     * @namespace
      */
     _.dateFormat = function (date, format) {
         date instanceof Date || (date = new Date(date));
