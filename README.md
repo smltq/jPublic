@@ -1,4 +1,3 @@
 # jPublic
 JavaScript工具库
-
-some changes
+API文档：https://smltq.github.io/jPublic/
