@@ -16,7 +16,7 @@
     var push = ArrayProto.push;
 
     /**
-     * 创建全局模块对象:_
+     * 创建全局对象:_
      * @global
      * @module _
      */
@@ -28,9 +28,8 @@
 
     /**
      * 当前版本号
-     * @inner
      */
-    _.VERSION = '1.0.3';
+    _.VERSION = '1.2.2';
 
     if (typeof exports != 'undefined' && !exports.nodeType) {
         if (typeof module != 'undefined' && !module.nodeType && module.exports) {
