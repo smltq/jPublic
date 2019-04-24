@@ -1,0 +1,7 @@
+{
+  "--title": "jPublic工具文档",
+  "--": [
+    "jPublic.js"
+  ],
+  "--output": "docs"
+}

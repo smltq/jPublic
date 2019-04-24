@@ -10,6 +10,7 @@
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "templates": {
+    "name": "jPublic工具类文档",
     "cleverLinks": true,
     "monospaceLinks": true,
     "default": {
@@ -18,5 +19,8 @@
     "applicationName": "jPublic",
     "openGraph": {},
     "meta": {}
+  },
+  "opts": {
+    "template": "node_modules/tui-jsdoc-template"
   }
 }

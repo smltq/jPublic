@@ -2,18 +2,28 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/_.min.js" />
         <item url="file://$PROJECT_DIR$/demo/Car.min.js" />
         <item url="file://$PROJECT_DIR$/demo/Child.min.js" />
         <item url="file://$PROJECT_DIR$/demo/Parent.min.js" />
+        <item url="file://$PROJECT_DIR$/docs/app-0c945a27f43452df695771ddb60b3d14.min.js" />
+        <item url="file://$PROJECT_DIR$/docs/data-72744e2b9d4d13843f83d7998fbdd216.min.js" />
+        <item url="file://$PROJECT_DIR$/docs/extjs/ext-all.min.js" />
+        <item url="file://$PROJECT_DIR$/docs/output/_.Math.min.js" />
+        <item url="file://$PROJECT_DIR$/docs/output/global.min.js" />
+        <item url="file://$PROJECT_DIR$/docs/resources/prettify/prettify.min.js" />
         <item url="file://$PROJECT_DIR$/jPublic.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/_.min.js" />
       <root url="file://$PROJECT_DIR$/demo/Car.min.js" />
       <root url="file://$PROJECT_DIR$/demo/Child.min.js" />
       <root url="file://$PROJECT_DIR$/demo/Parent.min.js" />
+      <root url="file://$PROJECT_DIR$/docs/app-0c945a27f43452df695771ddb60b3d14.min.js" />
+      <root url="file://$PROJECT_DIR$/docs/data-72744e2b9d4d13843f83d7998fbdd216.min.js" />
+      <root url="file://$PROJECT_DIR$/docs/extjs/ext-all.min.js" />
+      <root url="file://$PROJECT_DIR$/docs/output/_.Math.min.js" />
+      <root url="file://$PROJECT_DIR$/docs/output/global.min.js" />
+      <root url="file://$PROJECT_DIR$/docs/resources/prettify/prettify.min.js" />
       <root url="file://$PROJECT_DIR$/jPublic.min.js" />
     </CLASSES>
     <JAVADOC />

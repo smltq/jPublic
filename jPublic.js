@@ -2,7 +2,6 @@
  * @file js工具库.
  * @copyright jPublic.js 2019
  * @author tqlin <271657370@qq.com>
- * @namespace _
  */
 (function () {
     // 基线开始
@@ -17,7 +16,9 @@
     var push = ArrayProto.push;
 
     /**
-     * 创建安全对象供下面jpublic使用
+     * 创建全局模块对象:_
+     * @global
+     * @module _
      */
     var _ = function (obj) {
         if (obj instanceof _) return obj;
@@ -27,9 +28,7 @@
 
     /**
      * 当前版本号
-     * @public
-     * @type {string}
-     * @const
+     * @inner
      */
     _.VERSION = '1.0.3';
 
@@ -82,7 +81,14 @@
 
     //集合函数开始
     //---------------
-    /** 这是一个循环 */
+    /**
+     * 循环遍历对象
+     * @param obj
+     * @param iteratee
+     * @param context
+     * @type {function(*=, *=, *=): *}
+     * @alias module:_.forEach
+     */
     _.each = _.forEach = function (obj, iteratee, context) {
         iteratee = optimizeCb(iteratee, context);
         var i, length;
@@ -106,6 +112,7 @@
      * 返回对象上可用函数列表
      * @param obj
      * @returns {this}
+     * @alias module:_.functions
      */
     _.functions = function (obj) {
         var names = [];
@@ -119,6 +126,7 @@
      * 获得当前Url的参数
      * @param name
      * @returns {string|null}
+     * @alias module:_.getUrlParam
      */
     _.getUrlParam = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -135,6 +143,7 @@
      * @param wait 延迟时间，单位毫秒
      * @param immediate 给immediate参数传递false绑定的函数先执行，而不是wait之后执行
      * @returns 实际调用函数
+     * @alias module:_.debounce
      */
     _.debounce = function (fn, wait, immediate) {
         var timeout;
@@ -157,6 +166,7 @@
      * @param wait 延迟时间，单位毫秒
      * @param scope scope代替fn里this的对象
      * @returns {Function} 实际调用函数
+     * @alias module:_.throttle
      */
     _.throttle = function (fn, wait, scope) {
         wait || (wait = 250);
@@ -179,6 +189,7 @@
 
     /**
      * 函数只执行一次
+     * @alias module:_.runOnce
      */
     _.runOnce = function (fn, context) {
         var result;
@@ -198,7 +209,7 @@
      * @param errback 失败回调
      * @param timeout 超时间隔
      * @param interval 轮询间隔
-     * @namespace
+     * @alias module:_.poll
      */
     _.poll = function (fn, callback, errback, timeout, interval) {
         var endTime = Number(new Date()) + (timeout || 2000);
@@ -587,7 +598,7 @@
      * @param date 日期,为空默认当前时间
      * @param format 格式化字符串,默认为(yyyy-MM-dd hh:mm:ss)
      * @returns {*}
-     * @namespace
+     * @alias module:_.dateFormat
      */
     _.dateFormat = function (date, format) {
         date instanceof Date || (date = new Date(date));
@@ -616,6 +627,7 @@
      * 返回日期的yyyy-MM-dd格式
      * @param date
      * @returns {string|*}
+     * @name module:_.shortDateFormat
      */
     _.shortDateFormat = function (date) {
         if (!date) {
@@ -631,6 +643,7 @@
      * formatTime(63846) ==> '17:44:06'
      * @param n
      * @returns {string}
+     * @alias module:_.formatTime
      */
     _.formatTime = function (n) {
         var hours = Math.floor(n / 60 / 60);
@@ -643,6 +656,7 @@
      * 反格式化,与formatTime函数相反
      * @param string
      * @returns {number}
+     * @access public
      */
     _.unformatTime = function (string) {
         var timeArray = string.split(':'), seconds = 0;
@@ -756,14 +770,30 @@
 
     /**
      * 数学计算
+     * @module _.Math
+     * @alias module:_.Math
      */
     _.Math = {
+        /**
+         * 精度范围
+         * @alias module:Math.EPSILON
+         * @public
+         */
         EPSILON: Math.pow(2, -52),
+
         /**
          * 默认数值保留小数位数
+         * @alias Math.DEFAULT_SCALE
          */
         DEFAULT_SCALE: 2,
-        // 加
+
+        /**
+         * 加
+         * @param x
+         * @param y
+         * @returns {number}
+         * @alias Math.add
+         */
         add: function (x, y) {
             var result = Number(x) + Number(y);
             return result;
@@ -774,6 +804,7 @@
          * @param x
          * @param y
          * @returns {number}
+         * @alias Math.subtract
          */
         subtract: function (x, y) {
             var result = Number(x) - Number(y);
