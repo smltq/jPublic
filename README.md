@@ -14,7 +14,7 @@ jPublic 目前提供了100多个函数，包括常用的：debounce、throttle�
 
 你还可以通读带有注释的源码，来了解jPublic。
 
-本项目 托管在 GitHub 上。 你可以在 issues page、QQ群等途径报告bug 以及参与特性讨论。
+本项目托管在GitHub上。 你可以通过issues page、QQ群等途径报告bug以及参与特性讨论。
 
 jPublic是一个完全开源的JavaScript开源工具库。
 

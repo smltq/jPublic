@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="81c2882c-8157-4b58-8d7f-3cb536976d37" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.js" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jPublic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="451" column="12" selection-start-line="451" selection-start-column="12" selection-end-line="451" selection-end-column="12" />
+            <state relative-caret-position="289">
+              <caret line="212" column="10" selection-start-line="212" selection-start-column="6" selection-end-line="212" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -52,12 +50,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="34">
-                <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="238">
+                <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
               </first_editor>
               <second_editor />
             </state>
@@ -111,10 +109,10 @@
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/examples.json" />
         <option value="$PROJECT_DIR$/jsduck.json" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/jsdoc.json" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/jPublic.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -159,6 +157,11 @@
             <path>
               <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
               <item name="jPublic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jPublic" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -259,7 +262,7 @@
       <workItem from="1555998859685" duration="16106000" />
       <workItem from="1556067220871" duration="4344000" />
       <workItem from="1556072324696" duration="15706000" />
-      <workItem from="1556096662553" duration="1801000" />
+      <workItem from="1556096662553" duration="3916000" />
     </task>
     <task id="LOCAL-00001" summary="压缩文件支持及uglify-js插件增加">
       <created>1554866209456</created>
@@ -345,11 +348,25 @@
       <option name="project" value="LOCAL" />
       <updated>1556097741053</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="字节格式化 函数提交">
+      <created>1556098572492</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1556098572492</updated>
+    </task>
+    <task id="LOCAL-00014" summary="介绍文档提交">
+      <created>1556100584735</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1556100584735</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75472000" />
+    <option name="totallyTimeSpent" value="77587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,7 +381,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49253732" visible="true" weight="0.19829424" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49253732" weight="0.19829424" />
       <window_info id="Structure" order="1" sideWeight="0.5074627" side_tool="true" weight="0.18336888" />
       <window_info id="npm" order="2" sideWeight="0.5074074" side_tool="true" weight="0.18336888" />
       <window_info id="Designer" order="3" />
@@ -378,7 +395,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32925472" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32814237" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32814237" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48560768" weight="0.32814237" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.51119405" side_tool="true" weight="0.39933258" />
@@ -443,7 +460,9 @@
     <MESSAGE value="jsdoc文档生成插件及jaguarjs模板增加" />
     <MESSAGE value="bug修复" />
     <MESSAGE value="API文档提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="API文档提交" />
+    <MESSAGE value="字节格式化 函数提交" />
+    <MESSAGE value="介绍文档提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="介绍文档提交" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -562,13 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/jsdoc/plugins/partial.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -586,24 +598,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="34">
-            <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jPublic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="451" column="12" selection-start-line="451" selection-start-column="12" selection-end-line="451" selection-end-column="12" />
+        <state relative-caret-position="289">
+          <caret line="212" column="10" selection-start-line="212" selection-start-column="6" selection-end-line="212" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="238">
+            <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
