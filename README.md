@@ -20,4 +20,4 @@ jPublic是一个完全开源的JavaScript开源工具库。
 
 ## 资料
 - API文档：https://smltq.github.io/jPublic/
-- 工具交流QQ群:1017567122
+- 工具交流QQ群：1017567122
