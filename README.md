@@ -10,7 +10,7 @@
 
 jPublic 是一个 JavaScript 工具库，它提供了一整套函数式编程的实用功能，但是不依赖任何第三方插件。它弥补了 jQuery、Underscore等没有实现的功能，目标希望能成为我们项目必不可少的部分。
 
-jPublic 目前提供了100多个函数，包括常用的：debounce、throttle、poll等。
+jPublic 目前提供了60多个函数，包括常用的：debounce、throttle、poll等。
 
 你还可以通读带有注释的源码，来了解jPublic。
 

@@ -28,6 +28,9 @@
 
     /**
      * 当前版本号
+     * @type {string}
+     * @default
+     * @alias module:_.VERSION
      */
     _.VERSION = '1.2.2';
 
@@ -81,14 +84,16 @@
     //集合函数开始
     //---------------
     /**
-     * 循环遍历对象
+     * 遍历list中的所有元素，按顺序用遍历输出每个元素。
+     * 如果传递了context参数，则把iteratee绑定到context对象上。每次调用iteratee都会传递三个参数：(element, index, list)。
+     * 如果list是个JavaScript对象，iteratee的参数是 (value, key, list))。
+     * 返回list以方便链式调用。
      * @param obj
      * @param iteratee
      * @param context
-     * @type {function(*=, *=, *=): *}
-     * @alias module:_.forEach
+     * @alias module:_.each
      */
-    _.each = _.forEach = function (obj, iteratee, context) {
+    _.each = function (obj, iteratee, context) {
         iteratee = optimizeCb(iteratee, context);
         var i, length;
         if (isArrayLike(obj)) {
@@ -235,6 +240,7 @@
      * @param max 随机数上限
      * @param min 随机数下限,没传默认为0
      * @returns {number}
+     * @alias module:_.getRandom
      */
     _.getRandom = function (max, min) {
         min = arguments[1] || 0;
@@ -244,6 +250,7 @@
     /**
      * 获取表单数据
      * @param frm
+     * @alias module:_.getFormJson
      */
     _.getFormJson = function (frm) {
         var o = {};
@@ -255,7 +262,8 @@
     };
 
     /**
-     * 复制文本到剪切板
+     * 复制文本到剪切板(注意非ES标准，部分浏览器可能不支持）
+     * @alias module:_.copyToClipboard
      */
     _.copyToClipboard = function (text) {
         if (window.clipboardData && window.clipboardData.setData) {
@@ -286,6 +294,7 @@
      * @param arr
      * @param value
      * @returns {string|string}
+     * @alias module:_.defineOperate
      */
     _.defineOperate = function (arr, value) {
         var str = "";
@@ -300,6 +309,7 @@
 
     /**
      * 获取当前网站根路径
+     * @alias module:_.getRootPath
      */
     _.getRootPath = function () {
         var curPath = window.document.location.href;
@@ -312,6 +322,7 @@
 
     /**
      * 格式化字符串
+     * @alias module:_.format
      */
     _.format = function (format) {
         var args = Array.prototype.slice.call(arguments, 1);
@@ -322,6 +333,9 @@
 
     /**
      * 去左右空格
+     * @param str 字符串
+     * @param chars 要移除的字符（默认为空白字符)
+     * @alias module:_.trim
      */
     _.trim = function (str, chars) {
         return this.ltrim(this.rtrim(str, chars), chars);
@@ -329,9 +343,9 @@
 
     /**
      * 去左空格
-     * @param str
-     * @param chars
-     * @returns {void | string | never}
+     * @param str 字符串
+     * @param chars 要移除的字符（默认为空白字符)
+     * @alias module:_.ltrim
      */
     _.ltrim = function (str, chars) {
         chars = chars || "\\s";
@@ -340,9 +354,9 @@
 
     /**
      * 去右空格
-     * @param str
-     * @param chars
-     * @returns {void | string | never}
+     * @param str 字符串
+     * @param chars 要移除的字符（默认为空白字符)
+     * @alias module:_.rtrim
      */
     _.rtrim = function (str, chars) {
         chars = chars || "\\s";
@@ -352,13 +366,18 @@
     /**
      * 判断对象是否函数
      * @param obj
-     * @returns {boolean}
+     * @alias module:_.isFunction
      */
     _.isFunction = function (obj) {
         return typeof obj == 'function' || false;
     };
 
-    //判断是否object对象
+    /**
+     * 判断是否object对象
+     * @param obj
+     * @returns {boolean}
+     * @alias module:_.isObject
+     */
     _.isObject = function (obj) {
         var type = typeof obj;
         return type === 'function' || type === 'object' && !!obj;
@@ -366,6 +385,9 @@
 
     /**
      * 是否为空字符串
+     * @param str
+     * @returns {boolean}
+     * @alias module:_.isNullOrEmpty
      */
     _.isNullOrEmpty = function (str) {
         if (null == str || typeof str == "undefined" || str == "") {
@@ -379,6 +401,7 @@
      * 判断是否数组
      * @param obj
      * @returns {boolean}
+     * @alias module:_.isArray
      */
     _.isArray = function (obj) {
         return toString.call(obj) === '[object Array]';
@@ -388,6 +411,7 @@
      * 是否数值
      * @param value
      * @returns {boolean}
+     * @alias module:_.isNumeric
      */
     _.isNumeric = function (value) {
         return !isNaN(parseFloat(value)) && isFinite(value);
@@ -395,6 +419,9 @@
 
     /**
      * 是否字符串
+     * @param value
+     * @returns {boolean}
+     * @alias module:_.isString
      */
     _.isString = function (value) {
         return typeof value === 'string';
@@ -406,6 +433,7 @@
      * @param limit 长度限制
      * @param suffix 超过替换字符
      * @returns {string|*}
+     * @alias module:_.truncate
      */
     _.truncate = function (str, limit, suffix) {
         if (_.isString(str)) {
@@ -424,6 +452,7 @@
      * @param s
      * @param n
      * @returns {string}
+     * @alias module:_.fmoney
      */
     _.fmoney = function (s, n) {
         n = n > 0 && n <= 20 ? n : 2;
@@ -442,6 +471,7 @@
      * @param value
      * @param color
      * @returns {string}
+     * @alias module:_.defineColor
      */
     _.defineColor = function (value, color) {
         return '<span style="color:' + (color || "#FF0000") + '">' + value + "</span>";
@@ -458,6 +488,7 @@
      * @param bytes
      * @param decimals
      * @returns {string}
+     * @alias module:_.formatBytes
      */
     _.formatBytes = function (bytes, decimals) {
         if (bytes == 0) return '0 Bytes';
@@ -474,6 +505,7 @@
     //-----------------------
     /**
      * 获取当前时间戳，兼容旧环境（毫秒）
+     * @alias module:_.now
      */
     _.now = Date.now || function () {
         return new Date().valueOf();
@@ -482,6 +514,7 @@
     /**
      * 获取当前服务器时间(Date)
      * @returns {Date}
+     * @alias module:_.serverTime
      */
     _.serverTime = function () {
         var xmlHttp = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
@@ -494,6 +527,7 @@
      * 获取月份第一天
      * @param date
      * @returns {Date}
+     * @alias module:_.firstDay
      */
     _.firstDay = function (date) {
         date || (date = new Date());
@@ -504,6 +538,7 @@
      * 获取月份最后一天
      * @param date
      * @returns {Date}
+     * @alias module:_.lastDay
      */
     _.lastDay = function (date) {
         date || (date = new Date());
@@ -514,6 +549,7 @@
      * 获取上个月第一天
      * @param date
      * @returns {Date}
+     * @alias module:_.firstMonthDay
      */
     _.firstMonthDay = function (date) {
         date || (date = new Date());
@@ -524,6 +560,7 @@
      * 获取上个月最后一天
      * @param date
      * @returns {Date}
+     * @alias module:_.lastMonthDay
      */
     _.lastMonthDay = function (date) {
         date || (date = new Date());
@@ -534,6 +571,7 @@
      * 获取本年第一天
      * @param date
      * @returns {Date}
+     * @alias module:_.firstYearDay
      */
     _.firstYearDay = function (date) {
         date || (date = new Date());
@@ -544,6 +582,7 @@
      * 获取本年最后一天
      * @param date
      * @returns {Date}
+     * @alias module:_.lastYearDay
      */
     _.lastYearDay = function (date) {
         date || (date = new Date());
@@ -554,6 +593,7 @@
      * 获得本周的开始日期
      * @param date
      * @returns {Date}
+     * @alias module:_.getWeekStartDate
      */
     _.getWeekStartDate = function (date) {
         date || (date = new Date());
@@ -564,6 +604,7 @@
      * 获得本周的结束日期
      * @param date
      * @returns {Date}
+     * @alias module:_.getWeekEndDate
      */
     _.getWeekEndDate = function (date) {
         date || (date = new Date());
@@ -574,6 +615,7 @@
      * 获得上周的开始日期
      * @param date
      * @returns {Date}
+     * @alias module:_.getLastWeekStartDate
      */
     _.getLastWeekStartDate = function (date) {
         date || (date = new Date());
@@ -584,6 +626,7 @@
      * 获得上周的结束日期
      * @param date
      * @returns {Date}
+     * @alias module:_.getLastWeekEndDate
      */
     _.getLastWeekEndDate = function (date) {
         date || (date = new Date());
@@ -594,6 +637,7 @@
      * 获取去年第一天
      * @param date
      * @returns {Date}
+     * @alias module:_.lastYearFirstDay
      */
     _.lastYearFirstDay = function (date) {
         date || (date = new Date());
@@ -604,6 +648,7 @@
      * 获取去年最后一天
      * @param date
      * @returns {Date}
+     * @alias module:_.lastYearLastDay
      */
     _.lastYearLastDay = function (date) {
         date || (date = new Date());
@@ -646,9 +691,8 @@
 
     /**
      * 返回日期的yyyy-MM-dd格式
-     * @param date
-     * @returns {string|*}
-     * @name module:_.shortDateFormat
+     * @param date 日期
+     * @alias module:_.shortDateFormat
      */
     _.shortDateFormat = function (date) {
         if (!date) {
@@ -677,7 +721,7 @@
      * 反格式化,与formatTime函数相反
      * @param string
      * @returns {number}
-     * @access public
+     * @alias module:_.unformatTime
      */
     _.unformatTime = function (string) {
         var timeArray = string.split(':'), seconds = 0;
@@ -705,6 +749,7 @@
      * @param a
      * @param b
      * @returns {*}
+     * @alias module:_.arrayDiff
      */
     _.arrayDiff = function (a, b) {
         var filtered = a.filter(function (e) {
@@ -717,6 +762,7 @@
      * 洗牌数组
      * @param array
      * @returns {Array}
+     * @alias module:_.arrayShuffle
      */
     _.arrayShuffle = function (array) {
         var copy = [], n = array.length, i;
@@ -731,6 +777,7 @@
      * 数组元素是否重复
      * @param arr
      * @returns {boolean}
+     * @alias module:_.arrayIsRepeat
      */
     _.arrayIsRepeat = function (arr) {
         var hash = {};
@@ -747,6 +794,7 @@
      * 数组去重
      * @param arr
      * @returns {Array}
+     * @alias module:_.arrayUnique
      */
     _.arrayUnique = function (arr) {
         var a = [];
@@ -771,6 +819,7 @@
      * @param array
      * @param strict
      * @returns {boolean}
+     * @alias module:_.arrayEquals
      */
     _.arrayEquals = function (array, strict) {
         if (!array) return false;
@@ -789,147 +838,137 @@
     };
     //数组工具相关结束
 
+
     /**
-     * 数学计算
-     * @module _.Math
-     * @alias module:_.Math
+     * 精度范围
+     * @alias module:_.EPSILON
      */
-    _.Math = {
-        /**
-         * 精度范围
-         * @alias module:Math.EPSILON
-         * @public
-         */
-        EPSILON: Math.pow(2, -52),
+    _.EPSILON = Math.pow(2, -52);
 
-        /**
-         * 默认数值保留小数位数
-         * @alias Math.DEFAULT_SCALE
-         */
-        DEFAULT_SCALE: 2,
+    /**
+     * 默认数值保留小数位数
+     * @alias _.DEFAULT_SCALE
+     */
+    _.DEFAULT_SCALE = 2;
 
-        /**
-         * 加
-         * @param x
-         * @param y
-         * @returns {number}
-         * @alias Math.add
-         */
-        add: function (x, y) {
-            var result = Number(x) + Number(y);
-            return result;
-        },
+    /**
+     * 加
+     * @param x
+     * @param y
+     * @returns {number}
+     * @alias _.numAdd
+     */
+    _.numAdd = function (x, y) {
+        var result = Number(x) + Number(y);
+        return result;
+    };
 
-        /**
-         * 减
-         * @param x
-         * @param y
-         * @returns {number}
-         * @alias Math.subtract
-         */
-        subtract: function (x, y) {
-            var result = Number(x) - Number(y);
-            return result;
-        },
+    /**
+     * 减
+     * @param x
+     * @param y
+     * @returns {number}
+     * @alias _.numSubtract
+     */
+    _.numSubtract = function (x, y) {
+        var result = Number(x) - Number(y);
+        return result;
+    };
 
-        /**
-         * 乘
-         * @param x
-         * @param y
-         * @returns {number}
-         */
-        multiply: function (x, y) {
-            var result = Number(x) * Number(y);
-            return result;
-        },
+    /**
+     * 乘
+     * @param x
+     * @param y
+     * @returns {number}
+     * @alias module:_.numMultiply
+     */
+    _.numMultiply = function (x, y) {
+        var result = Number(x) * Number(y);
+        return result;
+    };
 
-        /**
-         * 除
-         * @param x
-         * @param y
-         * @returns {number}
-         */
-        divide: function (x, y) {
-            var result = Number(x) / Number(y);
-            return result;
-        },
+    /**
+     * 除
+     * @param x
+     * @param y
+     * @returns {number}
+     * @alias module:_.numDivide
+     */
+    _.numDivide = function (x, y) {
+        var result = Number(x) / Number(y);
+        return result;
+    };
 
-        /**
-         * 格式化结果
-         * @param x
-         * @returns {*|string}
-         */
-        numberFormat: function (x) {
-            return this.toFixed(x);
-        },
-
-        /**
-         * 固定小数位数
-         * @param x
-         * @param digits
-         * @returns {string|*}
-         */
-        toFixed: function (x, digits) {
-            if (typeof (x) == "undefined" || x === '') {
-                return '';
-            } else if (!this.isNumeric(x)) {
-                return x;
-            }
-            digits = digits || this.DEFAULT_SCALE;
-            x = (x + '').replace("E", "e");
-            if ((x + '').indexOf('e') != -1) {
-                return (+(Math.round(+(x)) + 'e' + -digits)).toFixed(digits);
-            }
-            return (+(Math.round(+(x + 'e' + digits)) + 'e' + -digits)).toFixed(digits);
-        },
-
-        /**
-         * 移除指数表示
-         * @param x
-         * @returns {string}
-         */
-        removeExponent: function (x) {
-            if (Math.abs(x) < 1.0) {
-                var e = parseInt(x.toString().split('e-')[1]);
-                if (e) {
-                    x *= Math.pow(10, e - 1);
-                    x = '0.' + (new Array(e)).join('0') + x.toString().substring(2);
-                }
-            } else {
-                var e = parseInt(x.toString().split('+')[1]);
-                if (e > 20) {
-                    e -= 20;
-                    x /= Math.pow(10, e);
-                    x += (new Array(e + 1)).join('0');
-                }
-            }
+    /**
+     * 固定小数位数
+     * @param x
+     * @param digits
+     * @returns {string|*}
+     * @alias module:_.toFixed
+     */
+    _.toFixed = function (x, digits) {
+        if (typeof (x) == "undefined" || x === '') {
+            return '';
+        } else if (!_.isNumeric(x)) {
             return x;
-        },
-
-        /**
-         * 判断两个小数数值是否相等
-         * 示例：
-         * equal(0.1+0.2, 0.3) 结果：true
-         * @param x
-         * @param y
-         * @returns {boolean}
-         */
-        equal: function (x, y) {
-            return Math.abs(x - y) < this.EPSILON;
-        },
-
-        /**
-         * 比较两数大小，x>y返回1，x==y返回0，否则返回-1
-         * @param x
-         * @param y
-         * @returns {number}
-         */
-        compare: function (x, y) {
-            if (this.equal(x, y)) return 0;
-            else if (x > y) return 1;
-            else return -1;
         }
-    }
+        digits = digits || this.DEFAULT_SCALE;
+        x = (x + '').replace("E", "e");
+        if ((x + '').indexOf('e') != -1) {
+            return (+(Math.round(+(x)) + 'e' + -digits)).toFixed(digits);
+        }
+        return (+(Math.round(+(x + 'e' + digits)) + 'e' + -digits)).toFixed(digits);
+    };
+
+    /**
+     * 移除数值指数表示
+     * @param x
+     * @returns {string}
+     * @alias module:_.toFixed
+     */
+    _.removeExponent = function (x) {
+        if (Math.abs(x) < 1.0) {
+            var e = parseInt(x.toString().split('e-')[1]);
+            if (e) {
+                x *= Math.pow(10, e - 1);
+                x = '0.' + (new Array(e)).join('0') + x.toString().substring(2);
+            }
+        } else {
+            var e = parseInt(x.toString().split('+')[1]);
+            if (e > 20) {
+                e -= 20;
+                x /= Math.pow(10, e);
+                x += (new Array(e + 1)).join('0');
+            }
+        }
+        return x;
+    };
+
+    /**
+     * 判断两个小数数值是否相等
+     * 示例：
+     * equal(0.1+0.2, 0.3) 结果：true
+     * @param x
+     * @param y
+     * @returns {boolean}
+     * @alias module:_.numEqual
+     */
+    _.numEqual = function (x, y) {
+        return Math.abs(x - y) < this.EPSILON;
+    };
+
+    /**
+     * 比较两数大小，x>y返回1，x==y返回0，否则返回-1
+     * @param x
+     * @param y
+     * @returns {number}
+     * @alias module:_.numCompare
+     */
+    _.numCompare = function (x, y) {
+        if (_.numEqual(x, y)) return 0;
+        else if (x > y) return 1;
+        else return -1;
+    };
 
     //这里继续扩展函数
     //示例:_.a1=function(){};
@@ -938,6 +977,7 @@
      * 扩展支持
      * @param obj
      * @returns {_}
+     * @alias module:_.extend
      */
     _.extend = function (obj) {
         _.each(_.functions(obj), function (name) {

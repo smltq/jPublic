@@ -10,18 +10,26 @@
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "templates": {
-    "name": "jPublic工具类文档",
+    "name": "jPublic工具文档",
+    "footerText": "jPublic工具文档",
+    //"useCollapsibles": true,
     "cleverLinks": true,
     "monospaceLinks": true,
     "default": {
       "outputSourceFiles": true
     },
     "applicationName": "jPublic",
-    "openGraph": {},
-    "meta": {}
+    "logo": {
+      "url": "https://avatars0.githubusercontent.com/u/7008389?s=460&v=4",
+      "width": "30px",
+      "height": "30px",
+      "link": "https://github.com/smltq/jPublic"
+    }
   },
   "opts": {
+    //模板路径
     "template": "node_modules/tui-jsdoc-template",
+    //输出目录
     "destination": "docs"
   }
 }
