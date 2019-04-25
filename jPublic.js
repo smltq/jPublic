@@ -974,7 +974,7 @@
     //示例:_.a1=function(){};
 
     /**
-     * 扩展支持
+     * 允许自己的实用程序函数扩展jPublic。传递一个 {name: function}定义的哈希添加到jPublic对象，以及面向对象封装。
      * @param obj
      * @returns {_}
      * @alias module:_.extend
