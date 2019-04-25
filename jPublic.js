@@ -847,7 +847,7 @@
 
     /**
      * 默认数值保留小数位数
-     * @alias _.DEFAULT_SCALE
+     * @alias module:_.DEFAULT_SCALE
      */
     _.DEFAULT_SCALE = 2;
 
@@ -856,7 +856,7 @@
      * @param x
      * @param y
      * @returns {number}
-     * @alias _.numAdd
+     * @alias module:_.numAdd
      */
     _.numAdd = function (x, y) {
         var result = Number(x) + Number(y);
@@ -868,7 +868,7 @@
      * @param x
      * @param y
      * @returns {number}
-     * @alias _.numSubtract
+     * @alias module:_.numSubtract
      */
     _.numSubtract = function (x, y) {
         var result = Number(x) - Number(y);
