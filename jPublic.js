@@ -262,7 +262,7 @@
     };
 
     /**
-     * 复制文本到剪切板(注意非ES标准，部分浏览器可能不支持）
+     * 复制文本到剪切板
      * @alias module:_.copyToClipboard
      */
     _.copyToClipboard = function (text) {

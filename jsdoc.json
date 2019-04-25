@@ -12,7 +12,7 @@
   "templates": {
     "name": "jPublic工具文档",
     "footerText": "jPublic工具文档",
-    //"useCollapsibles": true,
+    "useCollapsibles": true,
     "cleverLinks": true,
     "monospaceLinks": true,
     "default": {
