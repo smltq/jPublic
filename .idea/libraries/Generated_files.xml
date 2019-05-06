@@ -8,6 +8,8 @@
         <item url="file://$PROJECT_DIR$/docs/scripts/prettify/prettify.min.js" />
         <item url="file://$PROJECT_DIR$/docs/scripts/tui-doc.min.js" />
         <item url="file://$PROJECT_DIR$/jPublic.min.js" />
+        <item url="file://$PROJECT_DIR$/jPublicj.spec.min.js" />
+        <item url="file://$PROJECT_DIR$/karma.conf.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -17,6 +19,8 @@
       <root url="file://$PROJECT_DIR$/docs/scripts/prettify/prettify.min.js" />
       <root url="file://$PROJECT_DIR$/docs/scripts/tui-doc.min.js" />
       <root url="file://$PROJECT_DIR$/jPublic.min.js" />
+      <root url="file://$PROJECT_DIR$/jPublicj.spec.min.js" />
+      <root url="file://$PROJECT_DIR$/karma.conf.min.js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
