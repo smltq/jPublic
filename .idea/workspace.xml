@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81c2882c-8157-4b58-8d7f-3cb536976d37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/jPublicj.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jPublicj.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/karma.conf.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -55,19 +56,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.spec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jPublicj.spec.js">
+        <entry file="file://$PROJECT_DIR$/karma.conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="374">
+              <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/Index.html" />
         <option value="$PROJECT_DIR$/out/jPublic.js.html" />
         <option value="$PROJECT_DIR$/conf.json" />
@@ -136,6 +148,9 @@
         <option value="$PROJECT_DIR$/jPublic.js" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/jPublicj.spec.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/index.spec.js" />
+        <option value="$PROJECT_DIR$/karma.conf.js" />
       </list>
     </option>
   </component>
@@ -284,7 +299,8 @@
       <workItem from="1556153743434" duration="70000" />
       <workItem from="1556156398092" duration="8749000" />
       <workItem from="1557043792780" duration="3007000" />
-      <workItem from="1557126191707" duration="4093000" />
+      <workItem from="1557126191707" duration="4139000" />
+      <workItem from="1557139789019" duration="1465000" />
     </task>
     <task id="LOCAL-00001" summary="压缩文件支持及uglify-js插件增加">
       <created>1554866209456</created>
@@ -447,11 +463,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557049369926</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="单元测试增加">
+      <created>1557131160961</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1557131160961</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94400000" />
+    <option name="totallyTimeSpent" value="95911000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,10 +486,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="909" y="18" width="975" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49172187" visible="true" weight="0.20255864" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49172187" visible="true" weight="0.41967213" />
       <window_info id="Structure" order="1" sideWeight="0.5074627" side_tool="true" weight="0.18336888" />
       <window_info id="npm" order="2" sideWeight="0.50827813" side_tool="true" weight="0.20042644" />
       <window_info id="Designer" order="3" />
@@ -482,7 +505,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4936034" weight="0.32814237" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.48560768" visible="true" weight="0.32814237" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48560768" visible="true" weight="0.3499407" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5063966" side_tool="true" weight="0.32777777" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -550,7 +573,8 @@
     <MESSAGE value="API文档完善提交" />
     <MESSAGE value="karma单元测试增加" />
     <MESSAGE value="开源协议更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="开源协议更新" />
+    <MESSAGE value="单元测试增加" />
+    <option name="LAST_COMMIT_MESSAGE" value="单元测试增加" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -568,7 +592,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/.bin/uglifyjs.cmd" />
     <entry file="file://$PROJECT_DIR$/node_modules/.bin/uglifyjs" />
-    <entry file="file://$PROJECT_DIR$/index.js" />
     <entry file="file://$PROJECT_DIR$/jPublic.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -722,6 +745,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/karma.conf.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/jPublic.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -733,27 +766,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/karma.conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jPublicj.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>

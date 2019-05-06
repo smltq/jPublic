@@ -2,24 +2,28 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/coverage/Chrome 73.0.3683 (Windows 7.0.0)/prettify.min.js" />
+        <item url="file://$PROJECT_DIR$/coverage/Chrome 73.0.3683 (Windows 7.0.0)/sorter.min.js" />
         <item url="file://$PROJECT_DIR$/docs/scripts/jquery.min.min.js" />
         <item url="file://$PROJECT_DIR$/docs/scripts/linenumber.min.js" />
         <item url="file://$PROJECT_DIR$/docs/scripts/prettify/lang-css.min.js" />
         <item url="file://$PROJECT_DIR$/docs/scripts/prettify/prettify.min.js" />
         <item url="file://$PROJECT_DIR$/docs/scripts/tui-doc.min.js" />
+        <item url="file://$PROJECT_DIR$/index.min.js" />
         <item url="file://$PROJECT_DIR$/jPublic.min.js" />
-        <item url="file://$PROJECT_DIR$/jPublicj.spec.min.js" />
         <item url="file://$PROJECT_DIR$/karma.conf.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/coverage/Chrome 73.0.3683 (Windows 7.0.0)/prettify.min.js" />
+      <root url="file://$PROJECT_DIR$/coverage/Chrome 73.0.3683 (Windows 7.0.0)/sorter.min.js" />
       <root url="file://$PROJECT_DIR$/docs/scripts/jquery.min.min.js" />
       <root url="file://$PROJECT_DIR$/docs/scripts/linenumber.min.js" />
       <root url="file://$PROJECT_DIR$/docs/scripts/prettify/lang-css.min.js" />
       <root url="file://$PROJECT_DIR$/docs/scripts/prettify/prettify.min.js" />
       <root url="file://$PROJECT_DIR$/docs/scripts/tui-doc.min.js" />
+      <root url="file://$PROJECT_DIR$/index.min.js" />
       <root url="file://$PROJECT_DIR$/jPublic.min.js" />
-      <root url="file://$PROJECT_DIR$/jPublicj.spec.min.js" />
       <root url="file://$PROJECT_DIR$/karma.conf.min.js" />
     </CLASSES>
     <JAVADOC />
