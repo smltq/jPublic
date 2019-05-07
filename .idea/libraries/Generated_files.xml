@@ -12,6 +12,16 @@
         <item url="file://$PROJECT_DIR$/index.min.js" />
         <item url="file://$PROJECT_DIR$/jPublic.min.js" />
         <item url="file://$PROJECT_DIR$/karma.conf.min.js" />
+        <item url="file://$PROJECT_DIR$/test/arrays.min.js" />
+        <item url="file://$PROJECT_DIR$/test/chaining.min.js" />
+        <item url="file://$PROJECT_DIR$/test/collections.min.js" />
+        <item url="file://$PROJECT_DIR$/test/cross-document.min.js" />
+        <item url="file://$PROJECT_DIR$/test/functions.min.js" />
+        <item url="file://$PROJECT_DIR$/test/objects.min.js" />
+        <item url="file://$PROJECT_DIR$/test/qunit-setup.min.js" />
+        <item url="file://$PROJECT_DIR$/test/utility.min.js" />
+        <item url="file://$PROJECT_DIR$/test/vendor/qunit.min.js" />
+        <item url="file://$PROJECT_DIR$/test/vendor/qunit.min.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -25,6 +35,16 @@
       <root url="file://$PROJECT_DIR$/index.min.js" />
       <root url="file://$PROJECT_DIR$/jPublic.min.js" />
       <root url="file://$PROJECT_DIR$/karma.conf.min.js" />
+      <root url="file://$PROJECT_DIR$/test/arrays.min.js" />
+      <root url="file://$PROJECT_DIR$/test/chaining.min.js" />
+      <root url="file://$PROJECT_DIR$/test/collections.min.js" />
+      <root url="file://$PROJECT_DIR$/test/cross-document.min.js" />
+      <root url="file://$PROJECT_DIR$/test/functions.min.js" />
+      <root url="file://$PROJECT_DIR$/test/objects.min.js" />
+      <root url="file://$PROJECT_DIR$/test/qunit-setup.min.js" />
+      <root url="file://$PROJECT_DIR$/test/utility.min.js" />
+      <root url="file://$PROJECT_DIR$/test/vendor/qunit.min.js" />
+      <root url="file://$PROJECT_DIR$/test/vendor/qunit.min.min.js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

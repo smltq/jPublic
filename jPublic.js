@@ -12,7 +12,7 @@
     var root = (typeof self == 'object' && self.self === self && self) ||
         (typeof global == 'object' && global.global === global && global) || this || {};
 
-    var ArrayProto = Array.prototype;
+    var ArrayProto = Array.prototype, ObjProto = Object.prototype;
     var push = ArrayProto.push;
 
     /**
@@ -79,10 +79,89 @@
         var length = getLength(collection);
         return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
     };
+
+    // An internal function to generate callbacks that can be applied to each
+    // element in a collection, returning the desired result — either `identity`,
+    // an arbitrary callback, a property matcher, or a property accessor.
+    var cb = function(value, context, argCount) {
+        if (_.iteratee !== builtinIteratee) return _.iteratee(value, context);
+        if (value == null) return _.identity;
+        if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+        if (_.isObject(value) && !_.isArray(value)) return _.matcher(value);
+        return _.property(value);
+    };
+
+    // An internal function for creating assigner functions.
+    var createAssigner = function(keysFunc, defaults) {
+        return function(obj) {
+            var length = arguments.length;
+            if (defaults) obj = Object(obj);
+            if (length < 2 || obj == null) return obj;
+            for (var index = 1; index < length; index++) {
+                var source = arguments[index],
+                    keys = keysFunc(source),
+                    l = keys.length;
+                for (var i = 0; i < l; i++) {
+                    var key = keys[i];
+                    if (!defaults || obj[key] === void 0) obj[key] = source[key];
+                }
+            }
+            return obj;
+        };
+    };
+
+    var collectNonEnumProps = function(obj, keys) {
+        var nonEnumIdx = nonEnumerableProps.length;
+        var constructor = obj.constructor;
+        var proto = _.isFunction(constructor) && constructor.prototype || ObjProto;
+
+        // Constructor is a special case.
+        var prop = 'constructor';
+        if (has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+
+        while (nonEnumIdx--) {
+            prop = nonEnumerableProps[nonEnumIdx];
+            if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
+                keys.push(prop);
+            }
+        }
+    };
     //私有成员结束
 
     //集合函数开始
     //---------------
+    // External wrapper for our callback generator. Users may customize
+    // `_.iteratee` if they want additional predicate/iteratee shorthand styles.
+    // This abstraction hides the internal-only argCount argument.
+    _.iteratee = builtinIteratee = function(value, context) {
+        return cb(value, context, Infinity);
+    };
+
+    // Returns a predicate for checking whether an object has a given set of
+    // `key:value` pairs.
+    _.matcher = _.matches = function(attrs) {
+        attrs = _.extendOwn({}, attrs);
+        return function(obj) {
+            return _.isMatch(obj, attrs);
+        };
+    };
+
+    // Assigns a given object with all the own properties in the passed-in object(s).
+    // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+    _.extendOwn = _.assign = createAssigner(_.keys);
+
+    // Returns whether an object has a given set of `key:value` pairs.
+    _.isMatch = function(object, attrs) {
+        var keys = _.keys(attrs), length = keys.length;
+        if (object == null) return !length;
+        var obj = Object(object);
+        for (var i = 0; i < length; i++) {
+            var key = keys[i];
+            if (attrs[key] !== obj[key] || !(key in obj)) return false;
+        }
+        return true;
+    };
+
     /**
      * 遍历list中的所有元素，按顺序用遍历输出每个元素。
      * 如果传递了context参数，则把iteratee绑定到context对象上。每次调用iteratee都会传递三个参数：(element, index, list)。
@@ -499,6 +578,61 @@
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 
+    // Determine whether all of the elements match a truth test.
+    // Aliased as `all`.
+    _.every = _.all = function(obj, predicate, context) {
+        predicate = cb(predicate, context);
+        var keys = !isArrayLike(obj) && _.keys(obj),
+            length = (keys || obj).length;
+        for (var index = 0; index < length; index++) {
+            var currentKey = keys ? keys[index] : index;
+            if (!predicate(obj[currentKey], currentKey, obj)) return false;
+        }
+        return true;
+    };
+
+    // Determine if at least one element in the object matches a truth test.
+    // Aliased as `any`.
+    _.some = _.any = function(obj, predicate, context) {
+        predicate = cb(predicate, context);
+        var keys = !isArrayLike(obj) && _.keys(obj),
+            length = (keys || obj).length;
+        for (var index = 0; index < length; index++) {
+            var currentKey = keys ? keys[index] : index;
+            if (predicate(obj[currentKey], currentKey, obj)) return true;
+        }
+        return false;
+    };
+
+    // Retrieve the names of an object's own properties.
+    // Delegates to **ECMAScript 5**'s native `Object.keys`.
+    _.keys = function(obj) {
+        if (!_.isObject(obj)) return [];
+        if (nativeKeys) return nativeKeys(obj);
+        var keys = [];
+        for (var key in obj) if (has(obj, key)) keys.push(key);
+        // Ahem, IE < 9.
+        if (hasEnumBug) collectNonEnumProps(obj, keys);
+        return keys;
+    };
+
+    /**
+     * 创建对象的(浅克隆)副本
+     * @param obj
+     * @returns {*|_|*}
+     * @alias module:_.clone
+     */
+    _.clone = function (obj) {
+        if (!_.isObject(obj)) return obj;
+        return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+    };
+
+    _.templateSettings = {
+        evaluate: /<%([\s\S]+?)%>/g,
+        interpolate: /<%=([\s\S]+?)%>/g,
+        escape: /<%-([\s\S]+?)%>/g
+    };
+
     //通用函数结束
 
     //日期相关开始
@@ -837,7 +971,6 @@
         return true;
     };
     //数组工具相关结束
-
 
     /**
      * 精度范围

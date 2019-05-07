@@ -10,15 +10,25 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'qunit'],
 
+        plugins: ['karma-qunit'],
 
         // list of files / patterns to load in the browser
         files: [
+            'jPublic.js',
             'index.js',
             'index.spec.js'
         ],
 
+        // client configuration
+        client: {
+            clearContext: false,
+            qunit: {
+                showUI: true,
+                testTimeout: 5000
+            }
+        },
 
         // list of files / patterns to exclude
         exclude: [],
