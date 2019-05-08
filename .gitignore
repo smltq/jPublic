@@ -1,3 +1,5 @@
 node_modules
 /.idea
 /*.iml
+/karma.conf.min.js
+/karma.conf.min.js.map
