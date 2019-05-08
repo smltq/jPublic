@@ -4,21 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81c2882c-8157-4b58-8d7f-3cb536976d37" name="Default Changelist" comment="单元测试增加">
-      <change afterPath="$PROJECT_DIR$/test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/qunit-setup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/utility.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/vendor/qunit.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/vendor/qunit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.js" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jPublic.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/jPublic.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/karma.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="81c2882c-8157-4b58-8d7f-3cb536976d37" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jPublic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="323" column="39" lean-forward="true" selection-start-line="323" selection-start-column="39" selection-end-line="323" selection-end-column="39" />
+            <state relative-caret-position="390">
+              <caret line="326" column="6" lean-forward="true" selection-start-line="326" selection-start-column="6" selection-end-line="326" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -118,8 +104,8 @@
       <find>getRa</find>
       <find>keys</find>
       <find>Number.MAX_VALUE</find>
-      <find>getRandom</find>
       <find>advanceTaskQueue</find>
+      <find>getRandom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,7 +201,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="D:/Program Files/nodejs/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -301,7 +287,7 @@
       <workItem from="1557139789019" duration="1651000" />
       <workItem from="1557190498455" duration="611000" />
       <workItem from="1557195970132" duration="2897000" />
-      <workItem from="1557216291056" duration="9015000" />
+      <workItem from="1557216291056" duration="9213000" />
     </task>
     <task id="LOCAL-00001" summary="压缩文件支持及uglify-js插件增加">
       <created>1554866209456</created>
@@ -478,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557141395944</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="单元测试相关">
+      <created>1557227024871</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1557227024871</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108620000" />
+    <option name="totallyTimeSpent" value="108818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -583,7 +576,8 @@
     <MESSAGE value="karma单元测试增加" />
     <MESSAGE value="开源协议更新" />
     <MESSAGE value="单元测试增加" />
-    <option name="LAST_COMMIT_MESSAGE" value="单元测试增加" />
+    <MESSAGE value="单元测试相关" />
+    <option name="LAST_COMMIT_MESSAGE" value="单元测试相关" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -856,8 +850,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jPublic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="323" column="39" lean-forward="true" selection-start-line="323" selection-start-column="39" selection-end-line="323" selection-end-column="39" />
+        <state relative-caret-position="390">
+          <caret line="326" column="6" lean-forward="true" selection-start-line="326" selection-start-column="6" selection-end-line="326" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
