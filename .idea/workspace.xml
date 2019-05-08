@@ -37,30 +37,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jPublic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="326" column="6" lean-forward="true" selection-start-line="326" selection-start-column="6" selection-end-line="326" selection-end-column="6" />
+            <state relative-caret-position="186">
+              <caret line="314" column="6" lean-forward="true" selection-start-line="314" selection-start-column="6" selection-end-line="314" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/utility.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -184,11 +166,6 @@
               <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
               <item name="jPublic" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="jPublic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jPublic" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -288,6 +265,7 @@
       <workItem from="1557190498455" duration="611000" />
       <workItem from="1557195970132" duration="2897000" />
       <workItem from="1557216291056" duration="9213000" />
+      <workItem from="1557280824117" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="压缩文件支持及uglify-js插件增加">
       <created>1554866209456</created>
@@ -475,7 +453,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108818000" />
+    <option name="totallyTimeSpent" value="109058000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,13 +468,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49172187" visible="true" weight="0.21108742" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49172187" visible="true" weight="0.21321961" />
       <window_info id="Structure" order="1" sideWeight="0.5074627" side_tool="true" weight="0.18336888" />
       <window_info id="npm" order="2" sideWeight="0.50827813" side_tool="true" weight="0.20042644" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.5058043" side_tool="true" weight="0.18017058" />
-      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49733475" weight="0.3303671" />
@@ -510,6 +487,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48560768" weight="0.32814237" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5063966" side_tool="true" weight="0.32777777" />
       <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -593,7 +571,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/.bin/uglifyjs" />
     <entry file="file://$PROJECT_DIR$/jPublic.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -800,19 +777,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/.eslintrc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/.eslintrc" />
     <entry file="file://$PROJECT_DIR$/test/qunit-setup.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/collections.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/collections.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/jasmine-core/lib/jasmine-core/jasmine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -848,10 +817,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/jPublic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="326" column="6" lean-forward="true" selection-start-line="326" selection-start-column="6" selection-end-line="326" selection-end-column="6" />
+        <state relative-caret-position="186">
+          <caret line="314" column="6" lean-forward="true" selection-start-line="314" selection-start-column="6" selection-end-line="314" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
