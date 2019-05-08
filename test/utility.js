@@ -13,16 +13,16 @@
         }
     });
 
-    QUnit.test('random', function (assert) {
+    QUnit.test('获取随机数：getRandom', function (assert) {
         var array = _.getRandom(1000);
         var min = Math.pow(2, 31);
         var max = Math.pow(2, 62);
         assert.ok(_.every(array, function () {
-            return _.getRandom(min, max) >= min;
-        }), 'should produce a random number greater than or equal to the minimum number');
+            return _.getRandom(max, min) >= min;
+        }), '是否应该产生一个大于或等于最小值的随机数');
 
         assert.ok(_.some(array, function () {
             return _.getRandom(Number.MAX_VALUE) > 0;
-        }), 'should produce a random number when passed `Number.MAX_VALUE`');
+        }), '当传递“Number.MAX_VALUE”时，应该生成一个随机数');
     });
 }());

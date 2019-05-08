@@ -13,7 +13,21 @@
         (typeof global == 'object' && global.global === global && global) || this || {};
 
     var ArrayProto = Array.prototype, ObjProto = Object.prototype;
-    var push = ArrayProto.push;
+
+    /**
+     * 为快速访问核心原型创建快速引用变量
+     */
+    var push = ArrayProto.push,
+        toString = ObjProto.toString,
+        hasOwnProperty = ObjProto.hasOwnProperty;
+
+    /**
+     * 定义将要实现的 ECMAScript 5 原生方法
+     */
+    var nativeKeys = Object.keys;
+
+    var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
+    var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString', 'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
 
     /**
      * 创建全局对象:_
@@ -32,7 +46,7 @@
      * @default
      * @alias module:_.VERSION
      */
-    _.VERSION = '1.2.2';
+    _.VERSION = '1.2.3';
 
     if (typeof exports != 'undefined' && !exports.nodeType) {
         if (typeof module != 'undefined' && !module.nodeType && module.exports) {
@@ -73,6 +87,10 @@
         };
     };
 
+    var has = function (obj, path) {
+        return obj != null && hasOwnProperty.call(obj, path);
+    }
+
     var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
     var getLength = shallowProperty('length');
     var isArrayLike = function (collection) {
@@ -80,10 +98,12 @@
         return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
     };
 
+    var builtinIteratee;
+
     // An internal function to generate callbacks that can be applied to each
     // element in a collection, returning the desired result — either `identity`,
     // an arbitrary callback, a property matcher, or a property accessor.
-    var cb = function(value, context, argCount) {
+    var cb = function (value, context, argCount) {
         if (_.iteratee !== builtinIteratee) return _.iteratee(value, context);
         if (value == null) return _.identity;
         if (_.isFunction(value)) return optimizeCb(value, context, argCount);
@@ -92,8 +112,8 @@
     };
 
     // An internal function for creating assigner functions.
-    var createAssigner = function(keysFunc, defaults) {
-        return function(obj) {
+    var createAssigner = function (keysFunc, defaults) {
+        return function (obj) {
             var length = arguments.length;
             if (defaults) obj = Object(obj);
             if (length < 2 || obj == null) return obj;
@@ -110,7 +130,7 @@
         };
     };
 
-    var collectNonEnumProps = function(obj, keys) {
+    var collectNonEnumProps = function (obj, keys) {
         var nonEnumIdx = nonEnumerableProps.length;
         var constructor = obj.constructor;
         var proto = _.isFunction(constructor) && constructor.prototype || ObjProto;
@@ -130,28 +150,43 @@
 
     //集合函数开始
     //---------------
-    // External wrapper for our callback generator. Users may customize
-    // `_.iteratee` if they want additional predicate/iteratee shorthand styles.
-    // This abstraction hides the internal-only argCount argument.
-    _.iteratee = builtinIteratee = function(value, context) {
+    /**
+     * 生成可应用于集合中的每个元素的回调。
+     * _.iteratee支持许多常见回调用例的简写语法。
+     * @param value
+     * @param context
+     * @alias module:_.iteratee
+     */
+    _.iteratee = builtinIteratee = function (value, context) {
         return cb(value, context, Infinity);
     };
 
-    // Returns a predicate for checking whether an object has a given set of
-    // `key:value` pairs.
-    _.matcher = _.matches = function(attrs) {
+    /**
+     * 返回一个断言函数，这个函数会给你一个断言可以用来辨别给定的对象是否匹配attrs指定键/值属性。
+     * @param attrs
+     * @alias module:_.matcher
+     */
+    _.matcher = function (attrs) {
         attrs = _.extendOwn({}, attrs);
-        return function(obj) {
+        return function (obj) {
             return _.isMatch(obj, attrs);
         };
     };
 
-    // Assigns a given object with all the own properties in the passed-in object(s).
-    // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-    _.extendOwn = _.assign = createAssigner(_.keys);
+    /**
+     * 类似于 extend, 但只复制自己的属性覆盖到目标对象。（注：不包括继承过来的属性）。
+     * @type {Function}
+     * @alias module:_.extendOwn
+     */
+    _.extendOwn = createAssigner(_.keys);
 
-    // Returns whether an object has a given set of `key:value` pairs.
-    _.isMatch = function(object, attrs) {
+    /**
+     * 告诉你properties中的键和值是否包含在object中。
+     * @param object
+     * @param attrs
+     * @alias module:_.isMatch
+     */
+    _.isMatch = function (object, attrs) {
         var keys = _.keys(attrs), length = keys.length;
         if (object == null) return !length;
         var obj = Object(object);
@@ -315,15 +350,18 @@
     };
 
     /**
-     * 随机返回指定范围的数字。参数是两个的时候，返回传入的两个参数的区间的随机函数；参数是一个的时候，返回0到这个数的随机函数(max>=result>=min)
-     * @param max 随机数上限
+     * 返回一个min 和 max之间的随机整数。如果你只传递一个参数，那么将返回0和这个参数之间的整数
      * @param min 随机数下限,没传默认为0
+     * @param max 随机数上限
      * @returns {number}
      * @alias module:_.getRandom
      */
-    _.getRandom = function (max, min) {
-        min = arguments[1] || 0;
-        return Math.floor(Math.random() * (max - min + 1) + min);
+    _.getRandom = function (min, max) {
+        if (max == null) {
+            max = min;
+            min = 0;
+        }
+        return min + Math.floor(Math.random() * (max - min + 1));
     };
 
     /**
@@ -578,35 +616,58 @@
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 
-    // Determine whether all of the elements match a truth test.
-    // Aliased as `all`.
-    _.every = _.all = function(obj, predicate, context) {
+    /**
+     * 如果list中的所有元素都通过predicate的真值检测就返回true。
+     * （注：如果存在原生的every方法，就使用原生的every。）
+     * predicate 通过 iteratee 进行转换，以简化速记语法。
+     * @param list
+     * @param predicate
+     * @param context
+     * @returns {boolean}
+     * @alias module:_.every
+     */
+    _.every = function (list, predicate, context) {
         predicate = cb(predicate, context);
-        var keys = !isArrayLike(obj) && _.keys(obj),
-            length = (keys || obj).length;
+        var keys = !isArrayLike(list) && _.keys(list),
+            length = (keys || list).length;
         for (var index = 0; index < length; index++) {
             var currentKey = keys ? keys[index] : index;
-            if (!predicate(obj[currentKey], currentKey, obj)) return false;
+            if (!predicate(list[currentKey], currentKey, list)) return false;
         }
         return true;
     };
 
-    // Determine if at least one element in the object matches a truth test.
-    // Aliased as `any`.
-    _.some = _.any = function(obj, predicate, context) {
+    /**
+     * 如果list中有任何一个元素通过 predicate 的真值检测就返回true。
+     * 一旦找到了符合条件的元素, 就直接中断对list的遍历。
+     * predicate 通过 iteratee 进行转换，以简化速记语法。
+     * @param list
+     * @param predicate
+     * @param context
+     * @returns {boolean}
+     * @alias module:_.some
+     */
+    _.some = function (list, predicate, context) {
         predicate = cb(predicate, context);
-        var keys = !isArrayLike(obj) && _.keys(obj),
-            length = (keys || obj).length;
+        var keys = !isArrayLike(list) && _.keys(list),
+            length = (keys || list).length;
         for (var index = 0; index < length; index++) {
             var currentKey = keys ? keys[index] : index;
-            if (predicate(obj[currentKey], currentKey, obj)) return true;
+            if (predicate(list[currentKey], currentKey, list)) return true;
         }
         return false;
     };
 
-    // Retrieve the names of an object's own properties.
-    // Delegates to **ECMAScript 5**'s native `Object.keys`.
-    _.keys = function(obj) {
+    /**
+     * 检索object拥有的所有可枚举属性的名称。
+     * 示例：
+     * _.keys({one: 1, two: 2, three: 3});
+     * => ["one", "two", "three"]
+     * @param obj
+     * @returns {Array|*}
+     * @alias module:_.keys
+     */
+    _.keys = function (obj) {
         if (!_.isObject(obj)) return [];
         if (nativeKeys) return nativeKeys(obj);
         var keys = [];
