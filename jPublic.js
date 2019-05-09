@@ -659,6 +659,45 @@
     };
 
     /**
+     * 一个用来创建整数灵活编号的列表的函数，便于each 和 map循环。
+     * 如果省略start则默认为 0；
+     * step 默认为 1.返回一个从start 到stop的整数的列表，用step来增加 （或减少）独占。
+     * 值得注意的是，如果stop值在start前面（也就是stop值小于start值），那么值域会被认为是零长度，而不是负增长。-如果你要一个负数的值域 ，请使用负数step.
+     * 示例：
+     _.range(10);
+     => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+     _.range(1, 11);
+     => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+     _.range(0, 30, 5);
+     => [0, 5, 10, 15, 20, 25]
+     _.range(0, -10, -1);
+     => [0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+     _.range(0);
+     => []
+     * @param start
+     * @param stop
+     * @param step
+     * @returns {any[]}
+     * @alias module:_.range
+     */
+    _.range = function (start, stop, step) {
+        if (stop == null) {
+            stop = start || 0;
+            start = 0;
+        }
+        if (!step) {
+            step = stop < start ? -1 : 1;
+        }
+        var length = Math.max(Math.ceil((stop - start) / step), 0);
+        var range = Array(length);
+
+        for (var idx = 0; idx < length; idx++, start += step) {
+            range[idx] = start;
+        }
+        return range;
+    };
+
+    /**
      * 检索object拥有的所有可枚举属性的名称。
      * 示例：
      * _.keys({one: 1, two: 2, three: 3});
