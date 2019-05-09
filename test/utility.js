@@ -18,7 +18,7 @@
         var min = Math.pow(2, 31);
         var max = Math.pow(2, 62);
         assert.ok(_.every(array, function () {
-            return _.getRandom(max, min) >= min;
+            return _.getRandom(min, max) >= min;
         }), '是否应该产生一个大于或等于最小值的随机数');
 
         assert.ok(_.some(array, function () {
