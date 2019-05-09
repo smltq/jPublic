@@ -2,7 +2,7 @@
     var _ = typeof require == 'function' ? require('..') : window._;
     var templateSettings;
 
-    QUnit.module('Utility', {
+    QUnit.module('utility', {
 
         beforeEach: function () {
             templateSettings = _.clone(_.templateSettings);
@@ -14,7 +14,7 @@
     });
 
     QUnit.test('获取随机数：getRandom', function (assert) {
-        var array = _.getRandom(1000);
+        var array = _.range(1000);
         var min = Math.pow(2, 31);
         var max = Math.pow(2, 62);
         assert.ok(_.every(array, function () {
