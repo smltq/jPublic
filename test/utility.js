@@ -25,4 +25,6 @@
             return _.getRandom(Number.MAX_VALUE) > 0;
         }), '当传递“Number.MAX_VALUE”时，应该生成一个随机数');
     });
+
+
 }());
