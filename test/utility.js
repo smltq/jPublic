@@ -26,5 +26,9 @@
         }), '当传递“Number.MAX_VALUE”时，应该生成一个随机数');
     });
 
+    QUnit.test('字节格式化：formatBytes', function (assert) {
+        assert.ok(_.formatBytes(1024) == '1 KB', 'KB转换正确');
+        console.log(_.formatBytes(1024));
+    });
 
 }());
