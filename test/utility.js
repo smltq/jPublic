@@ -27,8 +27,9 @@
     });
 
     QUnit.test('字节格式化：formatBytes', function (assert) {
-        assert.ok(_.formatBytes(1024) == '1 KB', 'KB转换正确');
-        console.log(_.formatBytes(1024));
+        assert.ok(_.formatBytes(1024) == '1 KB', '1KB转换正确');
+        assert.ok(_.formatBytes('1024') == '1 KB', '1KB转换正确');
+        assert.ok(_.formatBytes(1234) == '1.21 KB', '1.21KB转换正确');
+        assert.ok(_.formatBytes(1234, 3) == '1.205 KB', '1.205KB转换正确');
     });
-
 }());
