@@ -33,28 +33,13 @@
         assert.ok(_.formatBytes(1234, 3) == '1.205 KB', '1.205KB转换正确');
     });
 	
-   QUnit.test('比较两个数值的大小：numCompare', function (assert) {
+    QUnit.test('比较两个数值的大小：numCompare', function (assert) {
         assert.ok(_.numCompare(3,5)==-1,'判断正确'）;
-<<<<<<< .mine
 		assert.ok(_.numCompare('ab',3)==0,'不同类型无法判断'）;
 		assert.ok(_.numCompare(3,3)==0,'两个数值相等'）;
 		assert.ok(_.numCompare(0.1,0.11)==-1,'判断正确'）;
 		assert.ok(_.numCompare(-1,-2)==1,'判断正确'）;
 		assert.ok(_.numCompare(0,-1)==1,'判断正确'）;
      });
-||||||| .r58
-		assert.ok(_.numCompare('ab',3)==0,'不同类型无法判断'）;
-		assert.ok(_.numCompare(3,3)==0,'两个数值相等'）;
-		assert.ok(_.numCompare(0.1,0.11)==-1,'判断正确'）;
-		assert.ok(_.numCompare(-1,-2)==1,'判断正确'）;
-		assert.ok(_.numCompare(0,-1)==1,'判断正确'）;
-     })；
-=======
-	assert.ok(_.numCompare('ab',3)==0,'不同类型无法判断'）;
-	assert.ok(_.numCompare(3,3)==0,'两个数值相等'）;
-	assert.ok(_.numCompare(0.1,0.11)==-1,'判断正确'）;
-	assert.ok(_.numCompare(-1,-2)==1,'判断正确'）;
-	assert.ok(_.numCompare(0,-1)==1,'判断正确'）;
-   })；
->>>>>>> .r59
+
 }());
