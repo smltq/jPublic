@@ -43,19 +43,19 @@
         assert.ok(_.numCompare(-1, -2) == 1, '-1>-2,判断正确');
         assert.ok(_.numCompare(0, -1) == 1, '0>-1,判断正确');
     });
-	
-	QUnit.test('去左空格：ltrim', function (assert) {
-		assert.ok(_.ltrim('    abcdegfg',' ') == 'abcdegfg','    abcdegfg去除左空格成功');
-		assert.ok(_.ltrim('  dff  fad',' ') =='dff  fad','  dff  fad去除左空格成功');
-		assert.ok(_.ltrim('dff  fad',' ') =='dff  fad','dff  fad去除左空格成功');
-		assert.ok(_.ltrim('_ad',' ') =='_ad','_ad不含左空格');
-	});
-	
-	QUnit.test('去右空格：rtrim', function (assert) {
-		assert.ok(_.rtrim('abcdegfg     ',' ') == 'abcdegfg','abcdegfg     去除右空格成功');
-		assert.ok(_.rtrim('abcd  egfg     ',' ') == 'abcd  egfg','abcd  egfg     去除右空格成功');
-		assert.ok(_.rtrim('abcd  egfg',' ') == 'abcd  egfg','abcd  egfg去除右空格成功');
-		assert.ok(_.rtrim('ab——',' ') == 'ab——','ab——不含右空格');	
-	});
-	
+
+    QUnit.test('去左空格：ltrim', function (assert) {
+        assert.ok(_.ltrim('    abcdegfg', ' ') == 'abcdegfg', '    abcdegfg去除左空格成功');
+        assert.ok(_.ltrim('  dff  fad', ' ') == 'dff  fad', '  dff  fad去除左空格成功');
+        assert.ok(_.ltrim('dff  fad', ' ') == 'dff  fad', 'dff  fad去除左空格成功');
+        assert.ok(_.ltrim('_ad', ' ') == '_ad', '_ad不含左空格');
+    });
+
+    QUnit.test('去右空格：rtrim', function (assert) {
+        assert.ok(_.rtrim('abcdegfg     ', ' ') == 'abcdegfg', 'abcdegfg     去除右空格成功');
+        assert.ok(_.rtrim('abcd  egfg     ', ' ') == 'abcd  egfg', 'abcd  egfg     去除右空格成功');
+        assert.ok(_.rtrim('abcd  egfg', ' ') == 'abcd  egfg', 'abcd  egfg去除右空格成功');
+        assert.ok(_.rtrim('ab——', ' ') == 'ab——', 'ab——不含右空格');
+    });
+
 }());
