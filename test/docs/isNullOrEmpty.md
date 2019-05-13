@@ -27,7 +27,7 @@
 
 有人可能觉得，判断一个字符串为空，直接写成这样：
 
-1. 
+a. 
 ```js
     if (str) {
         //为空
@@ -41,21 +41,21 @@
 
 网络上还有很多各种情况的空字符串判断，如下：
 
-2. 
+b. 
 ```js
   if (variable1 !== null || variable1 !== undefined || variable1 !== '') { 
     var variable2 = variable1; 
   }
 ```
 
-3. 
+c. 
 ```js
    function isEmpty(property) {
       return (property === null || property === "" || typeof property === "undefined");
    }
 ```
 
-4. 
+d. 
 ```js
 function isEmpty(strIn) {
     if (strIn === undefined) {
@@ -70,7 +70,7 @@ function isEmpty(strIn) {
 }
 ```
 
-5. 
+e. 
 ```js
 String.isEmpty = function (value) {
     return (!value || value == undefined || value == "" || value.length == 0);
@@ -134,9 +134,9 @@ String.isEmpty = function (value) {
 
 ### 单元测试运行结果
 
-demo: 字符串空判断：empty (8)Rerun1 ms(表示7个用例都通过测试)
-demo: 字符串空判断：empty1 (5, 3, 8)Rerun7 ms(表示7个用例有5个测试未通过)
-demo: 字符串空判断：isNullOrEmpty (8)Rerun(表示7个用例都通过测试)
+String: 字符串空判断：empty (7)Rerun2 ms           ============>>>表示7个用例都通过测试
+String: 字符串空判断：empty1 (5, 2, 7)Rerun2 ms    ============>>>表示7个用例有5个测试未通过
+String: 字符串空判断：isNullOrEmpty (7)Rerun       ============>>>表示7个用例都通过测试
 
 ### 运行效果图
 
