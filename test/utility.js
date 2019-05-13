@@ -43,4 +43,9 @@
         assert.ok(_.numCompare(-1, -2) == 1, '-1>-2,判断正确');
         assert.ok(_.numCompare(0, -1) == 1, '0>-1,判断正确');
     });
+	
+	QUnit.test('去左空格：ltrim', function (assert) {
+		assert.ok(_.ltrim('    abcdegfg',' ') == 'abcdegfg','去除空格成功')
+	});
+	
 }());
