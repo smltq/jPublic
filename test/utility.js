@@ -34,13 +34,28 @@
     });
 
     QUnit.test('比较两个数值的大小：numCompare', function (assert) {
-        assert.ok(_.numCompare(3, 5) == -1, '判断正确');
+        assert.ok(_.numCompare(3, 5) == -1, '3<5,判断正确');
         assert.throws(function () {
             _.numCompare('ab', 3)
-        }, '不同类型无法判断');
-        assert.ok(_.numCompare(3, 3) == 0, '两个数值相等');
-        assert.ok(_.numCompare(0.1, 0.11) == -1, '判断正确');
-        assert.ok(_.numCompare(-1, -2) == 1, '判断正确');
-        assert.ok(_.numCompare(0, -1) == 1, '判断正确');
+        }, 'ab与3是不同类型无法判断');
+        assert.ok(_.numCompare(3, 3) == 0, '3>3，两个数值相等,判断错误');
+        assert.ok(_.numCompare(0.1, 0.11) == -1, '0.1<0.11,判断正确');
+        assert.ok(_.numCompare(-1, -2) == 1, '-1>-2,判断正确');
+        assert.ok(_.numCompare(0, -1) == 1, '0>-1,判断正确');
     });
+	
+	QUnit.test('去左空格：ltrim', function (assert) {
+		assert.ok(_.ltrim('    abcdegfg',' ') == 'abcdegfg','    abcdegfg去除左空格成功');
+		assert.ok(_.ltrim('  dff  fad',' ') =='dff  fad','  dff  fad去除左空格成功');
+		assert.ok(_.ltrim('dff  fad',' ') =='dff  fad','dff  fad去除左空格成功');
+		assert.ok(_.ltrim('_ad',' ') =='_ad','_ad不含左空格');
+	});
+	
+	QUnit.test('去右空格：rtrim', function (assert) {
+		assert.ok(_.rtrim('abcdegfg     ',' ') == 'abcdegfg','abcdegfg     去除右空格成功');
+		assert.ok(_.rtrim('abcd  egfg     ',' ') == 'abcd  egfg','abcd  egfg     去除右空格成功');
+		assert.ok(_.rtrim('abcd  egfg',' ') == 'abcd  egfg','abcd  egfg去除右空格成功');
+		assert.ok(_.rtrim('ab——',' ') == 'ab——','ab——不含右空格');	
+	});
+	
 }());
