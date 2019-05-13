@@ -63,6 +63,7 @@ Require.js      require(["jPublic"]
 
 ## 在线文档
 - API文档：https://smltq.github.io/jPublic/
+- 博客：https://www.cnblogs.com/tqlin/
 
 ## 许可证
 [MIT](LICENSE "MIT")
