@@ -1,7 +1,7 @@
 /**
  * @file js工具库.
  * @copyright jPublic.js 2019
- * @author tqlin <271657370@qq.com>
+ * @author https://github.com/smltq/jPublic.git
  */
 (function () {
     // 基线开始
