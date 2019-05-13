@@ -16,7 +16,7 @@
 ```
 ### 这种写法缺点
 - 代码比较长，难于记住
-- 需要复制的时候需要找代码，费时间
+- 需要复制的时候要找代码，费时间
 
 ### 解决方案
 
@@ -27,7 +27,7 @@
 
 有人可能觉得，判断一个字符串为空，直接写成这样：
 
-1.
+1. 
 ```js
     if (str) {
         //为空
@@ -35,27 +35,27 @@
         //不为空
     }
 ```
-这样在实际生产环境中并没有什么问题，何必要如上写一段这么长的代码来判断，对于这种情况。（PS:一些特殊数据下，真的就显示正常吗？针对这种情况，我下面会写出测试用例来判断运行结果）
+在实际生产环境中并没有什么问题，何必要如上写一段这么长的代码来判断。（PS:一些特殊数据下，真的就显示正常吗？针对这种情况，我下面会写出测试用例来判断运行结果）
 
 ### 其它判断空代码
 
 网络上还有很多各种情况的空字符串判断，如下：
 
-2.
+2. 
 ```js
   if (variable1 !== null || variable1 !== undefined || variable1 !== '') { 
     var variable2 = variable1; 
   }
 ```
 
-3.
+3. 
 ```js
    function isEmpty(property) {
       return (property === null || property === "" || typeof property === "undefined");
    }
 ```
 
-4.
+4. 
 ```js
 function isEmpty(strIn) {
     if (strIn === undefined) {
@@ -70,7 +70,7 @@ function isEmpty(strIn) {
 }
 ```
 
-5.
+5. 
 ```js
 String.isEmpty = function (value) {
     return (!value || value == undefined || value == "" || value.length == 0);
@@ -100,7 +100,6 @@ String.isEmpty = function (value) {
         assert.ok(empty(null), "empty空字符串判断正确");
         assert.ok(empty(""), "empty空字符串判断正确");
         assert.ok(empty(''), "empty空字符串判断正确");
-        assert.ok(empty('undefined'), "empty空字符串判断正确");
     });
 
     QUnit.test('字符串空判断：empty1', function (assert) {
@@ -119,7 +118,6 @@ String.isEmpty = function (value) {
         assert.ok(empty1(null), "empty1空字符串判断正确");
         assert.ok(empty1(""), "empty1空字符串判断正确");
         assert.ok(empty1(''), "empty1空字符串判断正确");
-        assert.ok(empty1('undefined'), "empty1空字符串判断正确");
     });
 
     QUnit.test('字符串空判断：isNullOrEmpty', function (assert) {
@@ -131,15 +129,14 @@ String.isEmpty = function (value) {
         assert.ok(_.isNullOrEmpty(null), "isNullOrEmpty 空字符串判断正确");
         assert.ok(_.isNullOrEmpty(""), "isNullOrEmpty 空字符串判断正确");
         assert.ok(_.isNullOrEmpty(''), "isNullOrEmpty 空字符串判断正确");
-        assert.ok(_.isNullOrEmpty('undefined'), "isNullOrEmpty 空字符串判断正确");
     });
 ```
 
 ### 单元测试运行结果
 
-demo: 字符串空判断：empty (8)Rerun1 ms(表示8个用例都通过测试)
-demo: 字符串空判断：empty1 (5, 3, 8)Rerun7 ms(表示8个用例有5个测试为通过)
-demo: 字符串空判断：isNullOrEmpty (8)Rerun(表示8个用例都通过测试)
+demo: 字符串空判断：empty (8)Rerun1 ms(表示7个用例都通过测试)
+demo: 字符串空判断：empty1 (5, 3, 8)Rerun7 ms(表示7个用例有5个测试未通过)
+demo: 字符串空判断：isNullOrEmpty (8)Rerun(表示7个用例都通过测试)
 
 ### 运行效果图
 

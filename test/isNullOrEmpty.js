@@ -1,6 +1,6 @@
 (function () {
     var _ = typeof require == 'function' ? require('..') : window._;
-    QUnit.module('demo');
+    QUnit.module('String');
 
     QUnit.test('字符串空判断：empty', function (assert) {
         function empty(str) {
@@ -19,7 +19,6 @@
         assert.ok(empty(null), "empty空字符串判断正确");
         assert.ok(empty(""), "empty空字符串判断正确");
         assert.ok(empty(''), "empty空字符串判断正确");
-        assert.ok(empty('undefined'), "empty空字符串判断正确");
     });
 
     QUnit.test('字符串空判断：empty1', function (assert) {
@@ -38,7 +37,6 @@
         assert.ok(empty1(null), "empty1空字符串判断正确");
         assert.ok(empty1(""), "empty1空字符串判断正确");
         assert.ok(empty1(''), "empty1空字符串判断正确");
-        assert.ok(empty1('undefined'), "empty1空字符串判断正确");
     });
 
     QUnit.test('字符串空判断：isNullOrEmpty', function (assert) {
@@ -50,6 +48,5 @@
         assert.ok(_.isNullOrEmpty(null), "isNullOrEmpty 空字符串判断正确");
         assert.ok(_.isNullOrEmpty(""), "isNullOrEmpty 空字符串判断正确");
         assert.ok(_.isNullOrEmpty(''), "isNullOrEmpty 空字符串判断正确");
-        assert.ok(_.isNullOrEmpty('undefined'), "isNullOrEmpty 空字符串判断正确");
     });
 }());
