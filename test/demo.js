@@ -32,5 +32,8 @@
         // assert.ok(notEmpty(student.skill), "非空字符串判断正确");
         // assert.ok(notEmpty(null), "非空字符串判断正确");
         // assert.ok(!notEmpty('undefined'), "非空字符串判断正确");
+
+
+
     });
 }());
