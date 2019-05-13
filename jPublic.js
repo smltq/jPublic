@@ -507,11 +507,10 @@
      * @alias module:_.isNullOrEmpty
      */
     _.isNullOrEmpty = function (str) {
-        if (null == str || typeof str == "undefined" || str == "") {
+        if (str == 'undefined' || !str || _.trim(str) === '') {
             return true;
         }
-        str = _.trim(str);
-        return str.length == 0;
+        return false;
     };
 
     /**
