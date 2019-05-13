@@ -32,13 +32,36 @@
         assert.ok(_.formatBytes(1234) == '1.21 KB', '1.21KB转换正确');
         assert.ok(_.formatBytes(1234, 3) == '1.205 KB', '1.205KB转换正确');
     });
-	
-   QUnit.test('比较两个数值的大小：numCompare', function (assert) {
-        assert.ok(_.numCompare(3,5)==-1,'判断正确'）;
-	assert.ok(_.numCompare('ab',3)==0,'不同类型无法判断'）;
-	assert.ok(_.numCompare(3,3)==0,'两个数值相等'）;
-	assert.ok(_.numCompare(0.1,0.11)==-1,'判断正确'）;
-	assert.ok(_.numCompare(-1,-2)==1,'判断正确'）;
-	assert.ok(_.numCompare(0,-1)==1,'判断正确'）;
-   })；
+
+    QUnit.test('比较两个数值的大小：numCompare', function (assert) {
+        assert.ok(_.numCompare(3, 5) == -1, '判断正确');
+        assert.throws(_.numCompare('ab', 3), "不同类型无法判断");
+        assert.ok(_.numCompare(3, 3) == 0, '两个数值相等');
+        assert.ok(_.numCompare(0.1, 0.11) == -1, '判断正确');
+        assert.ok(_.numCompare(-1, -2) == 1, '判断正确');
+        assert.ok(_.numCompare(0, -1) == 1, '判断正确');
+    });
+
+    QUnit.test('字符串空判断：isNullOrEmpty', function (assert) {
+        function empty(str) {
+            if (typeof str == 'undefined' || !str || str.length === 0 || str === "" || !/[^\s]/.test(str) || /^\s*$/.test(str) || str.replace(/\s/g, "") === "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function notEmpty(str) {
+            if (!str) {
+                return true;
+            }
+            return false;
+        }
+
+        var student = {className: "测试班", name: "我是张三", age: 18};
+        assert.ok(notEmpty("   "), "非空字符串判断正确");
+        assert.ok(notEmpty(student.skill), "非空字符串判断正确");
+        assert.ok(notEmpty(null), "非空字符串判断正确");
+        assert.ok(notEmpty('undefined'), "非空字符串判断正确");
+    });
 }());

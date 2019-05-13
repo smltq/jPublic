@@ -1198,6 +1198,9 @@
      * @alias module:_.numCompare
      */
     _.numCompare = function (x, y) {
+        if (!_.isNumeric(x) || !_.isNumeric(y)) {
+            throw "Parameter is not a number!";
+        }
         if (_.numEqual(x, y)) return 0;
         else if (x > y) return 1;
         else return -1;
