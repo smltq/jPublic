@@ -507,7 +507,7 @@
      * @alias module:_.isNullOrEmpty
      */
     _.isNullOrEmpty = function (str) {
-        if (!str || _.trim(str) === '') {
+        if (str == 'undefined' || !str || _.trim(str) === '') {
             return true;
         }
         return false;
