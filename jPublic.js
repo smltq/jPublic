@@ -501,6 +501,19 @@
     };
 
     /**
+     * 如果object是一个参数对象，返回true。
+     * (function(){ return _.isArguments(arguments); })(1, 2, 3);
+     * => true
+     * _.isArguments([1,2,3]);
+     * => false
+     */
+    if (!_.isArguments(arguments)) {
+        _.isArguments = function (obj) {
+            return has(obj, 'callee');
+        };
+    }
+
+    /**
      * 是否为空字符串
      * @param str
      * @returns {boolean}
@@ -511,6 +524,23 @@
             return true;
         }
         return false;
+    };
+
+    /**
+     * 如果object 不包含任何值(没有可枚举的属性)，返回true。
+     * 对于字符串和类数组（array-like）对象，如果length属性为 0，那么_.isEmpty检查返回true。
+     * _.isEmpty([1, 2, 3]);
+     * => false
+     * _.isEmpty({});
+     * => true
+     * @param obj
+     * @returns {boolean}
+     */
+    _.isEmpty = function (obj) {
+        if (obj == null) return true;
+        if (isArrayLike(obj) && (_.isArray(obj) || _.isArguments(obj))) return obj.length === 0;
+        if (_.isString(obj)) return _.isNullOrEmpty(obj);
+        return _.keys(obj).length === 0;
     };
 
     /**
