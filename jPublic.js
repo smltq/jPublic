@@ -44,9 +44,10 @@
      * 当前版本号
      * @type {string}
      * @default
+     * @readOnly
      * @alias module:_.VERSION
      */
-    _.VERSION = '1.2.3';
+    _.VERSION = '1.8.3';
 
     if (typeof exports != 'undefined' && !exports.nodeType) {
         if (typeof module != 'undefined' && !module.nodeType && module.exports) {
@@ -99,10 +100,6 @@
     };
 
     var builtinIteratee;
-
-    // An internal function to generate callbacks that can be applied to each
-    // element in a collection, returning the desired result — either `identity`,
-    // an arbitrary callback, a property matcher, or a property accessor.
     var cb = function (value, context, argCount) {
         if (_.iteratee !== builtinIteratee) return _.iteratee(value, context);
         if (value == null) return _.identity;
@@ -111,7 +108,6 @@
         return _.property(value);
     };
 
-    // An internal function for creating assigner functions.
     var createAssigner = function (keysFunc, defaults) {
         return function (obj) {
             var length = arguments.length;
@@ -135,7 +131,7 @@
         var constructor = obj.constructor;
         var proto = _.isFunction(constructor) && constructor.prototype || ObjProto;
 
-        // Constructor is a special case.
+        //构造函数是一种特殊情况
         var prop = 'constructor';
         if (has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
 
@@ -151,11 +147,26 @@
     //集合函数开始
     //---------------
     /**
-     * 生成可应用于集合中的每个元素的回调。
-     * _.iteratee支持许多常见回调用例的简写语法。
+     * 生成可应用于集合中的每个元素的回调。<br>
+     * _.iteratee支持许多常见回调用例的简写语法。<br>
+     * 根据值的类型，_.iteratee 各种结果
      * @param value
      * @param context
      * @alias module:_.iteratee
+     * @method
+     * @example
+     * // 空值
+     * _.iteratee();
+     * => _.identity()
+     * // 函数
+     * _.iteratee(function(n) { return n * 2; });
+     * => function(n) { return n * 2; }
+     * // 对象
+     * _.iteratee({firstName: 'Chelsea'});
+     * => _.matcher({firstName: 'Chelsea'});
+     * // 其它
+     * _.iteratee('firstName');
+     * => _.property('firstName');
      */
     _.iteratee = builtinIteratee = function (value, context) {
         return cb(value, context, Infinity);
@@ -165,6 +176,9 @@
      * 返回一个断言函数，这个函数会给你一个断言可以用来辨别给定的对象是否匹配attrs指定键/值属性。
      * @param attrs
      * @alias module:_.matcher
+     * @example
+     * var ready = _.matcher({selected: true, visible: true});
+     * var readyToGoList = _.filter(list, ready);
      */
     _.matcher = function (attrs) {
         attrs = _.extendOwn({}, attrs);
@@ -181,10 +195,14 @@
     _.extendOwn = createAssigner(_.keys);
 
     /**
-     * 告诉你properties中的键和值是否包含在object中。
-     * @param object
-     * @param attrs
+     * 判断properties中的键和值是否包含在object中。
+     * @param {Object} object   查找目标
+     * @param {Object} attrs    查找对象
      * @alias module:_.isMatch
+     * @example
+     * var stooge = {name: 'moe', age: 32};
+     * _.isMatch(stooge, {age: 32});
+     * => true
      */
     _.isMatch = function (object, attrs) {
         var keys = _.keys(attrs), length = keys.length;
@@ -198,14 +216,20 @@
     };
 
     /**
-     * 遍历list中的所有元素，按顺序用遍历输出每个元素。
-     * 如果传递了context参数，则把iteratee绑定到context对象上。每次调用iteratee都会传递三个参数：(element, index, list)。
-     * 如果list是个JavaScript对象，iteratee的参数是 (value, key, list))。
-     * 返回list以方便链式调用。
-     * @param obj
-     * @param iteratee
-     * @param context
+     * 遍历list中的所有元素，按顺序用遍历输出每个元素。<br>
+     * 如果传递了context参数，则把iteratee绑定到context对象上。<br>
+     * 每次调用iteratee都会传递三个参数：(element, index, list)。<br>
+     * 如果list是个JavaScript对象，iteratee的参数是 (value, key, list))。<br>
+     * 返回list以方便链式调用。<br>
+     * @param {Object} obj   遍历目标
+     * @param {Function} iteratee   迭代器
+     * @param {Object} context  绑定的目标对象
      * @alias module:_.each
+     * @example
+     * _.each([1, 2, 3], alert);
+     * => 依次提示每个数字...
+     * _.each({one: 1, two: 2, three: 3}, alert);
+     * => 依次提示每个数字...
      */
     _.each = function (obj, iteratee, context) {
         iteratee = optimizeCb(iteratee, context);
@@ -227,10 +251,13 @@
     //通用函数开始
     //---------------
     /**
-     * 返回对象上可用函数列表
-     * @param obj
+     * 返回一个对象里所有的方法名, 而且是已经排序的 — 也就是说, 对象里每个方法(属性值是一个函数)的名称.
+     * @param {Object}  obj 查找对象
      * @returns {this}
      * @alias module:_.functions
+     * @example
+     * _.functions(_);
+     * => ["arrayDiff", "arrayEquals", "arrayIsRepeat", "clone", "debounce", "defineColor" ...
      */
     _.functions = function (obj) {
         var names = [];
@@ -241,8 +268,8 @@
     };
 
     /**
-     * 获得当前Url的参数
-     * @param name
+     * 获得当前Url参数值
+     * @param {String}  name    参数名
      * @returns {string|null}
      * @alias module:_.getUrlParam
      */
@@ -257,11 +284,14 @@
 
     /**
      * 函数去抖,空闲时间大于或等于wait，执行fn
-     * @param fn 要调用的函数
-     * @param wait 延迟时间，单位毫秒
-     * @param immediate 给immediate参数传递false绑定的函数先执行，而不是wait之后执行
+     * @param {Function}    fn          要调用的函数
+     * @param {Integer}     wait        延迟时间(单位毫秒)
+     * @param {Boolean}     immediate   给immediate参数传递false绑定的函数先执行，而不是wait之后执行
      * @returns 实际调用函数
      * @alias module:_.debounce
+     * @example
+     * var lazyLayout = _.debounce(calculateLayout, 300);
+     * $(window).resize(lazyLayout);
      */
     _.debounce = function (fn, wait, immediate) {
         var timeout;
@@ -280,11 +310,14 @@
 
     /**
      * 函数节流 每wait时间间隔，执行fn
-     * @param fn 要调用的函数
-     * @param wait 延迟时间，单位毫秒
-     * @param scope scope代替fn里this的对象
+     * @param {Function}    fn      要调用的函数
+     * @param {Integer}     wait    延迟时间，单位毫秒
+     * @param {Object}      scope   scope代替fn里this的对象
      * @returns {Function} 实际调用函数
      * @alias module:_.throttle
+     * @example
+     * var throttled = _.throttle(updatePosition, 100);
+     * $(window).scroll(throttled);
      */
     _.throttle = function (fn, wait, scope) {
         wait || (wait = 250);
@@ -307,7 +340,19 @@
 
     /**
      * 函数只执行一次
+     * @param {Function}    fn      要执行的函数
+     * @param {Object}      context 上下文
+     * @returns {function(): *}
      * @alias module:_.runOnce
+     * @example
+     * var a = 0;
+     * var canOnlyFireOnce = runOnce(function () {
+     *      a++;
+     *      console.log(a);
+     * });
+     * canOnlyFireOnce(); =>1
+     * canOnlyFireOnce(); => nothing
+     * canOnlyFireOnce(); => nothing
      */
     _.runOnce = function (fn, context) {
         var result;
@@ -322,17 +367,30 @@
 
     /**
      * 轮询条件函数，根据状态执行相应回调
-     * @param fn 条件函数
-     * @param callback 成功回调
-     * @param errback 失败回调
-     * @param timeout 超时间隔
-     * @param interval 轮询间隔
+     * @param {Function}    fn          条件函数
+     * @param {Function}    callback    成功回调
+     * @param {Function}    errback     失败回调
+     * @param {Integer}     timeout     超时间隔(毫秒)
+     * @param {Integer}     interval    轮询间隔(毫秒)
      * @alias module:_.poll
+     * @example
+     *
+     * 确保元素可见
+     * poll(
+     *    function () {
+     *       return document.getElementById('lightbox').offsetWidth > 0;
+     *    },
+     *    function () {
+     *       // Done, success callback
+     *    },
+     *    function () {
+     *      // Error, failure callback
+     *    }
+     * );
      */
     _.poll = function (fn, callback, errback, timeout, interval) {
         var endTime = Number(new Date()) + (timeout || 2000);
         interval = interval || 100;
-
         (function p() {
             // 如果条件满足，调用回调
             if (fn()) {
@@ -350,13 +408,17 @@
     };
 
     /**
-     * 返回一个min 和 max之间的随机整数。如果你只传递一个参数，那么将返回0和这个参数之间的整数
+     * 返回一个min 和 max之间的随机整数。<br>
+     * 如果你只传递一个参数，那么将返回0和这个参数之间的整数
      * @param min 随机数下限,没传默认为0
      * @param max 随机数上限
      * @returns {number}
      * @alias module:_.getRandom
+     * @example
+     * _.random(0, 100);
+     * => 48
      */
-    _.getRandom = function (min, max) {
+    _.getRandom =function (min, max) {
         if (max == null) {
             max = min;
             min = 0;
@@ -404,14 +466,15 @@
 
     /**
      * 定义操作列
-     * 示例：
-     * var arr = [
-     * { text: "删除", fn: "detailDataGrid.Delete({0})" },
-     * {text: "修改", fn: "detailDataGrid.Edit({0})" }]
-     * @param arr
-     * @param value
-     * @returns {string|string}
+     * @param {Array} arr   一个数组
+     * @param {Integer} value   对应行的id值
+     * @returns {string} 返回html字符串
      * @alias module:_.defineOperate
+     *
+     * @example
+     * var arr = [
+     *      { text: "删除", fn: "detailDataGrid.Delete({0})" },
+     *      {text: "修改", fn: "detailDataGrid.Edit({0})" }]
      */
     _.defineOperate = function (arr, value) {
         var str = "";
