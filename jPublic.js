@@ -418,7 +418,7 @@
      * _.random(0, 100);
      * => 48
      */
-    _.getRandom =function (min, max) {
+    _.getRandom = function (min, max) {
         if (max == null) {
             max = min;
             min = 0;
@@ -564,19 +564,6 @@
     };
 
     /**
-     * 如果object是一个参数对象，返回true。
-     * (function(){ return _.isArguments(arguments); })(1, 2, 3);
-     * => true
-     * _.isArguments([1,2,3]);
-     * => false
-     */
-    if (!_.isArguments(arguments)) {
-        _.isArguments = function (obj) {
-            return has(obj, 'callee');
-        };
-    }
-
-    /**
      * 是否为空字符串
      * @param str
      * @returns {boolean}
@@ -634,6 +621,17 @@
      */
     _.isString = function (value) {
         return typeof value === 'string';
+    };
+
+    /**
+     * 如果object是一个参数对象，返回true。
+     * (function(){ return _.isArguments(arguments); })(1, 2, 3);
+     * => true
+     * _.isArguments([1,2,3]);
+     * => false
+     */
+    _.isArguments = function (obj) {
+        return has(obj, 'callee');
     };
 
     /**
