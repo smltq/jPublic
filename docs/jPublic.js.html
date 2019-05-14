@@ -51,7 +51,7 @@
             <pre class="prettyprint source linenums"><code>/**
  * @file js工具库.
  * @copyright jPublic.js 2019
- * @author tqlin &lt;271657370@qq.com>
+ * @author https://github.com/smltq/jPublic.git
  */
 (function () {
     // 基线开始
@@ -551,17 +551,46 @@
     };
 
     /**
+     * 如果object是一个参数对象，返回true。
+     * (function(){ return _.isArguments(arguments); })(1, 2, 3);
+     * => true
+     * _.isArguments([1,2,3]);
+     * => false
+     */
+    if (!_.isArguments(arguments)) {
+        _.isArguments = function (obj) {
+            return has(obj, 'callee');
+        };
+    }
+
+    /**
      * 是否为空字符串
      * @param str
      * @returns {boolean}
      * @alias module:_.isNullOrEmpty
      */
     _.isNullOrEmpty = function (str) {
-        if (null == str || typeof str == "undefined" || str == "") {
+        if (!str || _.trim(str) === '') {
             return true;
         }
-        str = _.trim(str);
-        return str.length == 0;
+        return false;
+    };
+
+    /**
+     * 如果object 不包含任何值(没有可枚举的属性)，返回true。
+     * 对于字符串和类数组（array-like）对象，如果length属性为 0，那么_.isEmpty检查返回true。
+     * _.isEmpty([1, 2, 3]);
+     * => false
+     * _.isEmpty({});
+     * => true
+     * @param obj
+     * @returns {boolean}
+     */
+    _.isEmpty = function (obj) {
+        if (obj == null) return true;
+        if (isArrayLike(obj) &amp;&amp; (_.isArray(obj) || _.isArguments(obj))) return obj.length === 0;
+        if (_.isString(obj)) return _.isNullOrEmpty(obj);
+        return _.keys(obj).length === 0;
     };
 
     /**
@@ -1248,6 +1277,9 @@
      * @alias module:_.numCompare
      */
     _.numCompare = function (x, y) {
+        if (!_.isNumeric(x) || !_.isNumeric(y)) {
+            throw "Parameter is not a number!";
+        }
         if (_.numEqual(x, y)) return 0;
         else if (x > y) return 1;
         else return -1;
