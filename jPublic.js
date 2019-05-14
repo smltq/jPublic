@@ -374,7 +374,6 @@
      * @param {Integer}     interval    轮询间隔(毫秒)
      * @alias module:_.poll
      * @example
-     *
      * 确保元素可见
      * poll(
      *    function () {
@@ -428,8 +427,18 @@
 
     /**
      * 获取表单数据
-     * @param frm
+     * @param {Object}    frm   表单对象
      * @alias module:_.getFormJson
+     * @example
+     * 获得表单数据，自动拼接成json对象，提交给服务端
+     * $.ajax({
+     *     type: 'post',
+     *     url: 'your url',
+     *     data: _.getFormJson($('#formId')),
+     *     success: function(data) {
+     *       // your code
+     *     }
+     *   });
      */
     _.getFormJson = function (frm) {
         var o = {};
@@ -441,7 +450,7 @@
     };
 
     /**
-     * 复制文本到剪切板
+     * 复制文本到剪切板(适用于Chrome、Firefox、Internet Explorer和Edge，以及Safari)
      * @alias module:_.copyToClipboard
      */
     _.copyToClipboard = function (text) {
@@ -475,6 +484,8 @@
      * var arr = [
      *      { text: "删除", fn: "detailDataGrid.Delete({0})" },
      *      {text: "修改", fn: "detailDataGrid.Edit({0})" }]
+     * _.defineOperate(arr,3)
+     * =><a style='cursor: pointer;' onclick='detailDataGrid.Delete(3)' href='javascript:;'>删除</a> | <a style='cursor: pointer;' onclick='detailDataGrid.Edit(3)' href='javascript:;'>修改</a>
      */
     _.defineOperate = function (arr, value) {
         var str = "";
@@ -489,7 +500,10 @@
 
     /**
      * 获取当前网站根路径
+     * @returns {string}
      * @alias module:_.getRootPath
+     * @example
+     * http://localhost:8083/tqlin
      */
     _.getRootPath = function () {
         var curPath = window.document.location.href;
@@ -502,7 +516,13 @@
 
     /**
      * 格式化字符串
+     * @param {String} format   要格式化的字符串
+     * @returns {string | void}
+     * @returns {string}
      * @alias module:_.format
+     * @example
+     * _.format("Hello, {0}!","World")=>Hello, World
+     * _.format("Hello, {0}, My {1}!","World","Love You")=>Hello, World, My Love You
      */
     _.format = function (format) {
         var args = Array.prototype.slice.call(arguments, 1);
@@ -513,9 +533,13 @@
 
     /**
      * 去左右空格
-     * @param str 字符串
-     * @param chars 要移除的字符（默认为空白字符)
+     * @param {String} str 字符串
+     * @param {String} chars 要移除的字符（默认为空白字符)
+     * @returns {string}
      * @alias module:_.trim
+     * @example
+     * _.trim(" Hello ")=>"Hello"
+     * _.trim("_Hello_","_")=>"Hello"
      */
     _.trim = function (str, chars) {
         return this.ltrim(this.rtrim(str, chars), chars);
@@ -523,9 +547,13 @@
 
     /**
      * 去左空格
-     * @param str 字符串
-     * @param chars 要移除的字符（默认为空白字符)
+     * @param {String} str 字符串
+     * @param {String} chars 要移除的字符（默认为空白字符)
+     * @returns {string}
      * @alias module:_.ltrim
+     * @example
+     * _.ltrim(" Hello ")=>"Hello "
+     * _.ltrim("_Hello_","_")=>"Hello_"
      */
     _.ltrim = function (str, chars) {
         chars = chars || "\\s";
@@ -536,7 +564,11 @@
      * 去右空格
      * @param str 字符串
      * @param chars 要移除的字符（默认为空白字符)
+     * @returns {string}
      * @alias module:_.rtrim
+     * @example
+     * _.ltrim(" Hello ")=>" Hello"
+     * _.ltrim("_Hello_","_")=>"_Hello"
      */
     _.rtrim = function (str, chars) {
         chars = chars || "\\s";
@@ -544,8 +576,9 @@
     };
 
     /**
-     * 判断对象是否函数
-     * @param obj
+     * 如果obj是一个函数（Function），返回true。
+     * @param {Object} obj 验证对象
+     * @returns {boolean}
      * @alias module:_.isFunction
      */
     _.isFunction = function (obj) {
