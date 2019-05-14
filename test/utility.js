@@ -59,12 +59,14 @@
     });
 
     QUnit.test('判断是否为数组:_.isArray',function(assert){   
-        assert.ok(_.isArray([{1:2},{1:3}]) == true,'[{1:2},{1:3}]是数组');
+        //assert.ok(_.isArray([{1:2},{1:3}]) == true,'[{1:2},{1:3}]是数组');
+        assert.ok(_.isArray([1,2,3]) == true,'[1,2,3]是数组');
+		assert.ok(_.isArray([[1],[3]]) == true,'[[1],[3]]是数组');
         assert.ok(_.isArray([1]) == true,'[1]是数组');
         assert.ok(_.isArray([1],[2]) == true,'[1],[2]是数组');
         assert.ok(_.isArray({1:2}) == false,'{1:2}不是数组');
         //assert.ok(_.isArray(a) == false,'a不是数组');
-        assert.ok(_.isArray('a') == false,'不是数组');
+        assert.ok(_.isArray('a') == false,'字母a不是数组');
         assert.ok(_.isArray("a") == false,'"a"不是数组');
         assert.ok(_.isArray(123) == false,'123不是数组');
         assert.ok(_.isArray(null) == false,'null不是数组');
