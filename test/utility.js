@@ -71,6 +71,7 @@
         assert.ok(_.isArray(123) == false,'123不是数组');
         assert.ok(_.isArray(null) == false,'null不是数组');
         assert.ok(_.isArray(undefined) == false,'undefinded不是数组');
+        //assert.ok(_.isArray(['a','b','c']) == true,'['a','b','c']是数组');
     });
 
 }());
