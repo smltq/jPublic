@@ -70,8 +70,31 @@
         assert.ok(_.isArray("a") == false,'"a"不是数组');
         assert.ok(_.isArray(123) == false,'123不是数组');
         assert.ok(_.isArray(null) == false,'null不是数组');
+        assert.ok(_.isArray(true) == false,'true不是数组');
         assert.ok(_.isArray(undefined) == false,'undefinded不是数组');
-        //assert.ok(_.isArray(['a','b','c']) == true,'['a','b','c']是数组');
+        //assert.ok(_.isArray(['a','b','c']) == true,'['a','b','c']是数组.');
+    });
+
+    QUnit.test('判断是否为数值： _.isNumeric',function(assert){
+        assert.ok( _.isNumeric(123) == true,'123是数值');
+        assert.ok( _.isNumeric(0123) == true,'0123是数值');
+        assert.ok( _.isNumeric("123") == true,'"123"是数值');
+        assert.ok( _.isNumeric(0) == true,'0是数值');
+        assert.ok( _.isNumeric(123.12) == true,'123.12是数值');
+        assert.ok( _.isNumeric(+123) == true,'+123是数值');
+        assert.ok( _.isNumeric(-12) == true,'-12是数值');
+        assert.ok( _.isNumeric("-12") == true,'"-12"是数值');
+        assert.ok( _.isNumeric([1]) == true,'[1]是数值');
+        assert.ok( _.isNumeric([1,2]) == false,'[1,2]不是数值');
+        assert.ok( _.isNumeric(0xFF) == true,'0xFF是数值');
+        assert.ok( _.isNumeric("0xFF") == true,'"0xFF"是数值');
+        assert.ok( _.isNumeric(8e5) == true,'8e5是数值');
+        assert.ok( _.isNumeric("8e5") == true,'"0xFF"是数值');
+        assert.ok(_.isNumeric("a") == false,'"a"不是数值');
+        assert.ok(_.isNumeric(["a"]) == false,'["a"]不是数值');
+        assert.ok(_.isNumeric({11:2}) == false,'{11:2}不是数值');
+        assert.ok(_.isNumeric(null) == false,'null不是数值');
+        assert.ok(_.isNumeric(true) == false,'true不是数值');
     });
 
 }());
