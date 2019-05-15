@@ -49,6 +49,15 @@
         assert.ok(_.isNullOrEmpty(""), "isNullOrEmpty 空字符串判断正确");
         assert.ok(_.isNullOrEmpty(''), "isNullOrEmpty 空字符串判断正确");
 
-        console.log(_.shortDateFormat(_.now()));
+        var numbers = [
+            1.1234567890123456789e+30,
+            1.1234567890123456789e-30,
+            -1.1234567890123456789e+30,
+            -1.1234567890123456789e-30]
+
+        var i;
+        for (i=0;i<numbers.length;i++) {
+            console.log(_.removeExponent(numbers[i]));
+        }
     });
 }());

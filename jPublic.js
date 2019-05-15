@@ -1089,7 +1089,7 @@
 
     /**
      * 将时间格式化为指定格式的String
-     * @param {Number}  n   时间(单位毫秒)
+     * @param {Number}  n   时间(单位秒)
      * @returns {string}
      * @alias module:_.formatTime
      * @example
@@ -1107,9 +1107,14 @@
 
     /**
      * 反格式化,与formatTime函数相反
-     * @param string
+     * @param {String}  string  要格式化的时间字符串
      * @returns {number}
      * @alias module:_.unformatTime
+     * @example
+     * _.unformatTime('0:00:25');
+     * => 25
+     * _.unformatTime('17:44:06');
+     * => 63846
      */
     _.unformatTime = function (string) {
         var timeArray = string.split(':'), seconds = 0;
@@ -1134,12 +1139,17 @@
     //-------------
     /**
      * 数组差集，以第一个数组为主
-     * @param a
-     * @param b
+     * @param {Array}   a   主数组
+     * @param {Array}   b   次数组
      * @returns {*}
      * @alias module:_.arrayDiff
+     * @example
+     * var a = [1,2,3,4,5]
+     * var b = [2,4,6,8,10]
+     * _.difference(a, b)
+     * =>[1,3,5]
      */
-    _.arrayDiff = function (a, b) {
+    _.difference = function (a, b) {
         var filtered = a.filter(function (e) {
             return b.indexOf(e) === -1;
         });
@@ -1148,11 +1158,15 @@
 
     /**
      * 洗牌数组
-     * @param array
+     * @param {String}  array   要洗牌的数组
      * @returns {Array}
-     * @alias module:_.arrayShuffle
+     * @alias module:_.shuffle
+     * @example
+     * var a = [1,2,3,4,5]
+     * _.shuffle(a)
+     * => [3, 2, 4, 5, 1]
      */
-    _.arrayShuffle = function (array) {
+    _.shuffle = function (array) {
         var copy = [], n = array.length, i;
         while (n) {
             i = Math.floor(Math.random() * n--);
@@ -1163,11 +1177,19 @@
 
     /**
      * 数组元素是否重复
-     * @param arr
+     * @param {Array}   arr 要检查的数组对象
      * @returns {boolean}
-     * @alias module:_.arrayIsRepeat
+     * @alias module:_.isRepeat
+     * @example
+     * var a = [1, 2, 3, 4, 5];
+     * var b = [1, 2, 3, 5, 5];
+     * _.isRepeat(a);
+     * =>false
+     *
+     * _.isRepeat(b);
+     * =>true
      */
-    _.arrayIsRepeat = function (arr) {
+    _.isRepeat = function (arr) {
         var hash = {};
         for (var i in arr) {
             if (hash[arr[i]]) {
@@ -1180,11 +1202,15 @@
 
     /**
      * 数组去重
-     * @param arr
+     * @param {Array}   arr 要去重的数组
      * @returns {Array}
-     * @alias module:_.arrayUnique
+     * @alias module:_.unique
+     * @example
+     * var b = [1, 2, 3, 5, 5];
+     * _.unique(b);
+     * => [1, 2, 3, 5]
      */
-    _.arrayUnique = function (arr) {
+    _.unique = function (arr) {
         var a = [];
         for (var i = 0, l = arr.length; i < l; i++) {
             if (a.indexOf(arr[i]) === -1) {
@@ -1196,30 +1222,45 @@
 
     /**
      * 判断数组是否相等,默认为严格模式比较
-     * 示例：
+     * @param {Array}   a       第一个数组
+     * @param {Array}   b       第二个数组
+     * @param {Boolean} strict  是否严格比较（默认为true)
+     * @returns {boolean}
+     * @alias module:_.equals
+     * @example
      * var arr1 = [1, 2, 3, 4];
      * var arr2 = [2, 1, 4, 3];
      * var arr3 = [2, 2, 3, 4];
      * var arr4 = [1, 2, 3, 4];
-     * arr1.equals(arr2)==> false   arr1.equals(arr2, false)==>true
-     * arr1.equals(arr3)==>false    arr1.equals(arr3, false)==>false
-     * arr1.equals(arr4)==>true     arr1.equals(arr4, false)==>true
-     * @param array
-     * @param strict
-     * @returns {boolean}
-     * @alias module:_.arrayEquals
+     * _.equals(arr1,arr2);
+     * => false
+     *
+     * _.equals(arr1,arr2, false);
+     * =>true
+     *
+     * _.equals(arr1,arr3);
+     * =>false
+     *
+     * _.equals(arr1,arr3, false);
+     * =>false
+     *
+     * _.equals(arr1,arr4);
+     * =>true
+     *
+     * _.equals(arr1,arr4, false);
+     * =>true
      */
-    _.arrayEquals = function (array, strict) {
-        if (!array) return false;
-        if (arguments.length == 1) strict = true;
-        if (this.length != array.length) return false;
-        for (var i = 0; i < this.length; i++) {
-            if (this[i] instanceof Array && array[i] instanceof Array) {
-                if (!this[i].equals(array[i], strict)) return false;
-            } else if (strict && this[i] != array[i]) {
+    _.equals = function (a, b, strict) {
+        if (!b) return false;
+        if (arguments.length == 2) strict = true;
+        if (a.length != b.length) return false;
+        for (var i = 0; i < a.length; i++) {
+            if (a[i] instanceof Array && b[i] instanceof Array) {
+                if (!a[i].equals(b[i], strict)) return false;
+            } else if (strict && a[i] != b[i]) {
                 return false;
             } else if (!strict) {
-                return this.sort().equals(array.sort(), true);
+                return _.equals(a.sort(), b.sort(), true);
             }
         }
         return true;
@@ -1228,22 +1269,27 @@
 
     /**
      * 精度范围
+     * @readonly
      * @alias module:_.EPSILON
      */
     _.EPSILON = Math.pow(2, -52);
 
     /**
      * 默认数值保留小数位数
+     * @readonly
      * @alias module:_.DEFAULT_SCALE
      */
     _.DEFAULT_SCALE = 2;
 
     /**
      * 加
-     * @param x
-     * @param y
+     * @param {*}  x   第一个数值
+     * @param {*}  y   第二个数组
      * @returns {number}
      * @alias module:_.numAdd
+     * @example
+     * _.numAdd('3',5);
+     * =>8
      */
     _.numAdd = function (x, y) {
         var result = Number(x) + Number(y);
@@ -1252,10 +1298,13 @@
 
     /**
      * 减
-     * @param x
-     * @param y
+     * @param {*}   x   第一个数值
+     * @param {*}   y   第二个数值
      * @returns {number}
      * @alias module:_.numSubtract
+     * @example
+     * _.numSubtract('7',5);
+     * =>2
      */
     _.numSubtract = function (x, y) {
         var result = Number(x) - Number(y);
@@ -1264,10 +1313,13 @@
 
     /**
      * 乘
-     * @param x
-     * @param y
+     * @param {*}   x    第一个数值
+     * @param {*}   y    第二个数值
      * @returns {number}
      * @alias module:_.numMultiply
+     * @example
+     * _.numMultiply('2',3);
+     * =>6
      */
     _.numMultiply = function (x, y) {
         var result = Number(x) * Number(y);
@@ -1276,10 +1328,13 @@
 
     /**
      * 除
-     * @param x
-     * @param y
+     * @param {*}   x    第一个数值
+     * @param {*}   y    第二个数值
      * @returns {number}
      * @alias module:_.numDivide
+     * @example
+     * _.numDivide(9,'3');
+     * =>3
      */
     _.numDivide = function (x, y) {
         var result = Number(x) / Number(y);
@@ -1288,10 +1343,13 @@
 
     /**
      * 固定小数位数
-     * @param x
-     * @param digits
+     * @param {Number}  x       要处理的数值
+     * @param {Number}  digits  小数位置，默认保留2位
      * @returns {string|*}
      * @alias module:_.toFixed
+     * @example
+     * _.toFixed(548.6512)
+     * =>548.65
      */
     _.toFixed = function (x, digits) {
         if (typeof (x) == "undefined" || x === '') {
@@ -1309,9 +1367,23 @@
 
     /**
      * 移除数值指数表示
-     * @param x
+     * @param {Number}  x   要处理的数值
      * @returns {string}
      * @alias module:_.toFixed
+     * @example
+     *         var numbers = [
+     *             1.1234567890123456789e+30,
+     *             1.1234567890123456789e-30,
+     *             -1.1234567890123456789e+30,
+     *             -1.1234567890123456789e-30]
+     * var i;
+     * for (i=0;i<numbers.length;i++) {
+     *        console.log(_.removeExponent(numbers[i]));
+     *   }
+     * =>1123456789012345700000000000000
+     * =>0.0000000000000000000000000000011234567890123458
+     * =>-1123456789012345700000000000000
+     * =>0.00000000000000000000000000000.11234567890123458
      */
     _.removeExponent = function (x) {
         if (Math.abs(x) < 1.0) {
@@ -1333,12 +1405,13 @@
 
     /**
      * 判断两个小数数值是否相等
-     * 示例：
-     * equal(0.1+0.2, 0.3) 结果：true
-     * @param x
-     * @param y
+     * @param {Number}  x   第一个数值
+     * @param {Number}  y   第二个数值
      * @returns {boolean}
      * @alias module:_.numEqual
+     * @example
+     * _.numEqual(0.1+0.2, 0.3);
+     * =>true
      */
     _.numEqual = function (x, y) {
         return Math.abs(x - y) < this.EPSILON;
@@ -1346,10 +1419,16 @@
 
     /**
      * 比较两数大小，x>y返回1，x==y返回0，否则返回-1
-     * @param x
-     * @param y
+     * @param {Number}  x   第一个数值
+     * @param {Number}  y   第二个数值
      * @returns {number}
      * @alias module:_.numCompare
+     * @example
+     * _.numCompare(3,5);
+     * =>-4
+     *
+     * -.numCompare('aaa',3);
+     * =>抛出异常Parameter is not a number!
      */
     _.numCompare = function (x, y) {
         if (!_.isNumeric(x) || !_.isNumeric(y)) {
@@ -1368,6 +1447,14 @@
      * @param obj
      * @returns {_}
      * @alias module:_.extend
+     * @example
+     * _.extend({
+     *  abc: function(str) {
+     *      return str;
+     *  }
+     * });
+     * _.abc("Hello");
+     * =>"Hello"
      */
     _.extend = function (obj) {
         _.each(_.functions(obj), function (name) {
