@@ -150,8 +150,8 @@
      * 生成可应用于集合中的每个元素的回调。<br>
      * _.iteratee支持许多常见回调用例的简写语法。<br>
      * 根据值的类型，_.iteratee 各种结果
-     * @param value
-     * @param context
+     * @param {*}   value   迭代值
+     * @param {Object}  context 上下文
      * @alias module:_.iteratee
      * @method
      * @example
