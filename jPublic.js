@@ -1154,7 +1154,7 @@
      * @param {Array}   a   主数组
      * @param {Array}   b   次数组
      * @returns {*}
-     * @alias module:_.arrayDiff
+     * @alias module:_.difference
      * @example
      * var a = [1,2,3,4,5]
      * var b = [2,4,6,8,10]
