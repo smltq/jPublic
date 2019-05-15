@@ -89,7 +89,7 @@
         assert.ok( _.isNumeric(0xFF) == true,'0xFF是数值');
         assert.ok( _.isNumeric("0xFF") == true,'"0xFF"是数值');
         assert.ok( _.isNumeric(8e5) == true,'8e5是数值');
-        assert.ok( _.isNumeric("8e5") == true,'"0xFF"是数值');
+        assert.ok( _.isNumeric("8e5") == true,'"8e5"是数值');
         assert.ok(_.isNumeric("a") == false,'"a"不是数值');
         assert.ok(_.isNumeric(["a"]) == false,'["a"]不是数值');
         assert.ok(_.isNumeric({11:2}) == false,'{11:2}不是数值');
