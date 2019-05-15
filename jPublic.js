@@ -190,7 +190,18 @@
     /**
      * 类似于 extend, 但只复制自己的属性覆盖到目标对象。（注：不包括继承过来的属性）。
      * @type {Function}
+     * @method
      * @alias module:_.extendOwn
+     * @example
+     * var a = {
+     *       foo: false
+     *   };
+     *
+     * var b = {
+     *       bar: true
+     *   };
+     * _.extendOwn(a,b)
+     * =>{ foo: false, bar: true };
      */
     _.extendOwn = createAssigner(_.keys);
 
@@ -959,6 +970,7 @@
     //-----------------------
     /**
      * 获取当前时间戳，兼容旧环境（毫秒）
+     * @method
      * @alias module:_.now
      * @example
      * _.now()
