@@ -25,10 +25,11 @@ jPublic是一个完全开源的JavaScript开源工具库。
 
 ``` lua
 +-- docs  API文档
-|   +-- index.html
+|   +-- index.html          文档入口
 |   +-- ...
 +-- test  测试
 |   +-- utility.js
+|   +-- testIndex.html      单元测试入口
 |   +-- ...
 --- .gitignore              git忽略规则
 --- LICENSE                 开源协议
@@ -58,12 +59,15 @@ UglifyJS2| 压缩工具  | [https://github.com/mishoo/UglifyJS2/tree/v2.x](https
 ### 引入方式
 ```
 Require.js      require(["jPublic"]
-页面             <script src="jPublic.min.js"></script>
+页面            <script src="jPublic.min.js"></script>
 ```
 
 ## 在线文档
 - API文档：https://smltq.github.io/jPublic/
-- 博客：https://www.cnblogs.com/tqlin/
+
+## FAQ
+- [JavaScript空字符串判断](https://www.cnblogs.com/tqlin/p/10858492.html)
+- [wiki](https://github.com/smltq/jPublic/wiki/%E4%BB%8B%E7%BB%8D)
 
 ## 许可证
 [MIT](LICENSE "MIT")
