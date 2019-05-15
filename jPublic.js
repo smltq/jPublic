@@ -1076,6 +1076,9 @@
      * 返回日期的yyyy-MM-dd格式
      * @param date 日期
      * @alias module:_.shortDateFormat
+     * @example
+     * _.shortDateFormat(_.now());
+     * =>2019-05-15
      */
     _.shortDateFormat = function (date) {
         if (!date) {
@@ -1086,12 +1089,14 @@
 
     /**
      * 将时间格式化为指定格式的String
-     * 示例：
-     * formatTime(25) ==> '0:00:25'
-     * formatTime(63846) ==> '17:44:06'
-     * @param n
+     * @param {Number}  n   时间(单位毫秒)
      * @returns {string}
      * @alias module:_.formatTime
+     * @example
+     * _.formatTime(25);
+     * => '0:00:25'
+     * _.formatTime(63846);
+     * => '17:44:06'
      */
     _.formatTime = function (n) {
         var hours = Math.floor(n / 60 / 60);
