@@ -48,5 +48,8 @@
         assert.ok(_.isNullOrEmpty(null), "isNullOrEmpty 空字符串判断正确");
         assert.ok(_.isNullOrEmpty(""), "isNullOrEmpty 空字符串判断正确");
         assert.ok(_.isNullOrEmpty(''), "isNullOrEmpty 空字符串判断正确");
+
+        console.log(_.dateFormat(_.getWeekStartDate()));
+        console.log(_.dateFormat(_.getWeekEndDate()));
     });
 }());

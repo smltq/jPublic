@@ -577,19 +577,27 @@
 
     /**
      * 如果obj是一个函数（Function），返回true。
-     * @param {Object} obj 验证对象
+     * @param {Object} obj 要检查的对象
      * @returns {boolean}
      * @alias module:_.isFunction
+     * @example
+     * _.isFunction(alert);
+     * => true
      */
     _.isFunction = function (obj) {
         return typeof obj == 'function' || false;
     };
 
     /**
-     * 判断是否object对象
-     * @param obj
+     * 如果object是一个对象，返回true。需要注意的是JavaScript数组和函数是对象，字符串和数字不是。
+     * @param {Object} obj  要检查的对象
      * @returns {boolean}
      * @alias module:_.isObject
+     * @example
+     * _.isObject({});
+     * => true
+     * _.isObject(1);
+     * => false
      */
     _.isObject = function (obj) {
         var type = typeof obj;
@@ -598,9 +606,31 @@
 
     /**
      * 是否为空字符串
-     * @param str
+     * @param {String} str 要检查的字符串
      * @returns {boolean}
      * @alias module:_.isNullOrEmpty
+     * @example
+     * _.isNullOrEmpty("   ");
+     * =>true
+     *
+     * .isNullOrEmpty(' ');
+     * =>true
+     *
+     * var student = {className: "测试班", name: "我是张三", age: 18};
+     * _.isNullOrEmpty(student.skill);
+     * =>true
+     *
+     * _.isNullOrEmpty(undefined);
+     * =>true
+     *
+     * _.isNullOrEmpty(null);
+     * =>true
+     *
+     * _.isNullOrEmpty("");
+     * =>true
+     *
+     * _.isNullOrEmpty('')
+     * =>true
      */
     _.isNullOrEmpty = function (str) {
         if (!str || _.trim(str) === '') {
@@ -612,12 +642,13 @@
     /**
      * 如果object 不包含任何值(没有可枚举的属性)，返回true。
      * 对于字符串和类数组（array-like）对象，如果length属性为 0，那么_.isEmpty检查返回true。
+     * @param {Object} obj  要检查的对象
+     * @returns {boolean}
+     * @example
      * _.isEmpty([1, 2, 3]);
      * => false
      * _.isEmpty({});
      * => true
-     * @param obj
-     * @returns {boolean}
      */
     _.isEmpty = function (obj) {
         if (obj == null) return true;
@@ -627,10 +658,15 @@
     };
 
     /**
-     * 判断是否数组
-     * @param obj
+     * 如果obj是一个数组，返回true。
+     * @param {Object}  obj 要检查的对象
      * @returns {boolean}
      * @alias module:_.isArray
+     * @example
+     * (function(){ return _.isArray(arguments); })();
+     * => false
+     * _.isArray([1,2,3]);
+     * => true
      */
     _.isArray = function (obj) {
         return toString.call(obj) === '[object Array]';
@@ -638,19 +674,43 @@
 
     /**
      * 是否数值
-     * @param value
+     * @param {Object} value    要检查的对象
      * @returns {boolean}
      * @alias module:_.isNumeric
+     * @example
+     * // true
+     * _.isNumeric( "-10" )
+     * _.isNumeric( "0" )
+     * _.isNumeric( 0xFF )
+     * _.isNumeric( "0xFF" )
+     * _.isNumeric( "8e5" )
+     * _.isNumeric( "3.1415" )
+     * _.isNumeric( +10 )
+     * _.isNumeric( 0144 )
+
+     // false
+     * _.isNumeric( "-0x42" )
+     * _.isNumeric( "7.2acdgs" )
+     * _.isNumeric( "" )
+     * _.isNumeric( {} )
+     * _.isNumeric( NaN )
+     * _.isNumeric( null )
+     * _.isNumeric( true )
+     * _.isNumeric( Infinity )
+     * _.isNumeric( undefined )
      */
     _.isNumeric = function (value) {
         return !isNaN(parseFloat(value)) && isFinite(value);
     };
 
     /**
-     * 是否字符串
-     * @param value
+     * 如果object是一个字符串，返回true。
+     * @param {String} value 要检查的值
      * @returns {boolean}
      * @alias module:_.isString
+     * @example
+     * _.isString("moe");
+     * => true
      */
     _.isString = function (value) {
         return typeof value === 'string';
@@ -658,10 +718,13 @@
 
     /**
      * 如果object是一个参数对象，返回true。
+     * @param {Object} obj  要检查的对象
+     * @example
      * (function(){ return _.isArguments(arguments); })(1, 2, 3);
      * => true
      * _.isArguments([1,2,3]);
      * => false
+     * @returns {*}
      */
     _.isArguments = function (obj) {
         return has(obj, 'callee');
@@ -669,16 +732,26 @@
 
     /**
      * 截取字符串
-     * @param str 原始字符串
-     * @param limit 长度限制
-     * @param suffix 超过替换字符
+     * @param {String}  str     原始字符串
+     * @param {Integer} limit   长度限制(默认限制长度100)
+     * @param {String}  suffix  超过替换字符（默认用'...'替代）
      * @returns {string|*}
      * @alias module:_.truncate
+     * @example
+     * _.truncate('We are doing JS string exercises.')
+     * =>We are doing JS string exercises.
+     *
+     * _.truncate('We are doing JS string exercises.',19)
+     * =>We are doing JS ...
+     *
+     * _.truncate('We are doing JS string exercises.',15,'!!')
+     * =>We are doing !!
      */
     _.truncate = function (str, limit, suffix) {
+        limit = limit || 100;
         if (_.isString(str)) {
             if (typeof suffix !== 'string') {
-                suffix = '';
+                suffix = '...';
             }
             if (str.length > limit) {
                 return str.slice(0, limit - suffix.length) + suffix;
@@ -688,30 +761,39 @@
     };
 
     /**
-     * 金额格式化(RMB)
-     * @param s
-     * @param n
+     * 金额格式化
+     * @param {Number}  value   原始金额数值
+     * @param {Integer} digit   保留小数位置(默认2位)
      * @returns {string}
      * @alias module:_.fmoney
+     * @example
+     * _.fmoney(100000000)
+     * =>100,000,000.00
+     *
+     * _.fmoney(100000000.3434343, 3)
+     * =>100,000,000.343
      */
-    _.fmoney = function (s, n) {
-        n = n > 0 && n <= 20 ? n : 2;
-        if (typeof (s) == "undefined" || (!s && s != 0)) {
+    _.fmoney = function (value, digit) {
+        digit = digit > 0 && digit <= 20 ? digit : 2;
+        if (typeof (value) == "undefined" || (!value && value != 0)) {
             return '';
         }
-        s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
-        var ss = s.split(".");
-        var l = ss[0], r = ss[1];
+        value = parseFloat((value + "").replace(/[^\d\.-]/g, "")).toFixed(digit) + "";
+        var ss = value.split(".");
+        var r = ss[1];
         ss[0] = ss[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
-        return ss[0] + "." + r.substring(0, n);// 保留n位小数
+        return ss[0] + "." + r.substring(0, digit);
     };
 
     /**
      * 定义文字颜色
-     * @param value
-     * @param color
+     * @param {String}  value   原始文字
+     * @param {String}  color   要定义的颜色（默认红色）
      * @returns {string}
      * @alias module:_.defineColor
+     * @example
+     * _.defineColor(“Hello”)
+     * =><span style="color:#FF0000">Hello</span>
      */
     _.defineColor = function (value, color) {
         return '<span style="color:' + (color || "#FF0000") + '">' + value + "</span>";
@@ -719,16 +801,22 @@
 
     /**
      * 字节格式化
-     * formatBytes(bytes,decimals)
-     * 示例：
-     * formatBytes(1024);       // 1 KB
-     * formatBytes('1024');     // 1 KB
-     * formatBytes(1234);       // 1.21 KB
-     * formatBytes(1234, 3);    // 1.205 KB
-     * @param bytes
-     * @param decimals
+     * @param {Number}  bytes       字节值
+     * @param {Integer} decimals    小数位数
      * @returns {string}
      * @alias module:_.formatBytes
+     * @example
+     * formatBytes(1024);
+     * =>1 KB
+     *
+     * formatBytes('1024');
+     * =>1 KB
+     *
+     * formatBytes(1234);
+     * =>1.21 KB
+     *
+     * formatBytes(1234, 3);
+     * =>1.205 KB
      */
     _.formatBytes = function (bytes, decimals) {
         if (bytes == 0) return '0 Bytes';
@@ -740,14 +828,17 @@
     }
 
     /**
-     * 如果list中的所有元素都通过predicate的真值检测就返回true。
-     * （注：如果存在原生的every方法，就使用原生的every。）
+     * 如果list中的所有元素都通过predicate的真值检测就返回true。<br>
+     * （注：如果存在原生的every方法，就使用原生的every。）<br>
      * predicate 通过 iteratee 进行转换，以简化速记语法。
-     * @param list
-     * @param predicate
-     * @param context
+     * @param {Array}       list        要检查的列表
+     * @param {Function}    predicate   检测函数
+     * @param {Object}      context     上下文
      * @returns {boolean}
      * @alias module:_.every
+     * @example
+     * _.every([2, 4, 5], function(num) { return num % 2 == 0; });
+     * => false
      */
     _.every = function (list, predicate, context) {
         predicate = cb(predicate, context);
@@ -761,14 +852,17 @@
     };
 
     /**
-     * 如果list中有任何一个元素通过 predicate 的真值检测就返回true。
-     * 一旦找到了符合条件的元素, 就直接中断对list的遍历。
+     * 如果list中有任何一个元素通过 predicate 的真值检测就返回true。<br>
+     * 一旦找到了符合条件的元素, 就直接中断对list的遍历。<br>
      * predicate 通过 iteratee 进行转换，以简化速记语法。
-     * @param list
-     * @param predicate
-     * @param context
+     * @param {Array}       list        要检查的列表
+     * @param {Function}    predicate   检测函数
+     * @param {Object}      context     上下文
      * @returns {boolean}
      * @alias module:_.some
+     * @example
+     * _.some([null, 0, 'yes', false]);
+     * => true
      */
     _.some = function (list, predicate, context) {
         predicate = cb(predicate, context);
@@ -782,26 +876,26 @@
     };
 
     /**
-     * 一个用来创建整数灵活编号的列表的函数，便于each 和 map循环。
-     * 如果省略start则默认为 0；
-     * step 默认为 1.返回一个从start 到stop的整数的列表，用step来增加 （或减少）独占。
+     * 一个用来创建整数灵活编号的列表的函数，便于each 和 map循环。<br>
+     * 如果省略start则默认为 0；<br>
+     * step 默认为 1.返回一个从start 到stop的整数的列表，用step来增加 （或减少）独占。<br>
      * 值得注意的是，如果stop值在start前面（也就是stop值小于start值），那么值域会被认为是零长度，而不是负增长。-如果你要一个负数的值域 ，请使用负数step.
-     * 示例：
-     _.range(10);
-     => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-     _.range(1, 11);
-     => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-     _.range(0, 30, 5);
-     => [0, 5, 10, 15, 20, 25]
-     _.range(0, -10, -1);
-     => [0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
-     _.range(0);
-     => []
-     * @param start
-     * @param stop
-     * @param step
+     * @param {Integer} start   开始位置
+     * @param {Integer} stop    结束位置
+     * @param {Integer} step    步长
      * @returns {any[]}
      * @alias module:_.range
+     * @example
+     * _.range(10);
+     * => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+     * _.range(1, 11);
+     * => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+     * _.range(0, 30, 5);
+     * => [0, 5, 10, 15, 20, 25]
+     * _.range(0, -10, -1);
+     * => [0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+     * _.range(0);
+     * => []
      */
     _.range = function (start, stop, step) {
         if (stop == null) {
@@ -822,12 +916,12 @@
 
     /**
      * 检索object拥有的所有可枚举属性的名称。
-     * 示例：
-     * _.keys({one: 1, two: 2, three: 3});
-     * => ["one", "two", "three"]
-     * @param obj
+     * @param {Object}  obj 要检索的对象
      * @returns {Array|*}
      * @alias module:_.keys
+     * @example
+     * _.keys({one: 1, two: 2, three: 3});
+     * => ["one", "two", "three"]
      */
     _.keys = function (obj) {
         if (!_.isObject(obj)) return [];
@@ -840,10 +934,13 @@
     };
 
     /**
-     * 创建对象的(浅克隆)副本
-     * @param obj
+     * 创建 一个浅复制（浅拷贝）的克隆object。任何嵌套的对象或数组都通过引用拷贝，不会复制。
+     * @param {Object}  obj 要克隆的对象
      * @returns {*|_|*}
      * @alias module:_.clone
+     * @example
+     * _.clone({name: 'moe'});
+     * => {name: 'moe'};
      */
     _.clone = function (obj) {
         if (!_.isObject(obj)) return obj;
@@ -863,6 +960,9 @@
     /**
      * 获取当前时间戳，兼容旧环境（毫秒）
      * @alias module:_.now
+     * @example
+     * _.now()
+     * =>521557891109615
      */
     _.now = Date.now || function () {
         return new Date().valueOf();
@@ -872,6 +972,9 @@
      * 获取当前服务器时间(Date)
      * @returns {Date}
      * @alias module:_.serverTime
+     * @example
+     * _.serverTime()
+     * =>Wed May 15 2019 11:33:22 GMT+0800 (中国标准时间)
      */
     _.serverTime = function () {
         var xmlHttp = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
@@ -882,9 +985,11 @@
 
     /**
      * 获取月份第一天
-     * @param date
+     * @param {Date}    date    日期(默认当前日期)
      * @returns {Date}
      * @alias module:_.firstDay
+     * _.dateFormat(_.firstDay());
+     * =>2019-05-01 00:00:00
      */
     _.firstDay = function (date) {
         date || (date = new Date());
@@ -893,9 +998,12 @@
 
     /**
      * 获取月份最后一天
-     * @param date
+     * @param {Date}    date    日期(默认当前日期)
      * @returns {Date}
      * @alias module:_.lastDay
+     * @example
+     * _.dateFormat(_.lastDay());
+     * =>2019-05-31 00:00:00
      */
     _.lastDay = function (date) {
         date || (date = new Date());
@@ -903,54 +1011,13 @@
     };
 
     /**
-     * 获取上个月第一天
-     * @param date
-     * @returns {Date}
-     * @alias module:_.firstMonthDay
-     */
-    _.firstMonthDay = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear(), date.getMonth() - 1, 1);
-    };
-
-    /**
-     * 获取上个月最后一天
-     * @param date
-     * @returns {Date}
-     * @alias module:_.lastMonthDay
-     */
-    _.lastMonthDay = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear(), date.getMonth(), 0);
-    };
-
-    /**
-     * 获取本年第一天
-     * @param date
-     * @returns {Date}
-     * @alias module:_.firstYearDay
-     */
-    _.firstYearDay = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear(), 0, 1);
-    };
-
-    /**
-     * 获取本年最后一天
-     * @param date
-     * @returns {Date}
-     * @alias module:_.lastYearDay
-     */
-    _.lastYearDay = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear(), 11, 31);
-    };
-
-    /**
      * 获得本周的开始日期
-     * @param date
+     * @param {Date}    date    日期(默认当前日期)
      * @returns {Date}
      * @alias module:_.getWeekStartDate
+     * @example
+     * _.dateFormat(_.getWeekStartDate());
+     * =>2019-05-13 00:00:00
      */
     _.getWeekStartDate = function (date) {
         date || (date = new Date());
@@ -959,9 +1026,12 @@
 
     /**
      * 获得本周的结束日期
-     * @param date
+     * @param {Date}    date    日期(默认当前日期)
      * @returns {Date}
      * @alias module:_.getWeekEndDate
+     * @example
+     * _.dateFormat(_.getWeekEndDate());
+     * =>2019-05-13 00:00:00
      */
     _.getWeekEndDate = function (date) {
         date || (date = new Date());
@@ -969,59 +1039,15 @@
     };
 
     /**
-     * 获得上周的开始日期
-     * @param date
-     * @returns {Date}
-     * @alias module:_.getLastWeekStartDate
-     */
-    _.getLastWeekStartDate = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() - 6);
-    };
-
-    /**
-     * 获得上周的结束日期
-     * @param date
-     * @returns {Date}
-     * @alias module:_.getLastWeekEndDate
-     */
-    _.getLastWeekEndDate = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
-    };
-
-    /**
-     * 获取去年第一天
-     * @param date
-     * @returns {Date}
-     * @alias module:_.lastYearFirstDay
-     */
-    _.lastYearFirstDay = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear() - 1, 0, 1);
-    };
-
-    /**
-     * 获取去年最后一天
-     * @param date
-     * @returns {Date}
-     * @alias module:_.lastYearLastDay
-     */
-    _.lastYearLastDay = function (date) {
-        date || (date = new Date());
-        return new Date(date.getFullYear() - 1, 11, 31);
-    };
-
-    /**
-     * 将 Date 转化为指定格式的String 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q)
-     * 可以用 1-2 个占位符 年(y)可以用 1-4 个占位符 毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
-     * 示例：
-     * dateFormat(date,"yyyy-MM-dd hh:mm:ss.S") ==> 2016-05-04 08:09:04.423
-     * dateFormat(date,"yyyy-M-d h:m:s.S") ==>2016-05-04 8:9:4.18
-     * @param date 日期,为空默认当前时间
-     * @param format 格式化字符串,默认为(yyyy-MM-dd hh:mm:ss)
+     * 将 Date 转化为指定格式的String 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q)<br>
+     * 可以用 1-2 个占位符 年(y)可以用 1-4 个占位符 毫秒(S)只能用 1 个占位符(是 1-3 位的数字)<br>
+     * @param {Date}    date    日期(默认当前时间)
+     * @param {String}  format  格式化字符串(默认yyyy-MM-dd hh:mm:ss)
      * @returns {*}
      * @alias module:_.dateFormat
+     * @example
+     * _.dateFormat(date,"yyyy-MM-dd hh:mm:ss.S") ==> 2016-05-04 08:09:04.423
+     * _.dateFormat(date,"yyyy-M-d h:m:s.S") ==>2016-05-04 8:9:4.18
      */
     _.dateFormat = function (date, format) {
         date instanceof Date || (date = new Date(date));
