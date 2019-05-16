@@ -67,7 +67,7 @@ Require.js      require(["jPublic"]
 
 ## FAQ
 - [JavaScript空字符串判断](https://www.cnblogs.com/tqlin/p/10858492.html)
-- [wiki](https://github.com/smltq/jPublic/wiki/%E4%BB%8B%E7%BB%8D)
+- [侍做事项](https://github.com/smltq/jPublic/wiki/%E4%BB%8B%E7%BB%8D)，有兴趣加入项目的朋友，把帐号发我，最好能接个任务去研究。
 
 ## 许可证
 [MIT](LICENSE "MIT")
