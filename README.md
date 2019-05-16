@@ -64,6 +64,8 @@ Require.js      require(["jPublic"]
 
 ## 在线文档
 - API文档：https://smltq.github.io/jPublic/
+- 码云文档：https://tqlin.gitee.io/jpublic/module-_.html#.DEFAULT_SCALE（国内建议访问这个地址）
+- 码云仓库：https://gitee.com/tqlin/jPublic
 
 ## FAQ
 - [JavaScript空字符串判断](https://www.cnblogs.com/tqlin/p/10858492.html)
