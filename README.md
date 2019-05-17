@@ -73,4 +73,3 @@ Require.js      require(["jPublic"]
 
 ## 许可证
 [MIT](LICENSE "MIT")
-
