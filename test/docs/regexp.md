@@ -28,6 +28,8 @@
 
 ### 简化拆分后,就是()(),即第一个分组是(\d),第二个是(\d\d\d)+,两个分组分别是$1,$2,这里要注意
 
+(\d)
+
 `匹配一个数字。
 等价于[0-9]。
 例如， /\d/ 或者 /[0-9]/ 匹配"B2 is the suite number."中的'2'。`
@@ -89,7 +91,7 @@ input忽悠不介绍了
 
 ## 参考资料
 
-[JavaScript正则介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions#special-negated-look-ahead)
-[Lookahead表达式](https://www.stefanjudis.com/today-i-learned/the-complicated-syntax-of-lookaheads-in-javascript-regular-expressions/)
-[exec函数介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
-[正则在线测试](https://regex101.com/?tdsourcetag=s_pcqq_aiomsg)
+- [JavaScript正则介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions#special-negated-look-ahead)
+- [Lookahead表达式](https://www.stefanjudis.com/today-i-learned/the-complicated-syntax-of-lookaheads-in-javascript-regular-expressions/)
+- [exec函数介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
+- [正则在线测试](https://regex101.com/?tdsourcetag=s_pcqq_aiomsg)
