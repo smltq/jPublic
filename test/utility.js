@@ -86,4 +86,15 @@
             }
         }
     });
+
+    QUnit.test('阿拉伯数字转中文数字： _.cl', function (assert) {
+        //十口语化
+        assert.ok(_.cl("100111",{tenMin:true})=="十万零一百一十一");
+        //非口语化
+        assert.ok(_.cl("100111")=="一十万零一百一十一");
+        //带小数点
+        assert.ok(_.cl("13.5",{tenMin:true})=="十三点五");
+        //超大数
+        assert.ok(_.cl(1e16)=="一亿亿");
+    });
 }());
