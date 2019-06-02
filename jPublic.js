@@ -1540,6 +1540,7 @@
      *                          {
      *                              ww: {万万化单位 | false}
      *                              tenMin: {十的口语化 | false}
+     *                              nzh:{中文语言|简体}
      *                          }
      * @returns String
      * @version 1.8.3
