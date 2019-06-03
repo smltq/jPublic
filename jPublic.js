@@ -1543,6 +1543,7 @@
      *                              nzh:{中文语言|简体}
      *                          }
      * @returns {string}
+     * @alias module:_.cl
      * @version 1.8.3
      */
     _.cl = function (num, options) {
