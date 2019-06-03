@@ -1536,12 +1536,12 @@
      * 阿拉伯数字转中文数字
      * (源码:https://github.com/cnwhy/nzh.git)
      * @param {String} num 阿拉伯数字/字符串 , 科学记数法字符串
-     * @param {Object} opration 转换配置
-     *                          {
-     *                              ww: {万万化单位 | false}
-     *                              tenMin: {十的口语化 | false}
-     *                              nzh:{中文语言|简体}
-     *                          }
+     * @param {Object} opration 转换配置<br>
+     *                          {<br>
+     *                              ww: {万万化单位 | false}<br>
+     *                              tenMin: {十的口语化 | false}<br>
+     *                              nzh:{中文语言|简体}<br>
+     *                          }<br>
      * @returns {string}
      * @alias module:_.cl
      * @version 1.8.3
