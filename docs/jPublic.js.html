@@ -1595,6 +1595,18 @@
      * @returns {string}
      * @alias module:_.cl
      * @version 1.8.3
+     * @example
+     * _.cl("100111",{tenMin:true})
+     * => "十万零一百一十一"
+     *
+     * _.cl("100111")
+     *=> "一十万零一百一十一"
+     *
+     * _.cl("13.5",{tenMin:true})
+     * => "十三点五"
+     *
+     * _.cl(1e16)
+     * => "一亿亿"
      */
     _.cl = function (num, options) {
         var result = _.getNumbResult(num)
