@@ -20,7 +20,7 @@
     },
     "applicationName": "jPublic",
     "logo": {
-      "url": "../favicon.ico",
+      "url": "favicon.ico",
       "width": "30px",
       "height": "30px",
       "link": "https://github.com/smltq/jPublic"
