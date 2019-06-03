@@ -21,7 +21,7 @@
     <div class="logo" style="width: 30px; height: 30px">
         
             <a href="https://github.com/smltq/jPublic" rel="noopener noreferrer" target="_blank">
-                <img src="https://avatars0.githubusercontent.com/u/7008389?s=460&v=4" width="100%" height="100%">
+                <img src="favicon.ico" width="100%" height="100%">
             </a>
         
     </div>
@@ -2212,7 +2212,7 @@
             
             <div class="container-source members">
                 <code><a href="jPublic.js.html">jPublic.js</a></code>,
-                <code><a href="jPublic.js.html#line1471">line 1471</a></code>
+                <code><a href="jPublic.js.html#line1647">line 1647</a></code>
             </div>
             
         </h4>
@@ -9240,6 +9240,169 @@
     
         <h4 class="name" id=".toFixed">
             
+                <span class="type-signature"><span class="icon green">static</span> </span>toFixed<span class="signature">(x)</span><span class="type-signature"> &rarr; {string}</span>
+                
+            
+            <div class="container-source members">
+                <code><a href="jPublic.js.html">jPublic.js</a></code>,
+                <code><a href="jPublic.js.html#line1400">line 1400</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        移除数值指数表示
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-params">
+        <h5>Parameters:</h5>
+        
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">要处理的数值</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="container-returns">
+        <h5>Returns:</h5>
+        
+                
+
+
+
+<span class="param-type">string</span>
+
+
+
+
+
+
+
+
+            
+    </div>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>var numbers = [            1.1234567890123456789e+30,            1.1234567890123456789e-30,            -1.1234567890123456789e+30,            -1.1234567890123456789e-30]var i;for (i=0;i&lt;numbers.length;i++) {       console.log(_.removeExponent(numbers[i]));  }=>1123456789012345700000000000000=>0.0000000000000000000000000000011234567890123458=>-1123456789012345700000000000000=>0.00000000000000000000000000000.11234567890123458</code></pre>
+
+    
+
+</dd>
+
+            
+                
+
+<dt>
+    
+        <h4 class="name" id=".toFixed">
+            
                 <span class="type-signature"><span class="icon green">static</span> </span>toFixed<span class="signature">(x, digits)</span><span class="type-signature"> &rarr; {string|*}</span>
                 
             
@@ -9417,169 +9580,6 @@
         <h5>Example</h5>
         
     <pre class="prettyprint"><code>_.toFixed(548.6512)=>548.65</code></pre>
-
-    
-
-</dd>
-
-            
-                
-
-<dt>
-    
-        <h4 class="name" id=".toFixed">
-            
-                <span class="type-signature"><span class="icon green">static</span> </span>toFixed<span class="signature">(x)</span><span class="type-signature"> &rarr; {string}</span>
-                
-            
-            <div class="container-source members">
-                <code><a href="jPublic.js.html">jPublic.js</a></code>,
-                <code><a href="jPublic.js.html#line1400">line 1400</a></code>
-            </div>
-            
-        </h4>
-
-        
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        移除数值指数表示
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-params">
-        <h5>Parameters:</h5>
-        
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">要处理的数值</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <div class="container-returns">
-        <h5>Returns:</h5>
-        
-                
-
-
-
-<span class="param-type">string</span>
-
-
-
-
-
-
-
-
-            
-    </div>
-    
-
-    
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>var numbers = [            1.1234567890123456789e+30,            1.1234567890123456789e-30,            -1.1234567890123456789e+30,            -1.1234567890123456789e-30]var i;for (i=0;i&lt;numbers.length;i++) {       console.log(_.removeExponent(numbers[i]));  }=>1123456789012345700000000000000=>0.0000000000000000000000000000011234567890123458=>-1123456789012345700000000000000=>0.00000000000000000000000000000.11234567890123458</code></pre>
 
     
 
@@ -10325,7 +10325,7 @@
 </div>
 
 <footer>
-    <img class="logo" src="https://avatars0.githubusercontent.com/u/7008389?s=460&v=4" style="width: 30px; height: 30px">
+    <img class="logo" src="favicon.ico" style="width: 30px; height: 30px">
     <div class="footer-text">jPublic工具文档</div>
 </footer>
 <script>prettyPrint();</script>

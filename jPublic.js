@@ -1458,7 +1458,7 @@
      * 分析数字字符串
      *
      * @param {string} num NumberString
-     * @returns object
+     * @returns {object}
      */
     _.getNumbResult = function (num) {
         var result = REG_NUMBER.exec(num.toString());
@@ -1479,7 +1479,7 @@
      * 科学计数法转十进制
      *
      * @param {string} num 科学记数法字符串
-     * @returns string
+     * @returns {string}
      */
     _.e2ten = function (num) {
         var result = REG_E.exec(num.toString());
@@ -1511,7 +1511,7 @@
      * @param {any} str
      * @param {any} zero "零"字符
      * @param {any} type 清理模式 ^ - 开头, $ - 结尾, nto1 - 多个连续变一个
-     * @returns
+     * @returns {string}
      */
     _.clearZero = function (str, zero, type) {
         if (str == null) return "";
@@ -1542,21 +1542,21 @@
      *                              tenMin: {十的口语化 | false}
      *                              nzh:{中文语言|简体}
      *                          }
-     * @returns String
+     * @returns {string}
      * @version 1.8.3
      */
-    _.cl=function(num, options) {
+    _.cl = function (num, options) {
         var result = _.getNumbResult(num)
         if (!result) {
             return num;
         }
         options = options ? options : {};
 
-        var nzh = options.nzh||{
+        var nzh = options.nzh || {
             ch: '零一二三四五六七八九'
-            ,ch_u: '个十百千万亿'
-            ,ch_f: '负'
-            ,ch_d: '点'
+            , ch_u: '个十百千万亿'
+            , ch_f: '负'
+            , ch_d: '点'
         };
 
         var ch = nzh.ch             //数字
