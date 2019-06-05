@@ -996,6 +996,18 @@
     };
 
     /**
+     * 随机获取一个日期
+     * @returns {date}
+     */
+    _.getRandomDate = function() {
+        var year = _.getRandom(1971,2019);
+        var month = _.getRandom(1,12);
+        var day = _.getRandom(1,31);
+        var date = new Date(year,month,day);
+        return date;
+    };
+
+    /**
      * 获取月份第一天
      * @param {Date}    date    日期(默认当前日期)
      * @returns {Date}

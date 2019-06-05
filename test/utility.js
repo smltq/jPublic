@@ -97,4 +97,31 @@
         //超大数
         assert.ok(_.cl(1e16)=="一亿亿");
     });
+
+    QUnit.test('固定获取月份第一天：_.firstDay',function(assert){
+        assert.ok(_.dateFormat(_.firstDay(new Date('2019-05-09 06:20:30'))) == '2019-05-01 00:00:00','2019年5月的第一天是2019-05-01');
+    });
+
+    QUnit.test('固定获取月份最后一天：_.firstDay',function(assert){
+        assert.ok(_.dateFormat(_.lastDay(new Date('2019-11-1 06:20:30'))) == '2019-11-30 00:00:00','2019年11月的最后一天是2019-11-30');
+        assert.ok(_.dateFormat(_.lastDay(new Date('2019-12-1 06:20:30'))) == '2019-12-31 00:00:00','2019年12月的最后一天是2019-12-31');
+        assert.ok(_.dateFormat(_.lastDay(new Date('2019-2-3 06:20:30'))) == '2019-2-28 00:00:00','2019年2月的最后一天是2019-2-28');
+    });
+
+    QUnit.test('获取随机日期：_.getRandomDate',function(assert){
+        assert.ok(_.dateFormat(_.getRandomDate()),'随机日期'+_.dateFormat(_.getRandomDate()));
+    });
+
+    QUnit.test('随机获取月份第一天：_.firstDay',function(assert){
+        var a = new Date()
+        a = _.getRandomDate();
+        assert.ok(_.dateFormat(_.firstDay(a)),_.dateFormat(a)+'的第一天是'+_.dateFormat(_.firstDay(a)));
+    });
+
+    QUnit.test('随机获取月份最后一天：_.lastDay',function(assert){
+        var a = new Date()
+        a = _.getRandomDate();
+        assert.ok(_.dateFormat(_.lastDay(a)),_.dateFormat(a)+'的最后一天是'+_.dateFormat(_.lastDay(a)));
+    });
+
 }());
