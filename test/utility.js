@@ -105,7 +105,7 @@
     QUnit.test('固定获取月份最后一天：_.firstDay',function(assert){
         assert.ok(_.dateFormat(_.lastDay(new Date('2019-11-1 06:20:30'))) == '2019-11-30 00:00:00','2019年11月的最后一天是2019-11-30');
         assert.ok(_.dateFormat(_.lastDay(new Date('2019-12-1 06:20:30'))) == '2019-12-31 00:00:00','2019年12月的最后一天是2019-12-31');
-        assert.ok(_.dateFormat(_.lastDay(new Date('2019-2-3 06:20:30'))) == '2019-2-28 00:00:00','2019年2月的最后一天是2019-2-28');
+        assert.ok(_.dateFormat(_.lastDay(new Date('2019-2-3 06:20:30'))) == '2019-02-28 00:00:00','2019年2月的最后一天是2019-02-28');
     });
 
     QUnit.test('获取随机日期：_.getRandomDate',function(assert){
