@@ -124,4 +124,14 @@
         assert.ok(_.dateFormat(_.lastDay(a)),_.dateFormat(a)+'的最后一天是'+_.dateFormat(_.lastDay(a)));
     });
 
+    QUnit.test(' 数组差集:_._.difference',function(assert){
+        assert.ok(_.difference([1,2],[1,2]) == [],'pass');
+        assert.ok([_.difference([1,2,3],[1,2])] == [3],[_.difference([1,2,3],[1,2])]+'pass');
+        assert.ok(_.difference([1,2,3],[4,5,6]) == [1,2,3],'pass');
+        assert.ok(_.difference([[1],[2]],[[1]]) == [[2]],'pass');
+        assert.ok(_.difference(['a','b'],['a']) == ['b'],'pass');
+        assert.ok(_.difference(["a",'b'],['a']) == ["a",'b'],'pass');
+        assert.ok(_.difference([{11:2}],[{4:5}]) == [{11:2}],'pass');
+    });
+
 }());
