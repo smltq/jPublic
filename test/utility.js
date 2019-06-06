@@ -138,7 +138,7 @@
         assert.ok(_.isRepeat([1,2,3,3]),'数组[1,2,3,3]有重复元素');
         assert.ok(_.isRepeat([1,2,3.2,3]) == false,'数组[1,2,3.2,3]没有重复元素');
         assert.ok(_.isRepeat([-1,1]) == false,'数组[-1,1]没有重复元素');
-        assert.ok(_.isRepeat(['a','A']) == false,'数组没有重复元素');
+        assert.ok(_.isRepeat(['a','A']) == false,'数组'+['a','A']+'没有重复元素');
         assert.ok(_.isRepeat([0,0,0,1]),'数组[0,0,0,1]有重复元素');
     });
 
