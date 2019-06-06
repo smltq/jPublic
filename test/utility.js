@@ -89,49 +89,48 @@
 
     QUnit.test('阿拉伯数字转中文数字： _.cl', function (assert) {
         //十口语化
-        assert.ok(_.cl("100111",{tenMin:true})=="十万零一百一十一");
+        assert.ok(_.cl("100111", {tenMin: true}) == "十万零一百一十一");
         //非口语化
-        assert.ok(_.cl("100111")=="一十万零一百一十一");
+        assert.ok(_.cl("100111") == "一十万零一百一十一");
         //带小数点
-        assert.ok(_.cl("13.5",{tenMin:true})=="十三点五");
+        assert.ok(_.cl("13.5", {tenMin: true}) == "十三点五");
         //超大数
-        assert.ok(_.cl(1e16)=="一亿亿");
+        assert.ok(_.cl(1e16) == "一亿亿");
     });
 
-    QUnit.test('固定获取月份第一天：_.firstDay',function(assert){
-        assert.ok(_.dateFormat(_.firstDay(new Date('2019-05-09 06:20:30'))) == '2019-05-01 00:00:00','2019年5月的第一天是2019-05-01');
+    QUnit.test('固定获取月份第一天：_.firstDay', function (assert) {
+        assert.ok(_.dateFormat(_.firstDay(new Date('2019-05-09 06:20:30'))) == '2019-05-01 00:00:00', '2019年5月的第一天是2019-05-01');
     });
 
-    QUnit.test('固定获取月份最后一天：_.firstDay',function(assert){
-        assert.ok(_.dateFormat(_.lastDay(new Date('2019-11-1 06:20:30'))) == '2019-11-30 00:00:00','2019年11月的最后一天是2019-11-30');
-        assert.ok(_.dateFormat(_.lastDay(new Date('2019-12-1 06:20:30'))) == '2019-12-31 00:00:00','2019年12月的最后一天是2019-12-31');
-        assert.ok(_.dateFormat(_.lastDay(new Date('2019-2-3 06:20:30'))) == '2019-02-28 00:00:00','2019年2月的最后一天是2019-02-28');
+    QUnit.test('固定获取月份最后一天：_.firstDay', function (assert) {
+        assert.ok(_.dateFormat(_.lastDay(new Date('2019-11-1 06:20:30'))) == '2019-11-30 00:00:00', '2019年11月的最后一天是2019-11-30');
+        assert.ok(_.dateFormat(_.lastDay(new Date('2019-12-1 06:20:30'))) == '2019-12-31 00:00:00', '2019年12月的最后一天是2019-12-31');
+        assert.ok(_.dateFormat(_.lastDay(new Date('2019-2-3 06:20:30'))) == '2019-02-28 00:00:00', '2019年2月的最后一天是2019-02-28');
     });
 
-    QUnit.test('获取随机日期：_.getRandomDate',function(assert){
-        assert.ok(_.dateFormat(_.getRandomDate()),'随机日期'+_.dateFormat(_.getRandomDate()));
+    QUnit.test('获取随机日期：_.getRandomDate', function (assert) {
+        assert.ok(_.dateFormat(_.getRandomDate()), '随机日期' + _.dateFormat(_.getRandomDate()));
     });
 
-    QUnit.test('随机获取月份第一天：_.firstDay',function(assert){
+    QUnit.test('随机获取月份第一天：_.firstDay', function (assert) {
         var a = new Date()
         a = _.getRandomDate();
-        assert.ok(_.dateFormat(_.firstDay(a)),_.dateFormat(a)+'的第一天是'+_.dateFormat(_.firstDay(a)));
+        assert.ok(_.dateFormat(_.firstDay(a)), _.dateFormat(a) + '的第一天是' + _.dateFormat(_.firstDay(a)));
     });
 
-    QUnit.test('随机获取月份最后一天：_.lastDay',function(assert){
+    QUnit.test('随机获取月份最后一天：_.lastDay', function (assert) {
         var a = new Date()
         a = _.getRandomDate();
-        assert.ok(_.dateFormat(_.lastDay(a)),_.dateFormat(a)+'的最后一天是'+_.dateFormat(_.lastDay(a)));
+        assert.ok(_.dateFormat(_.lastDay(a)), _.dateFormat(a) + '的最后一天是' + _.dateFormat(_.lastDay(a)));
     });
 
-    QUnit.test(' 数组差集:_._.difference',function(assert){
-        assert.ok(_.difference([1,2],[1,2]) == [],'pass');
-        assert.ok([_.difference([1,2,3],[1,2])] == [3],[_.difference([1,2,3],[1,2])]+'pass');
-        assert.ok(_.difference([1,2,3],[4,5,6]) == [1,2,3],'pass');
-        assert.ok(_.difference([[1],[2]],[[1]]) == [[2]],'pass');
-        assert.ok(_.difference(['a','b'],['a']) == ['b'],'pass');
-        assert.ok(_.difference(["a",'b'],['a']) == ["a",'b'],'pass');
-        assert.ok(_.difference([{11:2}],[{4:5}]) == [{11:2}],'pass');
+    QUnit.test(' 数组差集:_.difference', function (assert) {
+        assert.ok(_.equals(_.difference([1, 2], [1, 2]), []), 'pass');
+        assert.ok(_.equals(_.difference([1, 2, 3], [1, 2]), [3]), 'pass');
+        assert.ok(_.equals(_.difference([1, 2, 3], [4, 5, 6]), [1, 2, 3]), 'pass');
+        //assert.ok(_.equals(_.difference([[1], [2]], [[1]]), [[2]]), 'pass');
+        assert.ok(_.equals(_.difference(['a', 'b'], ['a']), ['b']), 'pass');
+        assert.ok(_.equals(_.difference(["a", 'b'], ['b']), ['a']), 'pass');
+        //assert.ok(_.equals(_.difference([{11: 2}], [{4: 5}]), [{11: 2}]), 'pass');
     });
-
 }());
