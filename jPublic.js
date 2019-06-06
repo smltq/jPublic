@@ -997,14 +997,18 @@
 
     /**
      * 随机获取一个日期
-     * @returns {date}
+     * @param {Date} begin 开始时间(默认1970-1-1)
+     * @param {Date} end   结束时间(默认当前时间)
+     * @returns {Date}
+     * @version 1.8.3
+     * @alias module:_.getRandomDate
+     * _.dateFormat(_.getRandomDate());
+     * =>2019-05-01 12:34:54
      */
-    _.getRandomDate = function() {
-        var year = _.getRandom(1971,2019);
-        var month = _.getRandom(1,12);
-        var day = _.getRandom(1,31);
-        var date = new Date(year,month,day);
-        return date;
+    _.getRandomDate = function (begin, end) {
+        begin = begin || new Date(1970, 1, 1);
+        end = end || new Date();
+        return new Date(_.getRandom(begin.getTime(), end.getTime()));
     };
 
     /**

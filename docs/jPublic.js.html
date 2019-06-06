@@ -1046,6 +1046,22 @@
     };
 
     /**
+     * 随机获取一个日期
+     * @param {Date} begin 开始时间(默认1970-1-1)
+     * @param {Date} end   结束时间(默认当前时间)
+     * @returns {Date}
+     * @version 1.8.3
+     * @alias module:_.getRandomDate
+     * _.dateFormat(_.getRandomDate());
+     * =>2019-05-01 12:34:54
+     */
+    _.getRandomDate = function (begin, end) {
+        begin = begin || new Date(1970, 1, 1);
+        end = end || new Date();
+        return new Date(_.getRandom(begin.getTime(), end.getTime()));
+    };
+
+    /**
      * 获取月份第一天
      * @param {Date}    date    日期(默认当前日期)
      * @returns {Date}
