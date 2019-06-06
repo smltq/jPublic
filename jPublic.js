@@ -1002,6 +1002,7 @@
      * @returns {Date}
      * @version 1.8.3
      * @alias module:_.getRandomDate
+     * @example
      * _.dateFormat(_.getRandomDate());
      * =>2019-05-01 12:34:54
      */
