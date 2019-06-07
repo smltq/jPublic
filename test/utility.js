@@ -124,7 +124,7 @@
         assert.ok(_.dateFormat(_.lastDay(a)), _.dateFormat(a) + '的最后一天是' + _.dateFormat(_.lastDay(a)));
     });
 
-    QUnit.test(' 数组差集:_.difference', function (assert) {
+    QUnit.test('数组差集:_.difference', function (assert) {
         assert.ok(_.equals(_.difference([1, 2], [1, 2]), []), 'pass');
         assert.ok(_.equals(_.difference([1, 2, 3], [1, 2]), [3]), 'pass');
         assert.ok(_.equals(_.difference([1, 2, 3], [4, 5, 6]), [1, 2, 3]), 'pass');
@@ -140,6 +140,11 @@
         assert.ok(_.isRepeat([-1,1]) == false,'数组[-1,1]没有重复元素');
         assert.ok(_.isRepeat(['a','A']) == false,'数组'+['a','A']+'没有重复元素');
         assert.ok(_.isRepeat([0,0,0,1]),'数组[0,0,0,1]有重复元素');
+    });
+
+    QUnit.test('返回日期的yyyy-MM-dd格式:_.shortDateFormat',function(assert){
+        assert.ok(_.shortDateFormat(new Date('2016,4,5,17,55,55')),
+            '2016,4,5,17,55,55的简洁日期为'+_.shortDateFormat(2016,4,5,17,55,55));
     });
 
 }());
