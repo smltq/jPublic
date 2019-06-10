@@ -114,14 +114,20 @@
 
     QUnit.test('随机获取月份第一天：_.firstDay', function (assert) {
         var a = new Date()
-        a = _.getRandomDate();
-        assert.ok(_.dateFormat(_.firstDay(a)), _.dateFormat(a) + '的第一天是' + _.dateFormat(_.firstDay(a)));
+        for(var i = 0 ; i < 5; i++)
+        {
+            a = _.getRandomDate();
+            assert.ok(_.dateFormat(_.firstDay(a)), _.dateFormat(a) + '的第一天是' + _.dateFormat(_.firstDay(a)));
+        }       
     });
 
     QUnit.test('随机获取月份最后一天：_.lastDay', function (assert) {
-        var a = new Date()
-        a = _.getRandomDate();
-        assert.ok(_.dateFormat(_.lastDay(a)), _.dateFormat(a) + '的最后一天是' + _.dateFormat(_.lastDay(a)));
+        var a = new Date();
+        for(var i = 0; i < 5; i++)
+        {
+            a = _.getRandomDate();
+            assert.ok(_.dateFormat(_.lastDay(a)), _.dateFormat(a) + '的最后一天是' + _.dateFormat(_.lastDay(a)));
+        }
     });
 
     QUnit.test('数组差集:_.difference', function (assert) {
@@ -133,6 +139,7 @@
         assert.ok(_.equals(_.difference(["a", 'b'], ['b']), ['a']), 'pass');
         //assert.ok(_.equals(_.difference([{11: 2}], [{4: 5}]), [{11: 2}]), 'pass');
     });
+
     QUnit.test('数组元素是否重复:_.isRepeat',function(assert){
         assert.ok(_.isRepeat([1,2,3]) == false,'数组[1,2,3]没有重复元素');
         assert.ok(_.isRepeat([1,2,3,3]),'数组[1,2,3,3]有重复元素');
@@ -142,9 +149,18 @@
         assert.ok(_.isRepeat([0,0,0,1]),'数组[0,0,0,1]有重复元素');
     });
 
-    QUnit.test('返回日期的yyyy-MM-dd格式:_.shortDateFormat',function(assert){
-        assert.ok(_.shortDateFormat(new Date('2016,4,5,17,55,55')),
-            '2016,4,5,17,55,55的简洁日期为'+_.shortDateFormat(2016,4,5,17,55,55));
+    QUnit.test('获得本周的开始日期和结束日期：_.getWeekStartDate/_.getWeekEndDate',function(assert){
+        assert.ok(_.dateFormat(_.getWeekStartDate()),'本周的开始日期是'+_.dateFormat(_.getWeekStartDate()));
+        assert.ok(_.dateFormat(_.getWeekEndDate()),'本周的开始日期是'+_.dateFormat(_.getWeekEndDate()));
     });
+
+    QUnit.test('返回日期的yyyy-MM-dd格式:_.shortDateFormat',function(assert){
+        assert.ok(_.shortDateFormat(new Date(2016,4,5,17,55,55)),'2016,4,5,17,55,55的简洁日期为'+_.shortDateFormat(new Date(2016,4,5,17,55,55)));
+    });
+/**
+ * QUnit.test('获取当前服务器时间：_.serverTime',function(assert){
+        assert.ok(_.dateFormat(_.serverTime()),'服务器当前时间为'+_.dateFormat(_.serverTime()));
+    });
+ */
 
 }());
