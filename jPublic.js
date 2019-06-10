@@ -615,6 +615,20 @@
         return type === 'function' || type === 'object' && !!obj;
     };
 
+    /**
+     * 是否为日期对象，参数支持Date和String类型
+     * @param {Object} date 要检查的对象
+     * @returns {boolean}
+     * @alias module:_.isValidDate
+     * @version 1.8.3
+     * @example
+     * _.isValidDate("2019-5-5a");
+     * =>false
+     * _.isValidDate("2019-5-5");
+     * =>true
+     *_.isValidDate(new Date("2019-5-5a"));
+     * =>false
+     */
     _.isValidDate = function (date) {
         return !!(Object.prototype.toString.call(date) === "[object Date]" && +date);
     }
@@ -1084,6 +1098,10 @@
      */
     _.dateFormat = function (date, format) {
         date instanceof Date || (date = new Date(date));
+        if (!_.isValidDate(date)) {
+            throw "parameter is not a date type!";
+        }
+
         format = format || "yyyy-MM-dd hh:mm:ss";
         var o = {
             "M+": date.getMonth() + 1,
