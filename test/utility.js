@@ -156,6 +156,16 @@
 
     QUnit.test('返回日期的yyyy-MM-dd格式:_.shortDateFormat',function(assert){
         assert.ok(_.shortDateFormat(new Date(2016,4,5,17,55,55)),'2016,4,5,17,55,55的简洁日期为'+_.shortDateFormat(new Date(2016,4,5,17,55,55)));
+        assert.ok(_.shortDateFormat(new Date(2016,1,33,17,55,55)),'2016,1,33,17,55,55的简洁日期为'+_.shortDateFormat(new Date(2016,1,33,17,55,55)));
+        assert.ok(_.shortDateFormat(new Date(2016,4,5,17,55)),'2016,4,5,17,55的简洁日期为'+_.shortDateFormat(new Date(2016,4,5,17,55)));
+        assert.ok(_.shortDateFormat(new Date(2016,4,5,17)),'2016,4,5,17的简洁日期为'+_.shortDateFormat(new Date(2016,4,5,17)));
+        assert.ok(_.shortDateFormat(new Date(2016,4,5)),'2016,4,5的简洁日期为'+_.shortDateFormat(new Date(2016,4,5)));
+        assert.ok(_.shortDateFormat(new Date(2016,4)),'2016,4的简洁日期为'+_.shortDateFormat(new Date(2016,4)));
+        assert.ok(_.shortDateFormat(new Date(2016)),'2016的简洁日期为'+_.shortDateFormat(new Date(2016)));
+        assert.ok(_.shortDateFormat(new Date(99,4,5)),'99,4,5的简洁日期为'+_.shortDateFormat(new Date(99,4,5)));
+        assert.ok(_.shortDateFormat(new Date("October 13, 2014 11:13:00")),'"October 13, 2014 11:13:00"的简洁日期为'+_.shortDateFormat(new Date("October 13, 2014 11:13:00")));
+        assert.ok(_.shortDateFormat(new Date(100000000000)),'100000000000的简洁日期为'+_.shortDateFormat(new Date(100000000000)));
+        assert.ok(_.shortDateFormat(new Date(-100000000000)),'-100000000000的简洁日期为'+_.shortDateFormat(new Date(-100000000000)));
     });
 /**
  * QUnit.test('获取当前服务器时间：_.serverTime',function(assert){
