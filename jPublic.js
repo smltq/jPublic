@@ -615,6 +615,10 @@
         return type === 'function' || type === 'object' && !!obj;
     };
 
+    _.isValidDate = function (date) {
+        return !!(Object.prototype.toString.call(date) === "[object Date]" && +date);
+    }
+
     /**
      * 是否为空字符串
      * @param {String} str 要检查的字符串
@@ -1128,6 +1132,9 @@
      * => '17:44:06'
      */
     _.formatTime = function (n) {
+        if (n < 0) {
+            throw "parameter cannot be less than 0!";
+        }
         var hours = Math.floor(n / 60 / 60);
         var minutes = Math.floor((n - (hours * 60 * 60)) / 60);
         var seconds = Math.round(n - (hours * 60 * 60) - (minutes * 60));
