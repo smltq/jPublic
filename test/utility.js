@@ -167,6 +167,19 @@
         assert.ok(_.shortDateFormat(new Date(100000000000)),'100000000000的简洁日期为'+_.shortDateFormat(new Date(100000000000)));
         assert.ok(_.shortDateFormat(new Date(-100000000000)),'-100000000000的简洁日期为'+_.shortDateFormat(new Date(-100000000000)));
     });
+
+    QUnit.test('将时间格式化为指定格式的String:_.formatTime',function(assert){
+        assert.ok(_.formatTime(96420),'96420秒的指定string格式为'+_.formatTime(96420));
+        assert.ok(_.formatTime(0),'0秒的指定string格式为'+_.formatTime(0));
+        assert.ok(_.formatTime(-20),'-20秒的指定string格式为'+_.formatTime(-20));
+        for(var i = 0 ; i<5 ; i++)
+        {
+            var a = _.getRandom(0,86400);
+            assert.ok(_.formatTime(a),a+'秒的指定string格式为'+_.formatTime(a));
+
+        }
+        
+    });
 /**
  * QUnit.test('获取当前服务器时间：_.serverTime',function(assert){
         assert.ok(_.dateFormat(_.serverTime()),'服务器当前时间为'+_.dateFormat(_.serverTime()));
