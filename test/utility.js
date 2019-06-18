@@ -145,7 +145,7 @@
         assert.ok(_.isRepeat([1,2,3,3]),'数组[1,2,3,3]有重复元素');
         assert.ok(_.isRepeat([1,2,3.2,3]) == false,'数组[1,2,3.2,3]没有重复元素');
         assert.ok(_.isRepeat([-1,1]) == false,'数组[-1,1]没有重复元素');
-        assert.ok(_.isRepeat(['a','A']) == false,'数组'+['a','A']+'没有重复元素');
+        assert.ok(_.isRepeat(['a','A']) == false,'数组[\'a\',\'A\']没有重复元素');
         assert.ok(_.isRepeat([0,0,0,1]),'数组[0,0,0,1]有重复元素');
     });
 
@@ -178,10 +178,10 @@
         //try{
         assert.ok(_.formatTime(96420),'96420秒的指定string格式为'+_.formatTime(96420));
         assert.ok(_.formatTime(0),'0秒的指定string格式为'+_.formatTime(0));
-        assert.ok(_.formatTime(-20),'0秒的指定string格式为'+_.formatTime(-20));
-        //assert.throws(function(){
-       //     _.formatTime(-20)
-        //},'-20时间错误');
+        //assert.ok(_.formatTime(-20),'0秒的指定string格式为'+_.formatTime(-20));
+        assert.throws(function(){
+            _.formatTime(-20)
+        },'-20时间错误');
         for(var i = 0 ; i<5 ; i++)
             {
                 var a = _.getRandom(0,86400);
@@ -193,6 +193,33 @@
         //};             
     });
 
+    QUnit.test('洗牌数组： _.shuffle',function(assert){
+        assert.ok(_.shuffle([1,2,3,4,5]),'[1,2,3,4,5]洗牌后的数组'+_.shuffle([1,2,3,4,5]));
+        assert.ok(_.shuffle([1]),'[1]洗牌后的数组'+_.shuffle([1]));
+        assert.ok(_.shuffle(['a','b','c','d']),'[\'a\',\'b\',\'c\',\'d\']洗牌后的数组'+_.shuffle(['a','b','c','d']));
+        assert.ok(_.shuffle([2,'a','b','c','d',1,3]),'[2,\'a\',\'b\',\'c\',\'d\'1,3]洗牌后的数组'+_.shuffle([2,'a','b','c','d',1,3]));
+    });
+
+    QUnit.test('数组去重：_.unique ',function(assert){
+        assert.ok(_.unique([1, 2, 3, 5, 5]),'[1, 2, 3, 5, 5]数组去重后['+_.unique([1, 2, 3, 5, 5])+']');
+        assert.ok(_.unique([1, 1,1,1,1]),'[1, 1,1,1,1]数组去重后'+_.unique([1, 1,1,1,1]));
+        assert.ok(_.unique([1, -1,0,-0]),'[1,-1,0,-0]数组去重后'+_.unique([1,-1,0,-0]));
+        assert.ok(_.unique([1, 1, 'a', 'A']),'[1, 1, \'a\', \'A\']数组去重后'+_.unique([1, 1, 'a', 'A']));
+        assert.ok(_.unique(['abcd', 'ab']),'[\'abcd\', \'ab\']数组去重后'+_.unique(['abcd', 'ab']));
+    });
+
+    QUnit.test('数组严格比较：_.equals',function(assert){
+        var arr1 = [1, 2, 3, 4];
+        var arr2 = [2, 1, 4, 3];
+        var arr3 = [2, 2, 3, 4];
+        var arr4 = [1, 2, 3, 4];
+        var arr5 = [1,2];
+        assert.ok(_.equals(arr1,arr2) == false,'数组[1, 2, 3, 4]和数组 [2, 1, 4, 3]不是严格相等');
+        assert.ok(_.equals(arr1,arr2,false),'不严格比较数组[1, 2, 3, 4]和数组 [2, 1, 4, 3]是相等的');
+        assert.ok(_.equals(arr1,arr5) == false,'数组[1, 2, 3, 4]和数组 [1,2]不是严格相等');
+        assert.ok(_.equals(arr1,arr3) == false,'数组[1, 2, 3, 4]和数组 [2, 2, 3, 4]不是严格相等');
+        assert.ok(_.equals(arr1,arr4),'数组[1, 2, 3, 4]和数组 [[1, 2, 3, 4]是严格相等');
+    });
 
 /**
  * QUnit.test('获取当前服务器时间：_.serverTime',function(assert){
