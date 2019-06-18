@@ -131,9 +131,9 @@
     });
 
     QUnit.test('数组差集:_.difference', function (assert) {
-        assert.ok(_.equals(_.difference([1, 2], [1, 2]), []), 'pass');
-        assert.ok(_.equals(_.difference([1, 2, 3], [1, 2]), [3]), 'pass');
-        assert.ok(_.equals(_.difference([1, 2, 3], [4, 5, 6]), [1, 2, 3]), 'pass');
+        assert.ok(_.equals(_.difference([1, 2], [1, 2]), []), '[1, 2], [1, 2]的差集是[]');
+        assert.ok(_.equals(_.difference([1, 2, 3], [1, 2]), [3]), '[1, 2, 3], [1, 2]的差集是[3]');
+        assert.ok(_.equals(_.difference([1, 2, 3], [4, 5, 6]), [1, 2, 3]), '[1, 2, 3], [4, 5, 6]的差集是[1, 2, 3]');
         //assert.ok(_.equals(_.difference([[1], [2]], [[1]]), [[2]]), 'pass');
         assert.ok(_.equals(_.difference(['a', 'b'], ['a']), ['b']), 'pass');
         assert.ok(_.equals(_.difference(["a", 'b'], ['b']), ['a']), 'pass');
@@ -156,6 +156,12 @@
 
     QUnit.test('返回日期的yyyy-MM-dd格式:_.shortDateFormat',function(assert){
         assert.ok(_.now(),_.now());
+        assert.throws(function(){
+            _.shortDateFormat(new Date('adcvb'))
+        },'abcvb的日期格式不正确');
+        assert.throws(function(){
+            _.shortDateFormat(new Date(-100000000000))
+        },'-100000000000的日期格式不正确');
         assert.ok(_.shortDateFormat(new Date(2016,4,5,17,55,55)),'2016,4,5,17,55,55的简洁日期为'+_.shortDateFormat(new Date(2016,4,5,17,55,55)));
         assert.ok(_.shortDateFormat(new Date(2016,1,33,17,55,55)),'2016,1,33,17,55,55的简洁日期为'+_.shortDateFormat(new Date(2016,1,33,17,55,55)));
         assert.ok(_.shortDateFormat(new Date(2016,4,5,17,55)),'2016,4,5,17,55的简洁日期为'+_.shortDateFormat(new Date(2016,4,5,17,55)));
@@ -166,19 +172,25 @@
         assert.ok(_.shortDateFormat(new Date(99,4,5)),'99,4,5的简洁日期为'+_.shortDateFormat(new Date(99,4,5)));
         assert.ok(_.shortDateFormat(new Date("October 13, 2014 11:13:00")),'"October 13, 2014 11:13:00"的简洁日期为'+_.shortDateFormat(new Date("October 13, 2014 11:13:00")));
         assert.ok(_.shortDateFormat(new Date(100000000000)),'100000000000的简洁日期为'+_.shortDateFormat(new Date(100000000000)));
-        assert.ok(_.shortDateFormat(new Date(-100000000000)),'-100000000000的简洁日期为'+_.shortDateFormat(new Date(-100000000000)));
     });
 
     QUnit.test('将时间格式化为指定格式的String的相互转换:_.formatTime，_.unformatTime',function(assert){
+        //try{
         assert.ok(_.formatTime(96420),'96420秒的指定string格式为'+_.formatTime(96420));
         assert.ok(_.formatTime(0),'0秒的指定string格式为'+_.formatTime(0));
-        assert.ok(_.formatTime(-20),'-20秒的指定string格式为'+_.formatTime(-20));
+        assert.ok(_.formatTime(-20),'0秒的指定string格式为'+_.formatTime(-20));
+        //assert.throws(function(){
+       //     _.formatTime(-20)
+        //},'-20时间错误');
         for(var i = 0 ; i<5 ; i++)
-        {
-            var a = _.getRandom(0,86400);
-            assert.ok(_.formatTime(a),a+'秒的指定string格式为'+_.formatTime(a));
-            assert.ok(_.unformatTime(_.formatTime(a)),_.formatTime(a)+'的秒格式为'+_.unformatTime(_.formatTime(a)));
-        }       
+            {
+                var a = _.getRandom(0,86400);
+                assert.ok(_.formatTime(a),a+'秒的指定string格式为'+_.formatTime(a));
+                assert.ok(_.unformatTime(_.formatTime(a)),_.formatTime(a)+'的秒格式为'+_.unformatTime(_.formatTime(a)));
+            }
+        //}catch(error){
+            //alert('时间错误');
+        //};             
     });
 
 
