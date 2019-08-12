@@ -24,6 +24,7 @@
   "dependencies": {
     "karma-sauce-launcher": "^2.0.2",
     "lodash": "^4.17.15",
+    "lodash.merge": "^4.6.2",
     "tpack-uglify-js": "^2.9.1",
     "uglify-js": "^3.5.3",
     "uglify-js-plugin": "0.0.6"
