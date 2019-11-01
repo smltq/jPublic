@@ -1,4 +1,5 @@
 # jPublic
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/smltq/jPublic/pulls)
 [![GitHub stars](https://img.shields.io/github/stars/smltq/jPublic.svg?style=social&label=Stars)](https://github.com/smltq/jPublic)
@@ -48,6 +49,7 @@ jPublic是一个完全开源的JavaScript函数库。
 ```
 
 ### 环境配置
+
 技术 | 名称 | 官网
 ----|------|----
 karma| 测试框架  | [https://github.com/karma-runner](https://github.com/karma-runner)
@@ -57,19 +59,23 @@ nodejs| js运行时  | [https://nodejs.org/zh-cn/](https://nodejs.org/zh-cn/)
 UglifyJS2| 压缩工具  | [https://github.com/mishoo/UglifyJS2/tree/v2.x](https://github.com/mishoo/UglifyJS2/tree/v2.x)
 
 ### 引入方式
+
 ```
 Require.js      require(["jPublic"]
 页面            <script src="jPublic.min.js"></script>
 ```
 
 ## 在线文档
+
 - API文档：https://smltq.github.io/jPublic/
 - 码云文档：https://tqlin.gitee.io/jpublic/module-_.html#.DEFAULT_SCALE（国内建议访问这个地址）
 - 码云仓库：https://gitee.com/tqlin/jPublic
 
 ## FAQ
+
 - [JavaScript空字符串判断](https://www.cnblogs.com/tqlin/p/10858492.html)
-- [侍做事项](https://github.com/smltq/jPublic/wiki/%E4%BB%8B%E7%BB%8D)，有兴趣加入项目的朋友，把帐号发我，最好能接个任务去研究。
+- [这个正则怎么读](https://www.cnblogs.com/tqlin/p/10960127.html)
 
 ## 许可证
+
 [MIT](LICENSE "MIT")
