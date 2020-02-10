@@ -1515,7 +1515,7 @@
                 num: result.slice(1, 3).join('')
             }
         }
-    }
+    };
 
     /**
      * 科学计数法转十进制
@@ -1545,7 +1545,7 @@
         }
         zs = zs == "" ? "0" : zs;
         return (result[1] == "-" ? "-" : "") + zs + (xs ? "." + xs : "");
-    }
+    };
 
     /**
      * 清理多余"零"
@@ -1572,7 +1572,7 @@
             str = str.replace(arg_d, zero);
         }
         return str;
-    }
+    };
 
     /**
      * 阿拉伯数字转中文数字
@@ -1680,7 +1680,7 @@
             }
         }
         return minus + int + dicimal;
-    }
+    };
 
     //这里继续扩展函数
     //示例:_.a1=function(){};
