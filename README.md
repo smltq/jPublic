@@ -78,7 +78,7 @@ Require.js      require(["jPublic"]
     
 ### 生成最新文档
 
-    jsdoc jPublic.js
+    jsdoc jPublic.js -d docs
     
 ## FAQ
 
