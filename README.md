@@ -71,6 +71,12 @@ Require.js      require(["jPublic"]
 - 码云文档：https://tqlin.gitee.io/jpublic/module-_.html#.DEFAULT_SCALE（国内建议访问这个地址）
 - 码云仓库：https://gitee.com/tqlin/jPublic
 
+### 生成压缩及map文件
+
+    uglifyjs jPublic.js -o jPublic.min.js --source-map "url='jPublic.min.js.map'"
+    
+
+
 ## FAQ
 
 - [JavaScript空字符串判断](https://www.cnblogs.com/tqlin/p/10858492.html)

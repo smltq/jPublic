@@ -1,6 +1,6 @@
 /**
- * @file js工具库.
- * @copyright jPublic.js 2019
+ * @file js工具库
+ * @copyright jPublic.js 2020
  * @author https://github.com/smltq/jPublic.git
  */
 (function () {
@@ -1785,6 +1785,112 @@
             }
         }
         return minus + int + dicimal;
+    };
+
+    /**
+     * 计算地图上两个点的距离
+     * @param lng1
+     * @param lat1
+     * @param lng2
+     * @param lat2
+     * @returns {string} 返回单位千米
+     */
+    _.getMapDistance = function (lng1, lat1, lng2, lat2) {
+        var f = getRad((lat1 + lat2) / 2);
+        var g = getRad((lat1 - lat2) / 2);
+        var l = getRad((lng1 - lng2) / 2);
+        if (g == 0 && l == 0) { //两点重叠，直接返回0
+            return g;
+        }
+        var sg = Math.sin(g);
+        var sl = Math.sin(l);
+        var sf = Math.sin(f);
+        var s, c, w, r, d, h1, h2;
+        var a = 6378137.0;
+        var fl = 1 / 298.257;
+        sg = sg * sg;
+        sl = sl * sl;
+        sf = sf * sf;
+        s = sg * (1 - sl) + (1 - sf) * sl;
+        c = (1 - sg) * (1 - sl) + sf * sl;
+        w = Math.atan(Math.sqrt(s / c));
+        r = Math.sqrt(s * c) / w;
+        d = 2 * w * a;
+        h1 = (3 * r - 1) / 2 / c;
+        h2 = (3 * r + 1) / 2 / s;
+        s = d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg));
+        s = s / 1000;
+        s = s.toFixed(2);
+        return s;
+    }
+
+    function getRad(d) {
+        var PI = Math.PI;
+        return d * PI / 180.0;
+    }
+
+    /**
+     * 判断地图上的点是否在多边形内
+     * @param point {lat:xx,lng:xx}
+     * @param pts [{lat:xx,lng:xx},]
+     * @returns {boolean}
+     */
+    _.isMapPointInPolygon = function (point, pts) {
+        var N = pts.length;  //pts [{lat:xxx,lng:xxx},{lat:xxx,lng:xxx}]
+        var boundOrVertex = true; //如果点位于多边形的顶点或边上，也算做点在多边形内，直接返回true
+        var intersectCount = 0;//cross points count of x
+        var precision = 2e-10; //浮点类型计算时候与0比较时候的容差
+        var p1, p2;//neighbour bound vertices
+        var p = point; //point {lat:xxx,lng:xxx}
+
+        p1 = pts[0];//left vertex
+        for (var i = 1; i <= N; ++i) {//check all rays
+            if ((p.lat == p1.lat) && (p.lng == p1.lng)) {
+                return boundOrVertex;//p is an vertex
+            }
+            p2 = pts[i % N];//right vertex
+            if (p.lat < Math.min(p1.lat, p2.lat) || p.lat > Math.max(p1.lat, p2.lat)) {//ray is outside of our interests
+                p1 = p2;
+                continue;//next ray left point
+            }
+            if (p.lat > Math.min(p1.lat, p2.lat) && p.lat < Math.max(p1.lat, p2.lat)) {//ray is crossing over by the algorithm (common part of)
+                if (p.lng <= Math.max(p1.lng, p2.lng)) {//x is before of ray
+                    if (p1.lat == p2.lat && p.lng >= Math.min(p1.lng, p2.lng)) {//overlies on a horizontal ray
+                        return boundOrVertex;
+                    }
+                    if (p1.lng == p2.lng) {//ray is vertical
+                        if (p1.lng == p.lng) {//overlies on a vertical ray
+                            return boundOrVertex;
+                        } else {//before ray
+                            ++intersectCount;
+                        }
+                    } else {//cross point on the left side
+                        var xinters = (p.lat - p1.lat) * (p2.lng - p1.lng) / (p2.lat - p1.lat) + p1.lng;//cross point of lng
+                        if (Math.abs(p.lng - xinters) < precision) {//overlies on a ray
+                            return boundOrVertex;
+                        }
+                        if (p.lng < xinters) {//before ray
+                            ++intersectCount;
+                        }
+                    }
+                }
+            } else {//special case when ray is crossing through the vertex
+                if (p.lat == p2.lat && p.lng <= p2.lng) {//p crossing over p2
+                    var p3 = pts[(i + 1) % N]; //next vertex
+                    if (p.lat >= Math.min(p1.lat, p3.lat) && p.lat <= Math.max(p1.lat, p3.lat)) {//p.lat lies between p1.lat & p3.lat
+                        ++intersectCount;
+                    } else {
+                        intersectCount += 2;
+                    }
+                }
+            }
+            p1 = p2;//next ray left point
+        }
+        if (intersectCount % 2 == 0) {//偶数在多边形外
+            return false;
+        } else { //奇数在多边形内
+            return true;
+        }
     };
 
     //这里继续扩展函数
