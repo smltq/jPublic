@@ -1792,6 +1792,7 @@
      * @param {float} lng2 经度2
      * @param {float} lat2 纬度2
      * @returns {float} 返回单位千米
+     * @version 1.8.5
      */
     _.getMapDistance = function (lng1, lat1, lng2, lat2) {
         var f = getRad((lat1 + lat2) / 2);
@@ -1832,6 +1833,7 @@
      * @param {Object} point 点
      * @param {Array} pts   面
      * @returns {boolean}
+     * @version 1.8.5
      */
     _.isMapPointInPolygon = function (point, pts) {
         var N = pts.length;  //pts [{lat:xxx,lng:xxx},{lat:xxx,lng:xxx}]

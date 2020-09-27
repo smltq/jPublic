@@ -55,6 +55,7 @@ jPublic是一个完全开源的JavaScript函数库。
 karma| 测试框架  | [https://github.com/karma-runner](https://github.com/karma-runner)
 qunit| 单元测试工具  | [https://qunitjs.com/](https://qunitjs.com/)
 jsdoc| 文档生成  | [https://github.com/jsdoc/jsdoc](https://github.com/jsdoc/jsdoc)
+TUI JSDoc Template|文档生成模板|[https://github.com/nhn/tui.jsdoc-template](https://github.com/nhn/tui.jsdoc-template)
 nodejs| js运行时  | [https://nodejs.org/zh-cn/](https://nodejs.org/zh-cn/)
 UglifyJS2| 压缩工具  | [https://github.com/mishoo/UglifyJS2/tree/v2.x](https://github.com/mishoo/UglifyJS2/tree/v2.x)
 
