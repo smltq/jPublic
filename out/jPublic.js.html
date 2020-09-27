@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: jPublic.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: jPublic.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file js工具库
  * @copyright jPublic.js 2020
  * @author https://github.com/smltq/jPublic.git
@@ -9,8 +37,8 @@
     /**
      * 获得root,兼容web,微信,note等
      */
-    var root = (typeof self == 'object' && self.self === self && self) ||
-        (typeof global == 'object' && global.global === global && global) || this || {};
+    var root = (typeof self == 'object' &amp;&amp; self.self === self &amp;&amp; self) ||
+        (typeof global == 'object' &amp;&amp; global.global === global &amp;&amp; global) || this || {};
 
     var ArrayProto = Array.prototype, ObjProto = Object.prototype;
 
@@ -49,8 +77,8 @@
      */
     _.VERSION = '1.8.3';
 
-    if (typeof exports != 'undefined' && !exports.nodeType) {
-        if (typeof module != 'undefined' && !module.nodeType && module.exports) {
+    if (typeof exports != 'undefined' &amp;&amp; !exports.nodeType) {
+        if (typeof module != 'undefined' &amp;&amp; !module.nodeType &amp;&amp; module.exports) {
             exports = module.exports = _;
         }
         exports._ = _;
@@ -89,14 +117,14 @@
     };
 
     var has = function (obj, path) {
-        return obj != null && hasOwnProperty.call(obj, path);
+        return obj != null &amp;&amp; hasOwnProperty.call(obj, path);
     }
 
     var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
     var getLength = shallowProperty('length');
     var isArrayLike = function (collection) {
         var length = getLength(collection);
-        return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
+        return typeof length == 'number' &amp;&amp; length >= 0 &amp;&amp; length &lt;= MAX_ARRAY_INDEX;
     };
 
     var builtinIteratee;
@@ -104,7 +132,7 @@
         if (_.iteratee !== builtinIteratee) return _.iteratee(value, context);
         if (value == null) return _.identity;
         if (_.isFunction(value)) return optimizeCb(value, context, argCount);
-        if (_.isObject(value) && !_.isArray(value)) return _.matcher(value);
+        if (_.isObject(value) &amp;&amp; !_.isArray(value)) return _.matcher(value);
         return _.property(value);
     };
 
@@ -112,12 +140,12 @@
         return function (obj) {
             var length = arguments.length;
             if (defaults) obj = Object(obj);
-            if (length < 2 || obj == null) return obj;
-            for (var index = 1; index < length; index++) {
+            if (length &lt; 2 || obj == null) return obj;
+            for (var index = 1; index &lt; length; index++) {
                 var source = arguments[index],
                     keys = keysFunc(source),
                     l = keys.length;
-                for (var i = 0; i < l; i++) {
+                for (var i = 0; i &lt; l; i++) {
                     var key = keys[i];
                     if (!defaults || obj[key] === void 0) obj[key] = source[key];
                 }
@@ -129,15 +157,15 @@
     var collectNonEnumProps = function (obj, keys) {
         var nonEnumIdx = nonEnumerableProps.length;
         var constructor = obj.constructor;
-        var proto = _.isFunction(constructor) && constructor.prototype || ObjProto;
+        var proto = _.isFunction(constructor) &amp;&amp; constructor.prototype || ObjProto;
 
         //构造函数是一种特殊情况
         var prop = 'constructor';
-        if (has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+        if (has(obj, prop) &amp;&amp; !_.contains(keys, prop)) keys.push(prop);
 
         while (nonEnumIdx--) {
             prop = nonEnumerableProps[nonEnumIdx];
-            if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
+            if (prop in obj &amp;&amp; obj[prop] !== proto[prop] &amp;&amp; !_.contains(keys, prop)) {
                 keys.push(prop);
             }
         }
@@ -147,8 +175,8 @@
     //集合函数开始
     //---------------
     /**
-     * 生成可应用于集合中的每个元素的回调。<br>
-     * _.iteratee支持许多常见回调用例的简写语法。<br>
+     * 生成可应用于集合中的每个元素的回调。&lt;br>
+     * _.iteratee支持许多常见回调用例的简写语法。&lt;br>
      * 根据值的类型，_.iteratee 各种结果
      * @param {*}   value   迭代值
      * @param {Object}  context 上下文
@@ -219,7 +247,7 @@
         var keys = _.keys(attrs), length = keys.length;
         if (object == null) return !length;
         var obj = Object(object);
-        for (var i = 0; i < length; i++) {
+        for (var i = 0; i &lt; length; i++) {
             var key = keys[i];
             if (attrs[key] !== obj[key] || !(key in obj)) return false;
         }
@@ -227,11 +255,11 @@
     };
 
     /**
-     * 遍历list中的所有元素，按顺序用遍历输出每个元素。<br>
-     * 如果传递了context参数，则把iteratee绑定到context对象上。<br>
-     * 每次调用iteratee都会传递三个参数：(element, index, list)。<br>
-     * 如果list是个JavaScript对象，iteratee的参数是 (value, key, list))。<br>
-     * 返回list以方便链式调用。<br>
+     * 遍历list中的所有元素，按顺序用遍历输出每个元素。&lt;br>
+     * 如果传递了context参数，则把iteratee绑定到context对象上。&lt;br>
+     * 每次调用iteratee都会传递三个参数：(element, index, list)。&lt;br>
+     * 如果list是个JavaScript对象，iteratee的参数是 (value, key, list))。&lt;br>
+     * 返回list以方便链式调用。&lt;br>
      * @param {Object} obj   遍历目标
      * @param {Function} iteratee   迭代器
      * @param {Object} context  绑定的目标对象
@@ -246,12 +274,12 @@
         iteratee = optimizeCb(iteratee, context);
         var i, length;
         if (isArrayLike(obj)) {
-            for (i = 0, length = obj.length; i < length; i++) {
+            for (i = 0, length = obj.length; i &lt; length; i++) {
                 iteratee(obj[i], i, obj);
             }
         } else {
             var keys = _.keys(obj);
-            for (i = 0, length = keys.length; i < length; i++) {
+            for (i = 0, length = keys.length; i &lt; length; i++) {
                 iteratee(obj[keys[i]], keys[i], obj);
             }
         }
@@ -285,7 +313,7 @@
      * @alias module:_.getUrlParam
      */
     _.getUrlParam = function (name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var reg = new RegExp("(^|&amp;)" + name + "=([^&amp;]*)(&amp;|$)", "i");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) {
             return decodeURIComponent(r[2]);
@@ -312,7 +340,7 @@
                 timeout = null;
                 if (!immediate) fn.apply(context, args);
             };
-            var callNow = immediate && !timeout;
+            var callNow = immediate &amp;&amp; !timeout;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
             if (callNow) fn.apply(context, args);
@@ -336,7 +364,7 @@
         return function () {
             var context = scope || this;
             var now = _.now(), args = arguments;
-            if (last && now < last + wait) {
+            if (last &amp;&amp; now &lt; last + wait) {
                 clearTimeout(deferTimer);
                 deferTimer = setTimeout(function () {
                     last = now;
@@ -407,7 +435,7 @@
                 callback();
             }
             //如果在结束时间内，继续进入循环判断
-            else if (Number(new Date()) < endTime) {
+            else if (Number(new Date()) &lt; endTime) {
                 setTimeout(p, interval);
             }
             //超时，抛出异常
@@ -418,7 +446,7 @@
     };
 
     /**
-     * 返回一个min 和 max之间的随机整数。<br>
+     * 返回一个min 和 max之间的随机整数。&lt;br>
      * 如果你只传递一个参数，那么将返回0和这个参数之间的整数
      * @param min 随机数下限,没传默认为0
      * @param max 随机数上限
@@ -465,9 +493,9 @@
      * @alias module:_.copyToClipboard
      */
     _.copyToClipboard = function (text) {
-        if (window.clipboardData && window.clipboardData.setData) {
+        if (window.clipboardData &amp;&amp; window.clipboardData.setData) {
             return clipboardData.setData("Text", text);
-        } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        } else if (document.queryCommandSupported &amp;&amp; document.queryCommandSupported("copy")) {
             var textarea = document.createElement("textarea");
             textarea.textContent = text;
             textarea.style.position = "fixed";
@@ -496,13 +524,13 @@
      *      { text: "删除", fn: "detailDataGrid.Delete({0})" },
      *      {text: "修改", fn: "detailDataGrid.Edit({0})" }]
      * _.defineOperate(arr,3)
-     * =><a style='cursor: pointer;' onclick='detailDataGrid.Delete(3)' href='javascript:;'>删除</a> | <a style='cursor: pointer;' onclick='detailDataGrid.Edit(3)' href='javascript:;'>修改</a>
+     * =>&lt;a style='cursor: pointer;' onclick='detailDataGrid.Delete(3)' href='javascript:;'>删除&lt;/a> | &lt;a style='cursor: pointer;' onclick='detailDataGrid.Edit(3)' href='javascript:;'>修改&lt;/a>
      */
     _.defineOperate = function (arr, value) {
         var str = "";
         var len = arr.length, i = 0;
-        while (i < len) {
-            str += _.format("<a style='cursor: pointer;' onclick='{1}' href='javascript:;'>{0}</a>", arr[i].text, _.format(arr[i].fn, value));
+        while (i &lt; len) {
+            str += _.format("&lt;a style='cursor: pointer;' onclick='{1}' href='javascript:;'>{0}&lt;/a>", arr[i].text, _.format(arr[i].fn, value));
             str += (i == len - 1 ? "" : " | ");
             i++;
         }
@@ -612,7 +640,7 @@
      */
     _.isObject = function (obj) {
         var type = typeof obj;
-        return type === 'function' || type === 'object' && !!obj;
+        return type === 'function' || type === 'object' &amp;&amp; !!obj;
     };
 
     /**
@@ -630,7 +658,7 @@
      * =>false
      */
     _.isValidDate = function (date) {
-        return !!(Object.prototype.toString.call(date) === "[object Date]" && +date);
+        return !!(Object.prototype.toString.call(date) === "[object Date]" &amp;&amp; +date);
     }
 
     /**
@@ -681,7 +709,7 @@
      */
     _.isEmpty = function (obj) {
         if (obj == null) return true;
-        if (isArrayLike(obj) && (_.isArray(obj) || _.isArguments(obj))) return obj.length === 0;
+        if (isArrayLike(obj) &amp;&amp; (_.isArray(obj) || _.isArguments(obj))) return obj.length === 0;
         if (_.isString(obj)) return _.isNullOrEmpty(obj);
         return _.keys(obj).length === 0;
     };
@@ -729,7 +757,7 @@
      * _.isNumeric( undefined )
      */
     _.isNumeric = function (value) {
-        return !isNaN(parseFloat(value)) && isFinite(value);
+        return !isNaN(parseFloat(value)) &amp;&amp; isFinite(value);
     };
 
     /**
@@ -803,8 +831,8 @@
      * =>100,000,000.343
      */
     _.fmoney = function (value, digit) {
-        digit = digit > 0 && digit <= 20 ? digit : 2;
-        if (typeof (value) == "undefined" || (!value && value != 0)) {
+        digit = digit > 0 &amp;&amp; digit &lt;= 20 ? digit : 2;
+        if (typeof (value) == "undefined" || (!value &amp;&amp; value != 0)) {
             return '';
         }
         value = parseFloat((value + "").replace(/[^\d\.-]/g, "")).toFixed(digit) + "";
@@ -822,10 +850,10 @@
      * @alias module:_.defineColor
      * @example
      * _.defineColor(“Hello”)
-     * =><span style="color:#FF0000">Hello</span>
+     * =>&lt;span style="color:#FF0000">Hello&lt;/span>
      */
     _.defineColor = function (value, color) {
-        return '<span style="color:' + (color || "#FF0000") + '">' + value + "</span>";
+        return '&lt;span style="color:' + (color || "#FF0000") + '">' + value + "&lt;/span>";
     };
 
     /**
@@ -850,15 +878,15 @@
     _.formatBytes = function (bytes, decimals) {
         if (bytes == 0) return '0 Bytes';
         var k = 1024,
-            dm = decimals <= 0 ? 0 : decimals || 2,
+            dm = decimals &lt;= 0 ? 0 : decimals || 2,
             sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
             i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 
     /**
-     * 如果list中的所有元素都通过predicate的真值检测就返回true。<br>
-     * （注：如果存在原生的every方法，就使用原生的every。）<br>
+     * 如果list中的所有元素都通过predicate的真值检测就返回true。&lt;br>
+     * （注：如果存在原生的every方法，就使用原生的every。）&lt;br>
      * predicate 通过 iteratee 进行转换，以简化速记语法。
      * @param {Array}       list        要检查的列表
      * @param {Function}    predicate   检测函数
@@ -871,9 +899,9 @@
      */
     _.every = function (list, predicate, context) {
         predicate = cb(predicate, context);
-        var keys = !isArrayLike(list) && _.keys(list),
+        var keys = !isArrayLike(list) &amp;&amp; _.keys(list),
             length = (keys || list).length;
-        for (var index = 0; index < length; index++) {
+        for (var index = 0; index &lt; length; index++) {
             var currentKey = keys ? keys[index] : index;
             if (!predicate(list[currentKey], currentKey, list)) return false;
         }
@@ -881,8 +909,8 @@
     };
 
     /**
-     * 如果list中有任何一个元素通过 predicate 的真值检测就返回true。<br>
-     * 一旦找到了符合条件的元素, 就直接中断对list的遍历。<br>
+     * 如果list中有任何一个元素通过 predicate 的真值检测就返回true。&lt;br>
+     * 一旦找到了符合条件的元素, 就直接中断对list的遍历。&lt;br>
      * predicate 通过 iteratee 进行转换，以简化速记语法。
      * @param {Array}       list        要检查的列表
      * @param {Function}    predicate   检测函数
@@ -895,9 +923,9 @@
      */
     _.some = function (list, predicate, context) {
         predicate = cb(predicate, context);
-        var keys = !isArrayLike(list) && _.keys(list),
+        var keys = !isArrayLike(list) &amp;&amp; _.keys(list),
             length = (keys || list).length;
-        for (var index = 0; index < length; index++) {
+        for (var index = 0; index &lt; length; index++) {
             var currentKey = keys ? keys[index] : index;
             if (predicate(list[currentKey], currentKey, list)) return true;
         }
@@ -905,9 +933,9 @@
     };
 
     /**
-     * 一个用来创建整数灵活编号的列表的函数，便于each 和 map循环。<br>
-     * 如果省略start则默认为 0；<br>
-     * step 默认为 1.返回一个从start 到stop的整数的列表，用step来增加 （或减少）独占。<br>
+     * 一个用来创建整数灵活编号的列表的函数，便于each 和 map循环。&lt;br>
+     * 如果省略start则默认为 0；&lt;br>
+     * step 默认为 1.返回一个从start 到stop的整数的列表，用step来增加 （或减少）独占。&lt;br>
      * 值得注意的是，如果stop值在start前面（也就是stop值小于start值），那么值域会被认为是零长度，而不是负增长。-如果你要一个负数的值域 ，请使用负数step.
      * @param {Integer} start   开始位置
      * @param {Integer} stop    结束位置
@@ -932,12 +960,12 @@
             start = 0;
         }
         if (!step) {
-            step = stop < start ? -1 : 1;
+            step = stop &lt; start ? -1 : 1;
         }
         var length = Math.max(Math.ceil((stop - start) / step), 0);
         var range = Array(length);
 
-        for (var idx = 0; idx < length; idx++, start += step) {
+        for (var idx = 0; idx &lt; length; idx++, start += step) {
             range[idx] = start;
         }
         return range;
@@ -957,7 +985,7 @@
         if (nativeKeys) return nativeKeys(obj);
         var keys = [];
         for (var key in obj) if (has(obj, key)) keys.push(key);
-        // Ahem, IE < 9.
+        // Ahem, IE &lt; 9.
         if (hasEnumBug) collectNonEnumProps(obj, keys);
         return keys;
     };
@@ -977,9 +1005,9 @@
     };
 
     _.templateSettings = {
-        evaluate: /<%([\s\S]+?)%>/g,
-        interpolate: /<%=([\s\S]+?)%>/g,
-        escape: /<%-([\s\S]+?)%>/g
+        evaluate: /&lt;%([\s\S]+?)%>/g,
+        interpolate: /&lt;%=([\s\S]+?)%>/g,
+        escape: /&lt;%-([\s\S]+?)%>/g
     };
 
     //通用函数结束
@@ -1086,8 +1114,8 @@
     };
 
     /**
-     * 将 Date 转化为指定格式的String 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q)<br>
-     * 可以用 1-2 个占位符 年(y)可以用 1-4 个占位符 毫秒(S)只能用 1 个占位符(是 1-3 位的数字)<br>
+     * 将 Date 转化为指定格式的String 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q)&lt;br>
+     * 可以用 1-2 个占位符 年(y)可以用 1-4 个占位符 毫秒(S)只能用 1 个占位符(是 1-3 位的数字)&lt;br>
      * @param {Date}    date    日期(默认当前时间)
      * @param {String}  format  格式化字符串(默认yyyy-MM-dd hh:mm:ss)
      * @returns {*}
@@ -1150,13 +1178,13 @@
      * => '17:44:06'
      */
     _.formatTime = function (n) {
-        if (n < 0) {
+        if (n &lt; 0) {
             throw "parameter cannot be less than 0!";
         }
         var hours = Math.floor(n / 60 / 60);
         var minutes = Math.floor((n - (hours * 60 * 60)) / 60);
         var seconds = Math.round(n - (hours * 60 * 60) - (minutes * 60));
-        return hours + ':' + ((minutes < 10) ? '0' + minutes : minutes) + ':' + ((seconds < 10) ? '0' + seconds : seconds);
+        return hours + ':' + ((minutes &lt; 10) ? '0' + minutes : minutes) + ':' + ((seconds &lt; 10) ? '0' + seconds : seconds);
     };
 
     /**
@@ -1266,7 +1294,7 @@
      */
     _.unique = function (arr) {
         var a = [];
-        for (var i = 0, l = arr.length; i < l; i++) {
+        for (var i = 0, l = arr.length; i &lt; l; i++) {
             if (a.indexOf(arr[i]) === -1) {
                 a.push(arr[i]);
             }
@@ -1308,10 +1336,10 @@
         if (!b) return false;
         if (arguments.length == 2) strict = true;
         if (a.length != b.length) return false;
-        for (var i = 0; i < a.length; i++) {
-            if (a[i] instanceof Array && b[i] instanceof Array) {
+        for (var i = 0; i &lt; a.length; i++) {
+            if (a[i] instanceof Array &amp;&amp; b[i] instanceof Array) {
                 if (!a[i].equals(b[i], strict)) return false;
-            } else if (strict && a[i] != b[i]) {
+            } else if (strict &amp;&amp; a[i] != b[i]) {
                 return false;
             } else if (!strict) {
                 return _.equals(a.sort(), b.sort(), true);
@@ -1534,7 +1562,7 @@
      *             -1.1234567890123456789e+30,
      *             -1.1234567890123456789e-30]
      * var i;
-     * for (i=0;i<numbers.length;i++) {
+     * for (i=0;i&lt;numbers.length;i++) {
      *        console.log(_.removeExponent(numbers[i]));
      *   }
      * =>1123456789012345700000000000000
@@ -1543,7 +1571,7 @@
      * =>0.00000000000000000000000000000.11234567890123458
      */
     _.removeExponent = function (x) {
-        if (Math.abs(x) < 1.0) {
+        if (Math.abs(x) &lt; 1.0) {
             var e = parseInt(x.toString().split('e-')[1]);
             if (e) {
                 x *= Math.pow(10, e - 1);
@@ -1571,7 +1599,7 @@
      * =>true
      */
     _.numEqual = function (x, y) {
-        return Math.abs(x - y) < this.EPSILON;
+        return Math.abs(x - y) &lt; this.EPSILON;
     };
 
     /**
@@ -1607,7 +1635,7 @@
      */
     _.getNumbResult = function (num) {
         var result = REG_NUMBER.exec(num.toString());
-        if (!result && REG_E.test(num.toString())) {
+        if (!result &amp;&amp; REG_E.test(num.toString())) {
             result = REG_NUMBER.exec(_.e2ten(num.toString()))
         }
         if (result) {
@@ -1634,15 +1662,15 @@
             , e = result[5] ? +result[5] : 0;
         if (e > 0) {
             var _zs = xs.substr(0, e);
-            _zs = _zs.length < e ? _zs + new Array(e - _zs.length + 1).join("0") : _zs;
+            _zs = _zs.length &lt; e ? _zs + new Array(e - _zs.length + 1).join("0") : _zs;
             xs = xs.substr(e);
             zs += _zs;
         } else {
             e = -e;
             var s_start = zs.length - e;
-            s_start = s_start < 0 ? 0 : s_start;
+            s_start = s_start &lt; 0 ? 0 : s_start;
             var _xs = zs.substr(s_start, e);
-            _xs = _xs.length < e ? new Array(e - _xs.length + 1).join("0") + _xs : _xs;
+            _xs = _xs.length &lt; e ? new Array(e - _xs.length + 1).join("0") + _xs : _xs;
             zs = zs.substring(0, s_start);
             xs = _xs + xs;
         }
@@ -1681,12 +1709,12 @@
      * 阿拉伯数字转中文数字
      * (源码:https://github.com/cnwhy/nzh.git)
      * @param {String} num 阿拉伯数字/字符串 , 科学记数法字符串
-     * @param {Object} opration 转换配置<br>
-     *                          {<br>
-     *                              ww: {万万化单位 | false}<br>
-     *                              tenMin: {十的口语化 | false}<br>
-     *                              nzh:{中文语言|简体}<br>
-     *                          }<br>
+     * @param {Object} opration 转换配置&lt;br>
+     *                          {&lt;br>
+     *                              ww: {万万化单位 | false}&lt;br>
+     *                              tenMin: {十的口语化 | false}&lt;br>
+     *                              nzh:{中文语言|简体}&lt;br>
+     *                          }&lt;br>
      * @returns {string}
      * @alias module:_.cl
      * @version 1.8.3
@@ -1735,11 +1763,11 @@
                 , _length = _int.length;
             //一位整数
             if (_length == 1) return ch.charAt(+_int);
-            if (_length <= 4) { //四位及以下
+            if (_length &lt;= 4) { //四位及以下
                 for (var i = 0, n = _length; n--;) {
                     var _num = +_int.charAt(i);
-                    int += (tenm && _length == 2 && i == 0 && _num == 1) ? "" : ch.charAt(_num);
-                    int += (_num && n ? ch_u.charAt(n) : '')
+                    int += (tenm &amp;&amp; _length == 2 &amp;&amp; i == 0 &amp;&amp; _num == 1) ? "" : ch.charAt(_num);
+                    int += (_num &amp;&amp; n ? ch_u.charAt(n) : '')
                     i++;
                 }
             } else {  //大数递归
@@ -1764,7 +1792,7 @@
         //转换小数部分
         if (_decimal) {
             _decimal = _.clearZero(_decimal, "0", "$"); //去除尾部0
-            for (var x = 0; x < _decimal.length; x++) {
+            for (var x = 0; x &lt; _decimal.length; x++) {
                 dicimal += ch.charAt(+_decimal.charAt(x));
             }
             dicimal = dicimal ? ch_d + dicimal : "";
@@ -1774,7 +1802,7 @@
         int = encodeInt(_int);  //转换整数
 
         //超级大数的万万化
-        if (options.ww && ch_u.length > 5) {
+        if (options.ww &amp;&amp; ch_u.length > 5) {
             var dw_w = ch_u.charAt(4)
                 , dw_y = ch_u.charAt(5);
             var lasty = int.lastIndexOf(dw_y);
@@ -1797,7 +1825,7 @@
         var f = getRad((lat1 + lat2) / 2);
         var g = getRad((lat1 - lat2) / 2);
         var l = getRad((lng1 - lng2) / 2);
-        if (g == 0 && l == 0) { //两点重叠，直接返回0
+        if (g == 0 &amp;&amp; l == 0) { //两点重叠，直接返回0
             return g;
         }
         var sg = Math.sin(g);
@@ -1842,18 +1870,18 @@
         var p = point; //point {lat:xxx,lng:xxx}
 
         p1 = pts[0];//left vertex
-        for (var i = 1; i <= N; ++i) {//check all rays
-            if ((p.lat == p1.lat) && (p.lng == p1.lng)) {
+        for (var i = 1; i &lt;= N; ++i) {//check all rays
+            if ((p.lat == p1.lat) &amp;&amp; (p.lng == p1.lng)) {
                 return boundOrVertex;//p is an vertex
             }
             p2 = pts[i % N];//right vertex
-            if (p.lat < Math.min(p1.lat, p2.lat) || p.lat > Math.max(p1.lat, p2.lat)) {//ray is outside of our interests
+            if (p.lat &lt; Math.min(p1.lat, p2.lat) || p.lat > Math.max(p1.lat, p2.lat)) {//ray is outside of our interests
                 p1 = p2;
                 continue;//next ray left point
             }
-            if (p.lat > Math.min(p1.lat, p2.lat) && p.lat < Math.max(p1.lat, p2.lat)) {//ray is crossing over by the algorithm (common part of)
-                if (p.lng <= Math.max(p1.lng, p2.lng)) {//x is before of ray
-                    if (p1.lat == p2.lat && p.lng >= Math.min(p1.lng, p2.lng)) {//overlies on a horizontal ray
+            if (p.lat > Math.min(p1.lat, p2.lat) &amp;&amp; p.lat &lt; Math.max(p1.lat, p2.lat)) {//ray is crossing over by the algorithm (common part of)
+                if (p.lng &lt;= Math.max(p1.lng, p2.lng)) {//x is before of ray
+                    if (p1.lat == p2.lat &amp;&amp; p.lng >= Math.min(p1.lng, p2.lng)) {//overlies on a horizontal ray
                         return boundOrVertex;
                     }
                     if (p1.lng == p2.lng) {//ray is vertical
@@ -1864,18 +1892,18 @@
                         }
                     } else {//cross point on the left side
                         var xinters = (p.lat - p1.lat) * (p2.lng - p1.lng) / (p2.lat - p1.lat) + p1.lng;//cross point of lng
-                        if (Math.abs(p.lng - xinters) < precision) {//overlies on a ray
+                        if (Math.abs(p.lng - xinters) &lt; precision) {//overlies on a ray
                             return boundOrVertex;
                         }
-                        if (p.lng < xinters) {//before ray
+                        if (p.lng &lt; xinters) {//before ray
                             ++intersectCount;
                         }
                     }
                 }
             } else {//special case when ray is crossing through the vertex
-                if (p.lat == p2.lat && p.lng <= p2.lng) {//p crossing over p2
+                if (p.lat == p2.lat &amp;&amp; p.lng &lt;= p2.lng) {//p crossing over p2
                     var p3 = pts[(i + 1) % N]; //next vertex
-                    if (p.lat >= Math.min(p1.lat, p3.lat) && p.lat <= Math.max(p1.lat, p3.lat)) {//p.lat lies between p1.lat & p3.lat
+                    if (p.lat >= Math.min(p1.lat, p3.lat) &amp;&amp; p.lat &lt;= Math.max(p1.lat, p3.lat)) {//p.lat lies between p1.lat &amp; p3.lat
                         ++intersectCount;
                     } else {
                         intersectCount += 2;
@@ -1920,4 +1948,26 @@
         return _;
     };
     _.extend(_);
-}());
+}());</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_.html">_</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Sep 27 2020 13:59:34 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
