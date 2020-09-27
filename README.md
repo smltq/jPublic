@@ -75,8 +75,10 @@ Require.js      require(["jPublic"]
 
     uglifyjs jPublic.js -o jPublic.min.js --source-map "url='jPublic.min.js.map'"
     
+### 生成最新文档
 
-
+    jsdoc jPublic.js
+    
 ## FAQ
 
 - [JavaScript空字符串判断](https://www.cnblogs.com/tqlin/p/10858492.html)

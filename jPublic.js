@@ -1787,11 +1787,11 @@
 
     /**
      * 计算地图上两个点的距离
-     * @param lng1
-     * @param lat1
-     * @param lng2
-     * @param lat2
-     * @returns {string} 返回单位千米
+     * @param {float} lng1 经度1
+     * @param {float} lat1 纬度1
+     * @param {float} lng2 经度2
+     * @param {float} lat2 纬度2
+     * @returns {float} 返回单位千米
      */
     _.getMapDistance = function (lng1, lat1, lng2, lat2) {
         var f = getRad((lat1 + lat2) / 2);
@@ -1829,8 +1829,8 @@
 
     /**
      * 判断地图上的点是否在多边形内
-     * @param point
-     * @param pts
+     * @param {Object} point 点
+     * @param {Array} pts   面
      * @returns {boolean}
      */
     _.isMapPointInPolygon = function (point, pts) {
