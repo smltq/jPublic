@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "karma-sauce-launcher": "^2.0.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
     "source-map-support": "^0.5.19",
     "tpack-uglify-js": "^2.9.1",
