@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "karma-sauce-launcher": "^2.0.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
     "source-map-support": "^0.5.19",
     "tpack-uglify-js": "^2.9.1",
@@ -40,7 +40,7 @@
     "jsdoc": "^3.6.6",
     "jsdoc-export-default-interop": "^0.3.1",
     "jsduck": "^1.1.2",
-    "karma": "^4.1.0",
+    "karma": "^6.3.14",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.2",
     "karma-ember-preprocessor": "^1.9.0",
