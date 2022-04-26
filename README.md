@@ -62,11 +62,11 @@ UglifyJS2| 压缩工具  | [https://github.com/mishoo/UglifyJS2/tree/v2.x](https
 ### 引入方式
 
 
-- Require.js引用
+- Require.js引入
 
     ```require(["jPublic"]```
 
-- 页面引用
+- 页面引入
 
     ```<script src="jPublic.min.js"></script>```
   
